@@ -45,7 +45,7 @@ html = (
 )
 
 out = os.path.join(ROOT, "index.html")
-with open(out, "w", encoding="utf-8") as f:
+with open(out, "w", encoding="utf-8", newline="\n") as f:
     f.write(html)
 
 print("wrote", os.path.relpath(out, ROOT), "-", round(os.path.getsize(out) / 1024 / 1024, 2), "MB")

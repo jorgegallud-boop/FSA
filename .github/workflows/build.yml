@@ -1,0 +1,60 @@
+name: Build site
+
+# Rebuilds index.html whenever the slide content, the template or the source
+# decks change, and commits the result back. This means you never need Python
+# locally: edit data/*.json (or drop a new .pptx in source-pptx/), commit, push.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "source-pptx/**"
+      - "scripts/**"
+      - "data/**"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Re-extract decks if any .pptx changed
+        run: |
+          if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" \
+               | grep -q '^source-pptx/'; then
+            echo "source-pptx changed - re-extracting"
+            pip install --quiet python-pptx
+            python scripts/extract_pptx.py
+          else
+            echo "no .pptx change - keeping data/deck_data.json as committed"
+          fi
+
+      - name: Assemble index.html
+        run: python scripts/build_site.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- index.html data/deck_data.json; then
+            echo "nothing to commit"
+          else
+            git add index.html data/deck_data.json
+            git commit -m "Build: regenerate index.html [skip ci]"
+            git push
+          fi

@@ -1,0 +1,60 @@
+{
+  "_comment": "Hand-authored fixes applied ON TOP OF data/deck_data.json at page-build time. Keys are the unit id and the slide number as shown in the site (1-based). Regenerating deck_data.json from the .pptx files does NOT touch this file. If you insert or delete slides in a deck, re-check the slide numbers here. Supported keys per slide: title (string, \\n allowed on divider slides), caption (string, shown under the first image), diagram (see build), dropTables (bool), dropImages (bool), hideAsides (bool).",
+
+  "unit1": {
+    "4": { "title": "Unit 1\nIntroduction" },
+    "7": { "hideAsides": true }
+  },
+
+  "unit2": {
+    "6": {
+      "dropTables": true,
+      "diagram": {
+        "kind": "equation",
+        "left": [{ "heading": "ASSETS" }],
+        "right": [{ "heading": "EQUITY" }, { "heading": "LIABILITIES" }]
+      }
+    },
+    "7": {
+      "dropTables": true,
+      "diagram": {
+        "kind": "equation",
+        "leftNote": "ordered from least to most liquid",
+        "rightNote": "ordered from least to most demandable",
+        "left": [
+          { "heading": "Non-current assets (long term)", "items": ["Intangible assets", "Property, plant and equipment", "Long-term financial assets"] },
+          { "heading": "Current assets (short term)", "items": ["Inventories", "Receivables", "Cash"] }
+        ],
+        "right": [
+          { "heading": "Equity", "items": ["Capital", "Reserves", "Profit"] },
+          { "heading": "Non-current liabilities", "items": ["Long-term loans"] },
+          { "heading": "Current liabilities", "items": ["Short-term loans"] }
+        ]
+      }
+    },
+    "8":  { "title": "Standard balance sheet — Assets · A) Non-current assets", "caption": "Official Spanish GAAP (PGC) model, Part 3. Account codes on the left." },
+    "9":  { "title": "Standard balance sheet — Assets · B) Current assets", "caption": "Official Spanish GAAP (PGC) model, Part 3." },
+    "10": { "title": "Standard balance sheet — Equity and liabilities · A) Equity · B) Non-current liabilities", "caption": "Official Spanish GAAP (PGC) model, Part 3." },
+    "11": { "title": "Standard balance sheet — Equity and liabilities · C) Current liabilities", "caption": "Official Spanish GAAP (PGC) model, Part 3." },
+    "12": {
+      "dropTables": true,
+      "diagram": {
+        "kind": "stack",
+        "caption": "The income statement explains how equity changes through the year's result.",
+        "rows": ["Revenues", "− Expenses", "= Net profit or loss"]
+      }
+    },
+    "13": { "title": "Standard income statement — Continuing operations (1 of 2)", "caption": "Official Spanish GAAP (PGC) model, Part 3." },
+    "14": { "title": "Standard income statement — Finance result, tax and profit (2 of 2)", "caption": "Official Spanish GAAP (PGC) model, Part 3." }
+  },
+
+  "unit4": {
+    "3":  { "title": "Example 1 · sources and uses of funds" },
+    "4":  { "caption": "Each user group reads the statements with a different question in mind." },
+    "6":  { "title": "Example 2 · sources and uses of funds" },
+    "7":  { "title": "Talent Hackers — income statement (horizontal analysis)" },
+    "8":  { "title": "Talent Hackers — balance sheet (horizontal analysis)" },
+    "9":  { "title": "Talent Hackers / Catenon", "caption": "The worked-example company. Figures taken from the Orbis (Bureau van Dijk) database." },
+    "12": { "title": "Example 3 · profit and loss and market data" }
+  }
+}

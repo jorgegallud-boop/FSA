@@ -1,0 +1,75 @@
+{
+  "title": "About the course",
+  "tagline": "Reading, understanding and analysing corporate financial statements.",
+  "facts": [
+    ["Degree", "Business Administration and Management (UVa)"],
+    ["Year / term", "3rd year · semester S5"],
+    ["Type", "Compulsory · 6 ECTS"],
+    ["Language", "English"],
+    ["Course code", "45397 (curriculum 459)"],
+    ["Instructor", "Jorge Gallud Cano · Office 145"],
+    ["Contact", "jorge.gallud@uva.es"],
+    ["Department", "Accounting and Finance, University of Valladolid"]
+  ],
+  "sections": [
+    {
+      "heading": "What the course is about",
+      "paras": [
+        "Financial Statement Analysis gives you the tools to understand a company's current financial position and to build forward-looking projections for managerial decisions — its asset, financial and economic situation, its internal structure, its strengths and weaknesses, and the external constraints it faces.",
+        "The course introduces the main techniques for analysing companies from external accounting information. It is a discipline rooted in accounting: progress depends directly on a solid grasp of the basic accounting concepts. It is also interdisciplinary, drawing on taxation, law, business strategy and, above all, corporate finance."
+      ]
+    },
+    {
+      "heading": "By the end of the course you should be able to",
+      "list": [
+        "Identify the main sources of financial information.",
+        "Understand and analyse corporate financial statements.",
+        "Prepare reports on a company's economic and financial situation."
+      ]
+    },
+    {
+      "heading": "Contents",
+      "list": [
+        "1 — Accounting as an information system",
+        "2 — Financial statements I: balance sheet and income statement",
+        "3 — Financial statements II: statement of changes in equity, cash flow statement and notes",
+        "4 — Fundamentals of financial statement analysis",
+        "5 — Economic and financial analysis I: profitability",
+        "6 — Economic and financial analysis II: liquidity, solvency and growth"
+      ]
+    },
+    {
+      "heading": "How the course is taught",
+      "list": [
+        "Lectures on the theoretical content.",
+        "Practical sessions solving exercises and case studies — to be attempted before class.",
+        "Individual and group assignments analysing real companies, with written reports on their financial situation and profitability.",
+        "Individual and group tutorials."
+      ]
+    },
+    {
+      "heading": "Assessment",
+      "paras": [
+        "Continuous assessment (active participation and written tests during the term): up to 30%, worth up to 3 points. These points are added to the final exam only if the final written exam scores at least 5 out of 10.",
+        "Final written exam: two parts, one theoretical and one with practical case studies. Up to 70% under continuous assessment, or 100% otherwise.",
+        "Resit (extraordinary session): a single final written exam covering theory and case studies, 100% of the grade."
+      ]
+    },
+    {
+      "heading": "Workload — 6 ECTS, 150 h",
+      "list": [
+        "Face-to-face (60 h): 30 h lectures, 26 h practical classes, 4 h assessment and other activities.",
+        "Independent work (90 h): 80 h individual study, 10 h group work."
+      ]
+    },
+    {
+      "heading": "Main references",
+      "list": [
+        "Weygandt, Kimmel & Mitchell — Financial Accounting, 12th ed., Wiley, 2023.",
+        "Horngren — Introduction to Financial Accounting, 11th ed., Pearson, 2014.",
+        "Horngren, Harrison & Bamber — Financial Accounting, 5th ed., Pearson, 2003."
+      ]
+    }
+  ],
+  "note": "Summary based on the official course syllabus (guía docente) approved by the Degree Committee. The version published on the UVa website is the authoritative one."
+}

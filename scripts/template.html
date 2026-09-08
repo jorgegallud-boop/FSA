@@ -278,7 +278,7 @@
     overflow:hidden;
     text-overflow:ellipsis;
   }
-  .deck-mat{margin-left:auto;}
+  .deck-mat{margin-left:auto; display:flex; gap:14px;}
   .deck-pos{
     margin-left:auto;
     font-family:"IBM Plex Mono", monospace;
@@ -287,7 +287,7 @@
     white-space:nowrap;
   }
   .deck-mat + .deck-pos{margin-left:16px;}
-  @media (max-width:620px){ .deck-mat{display:none;} }
+  @media (max-width:640px){ .deck-mat{display:none;} }
   .progress-rule{
     height:2px;
     background:var(--rule);
@@ -654,12 +654,13 @@
     return /^[\-\(]?[\d.,%\s]+\)?$/.test(t) && /\d/.test(t);
   }
 
-  function hasMaterials(key){
+  function hasExercises(key){
     var m = MATERIALS[key];
-    if(!m) return false;
-    var ex = m.exercises && m.exercises.sets && m.exercises.sets.length;
-    var rf = m.references && m.references.length;
-    return !!(ex || rf);
+    return !!(m && m.exercises && m.exercises.sets && m.exercises.sets.length);
+  }
+  function hasReferences(key){
+    var m = MATERIALS[key];
+    return !!(m && m.references && m.references.length);
   }
 
   function renderIndex(){
@@ -672,8 +673,11 @@
         '<span class="toc-count mono">'+u.slides.length+'</span>' +
         '<span class="toc-go">Open →</span>' +
       '</a>';
-      if(hasMaterials(key)){
-        row += '<a class="toc-mat-row" href="#/'+key+'/materials">Exercises &amp; materials →</a>';
+      if(hasExercises(key)){
+        row += '<a class="toc-mat-row" href="#/'+key+'/exercises">Exercises →</a>';
+      }
+      if(hasReferences(key)){
+        row += '<a class="toc-mat-row" href="#/'+key+'/references">Reference material →</a>';
       }
       return row;
     }).join("");
@@ -742,16 +746,20 @@
     return "";
   }
 
-  function renderMaterials(key){
-    var m = MATERIALS[key];
+  function matShell(key, heading, body){
     var u = DATA[key];
-    if(!m || !hasMaterials(key)) return renderDeck(key, 0);
+    app.innerHTML = '<div class="mat-wrap">' +
+      '<a class="back-link" href="#/'+key+'/1">← '+esc(u.unit)+' slides</a>' +
+      '<h1>'+esc(u.unit + ' — ' + heading)+'</h1>' + body +
+    '</div>';
+    document.title = u.unit + " · " + heading + " — Financial Statement Analysis";
+    window.scrollTo(0,0);
+  }
 
-    var html = '<a class="back-link" href="#/'+key+'/1">← '+esc(u.unit)+' slides</a>' +
-      '<h1>'+esc(m.title || (u.unit + " — Exercises & materials"))+'</h1>';
-
-    var ex = m.exercises || {};
-    if(ex.intro) html += '<p class="mat-intro">'+esc(ex.intro)+'</p>';
+  function renderExercises(key){
+    if(!hasExercises(key)) return renderDeck(key, 0);
+    var ex = MATERIALS[key].exercises;
+    var html = ex.intro ? '<p class="mat-intro">'+esc(ex.intro)+'</p>' : '';
 
     (ex.sets || []).forEach(function(set){
       html += '<div class="mat-set"><div class="mat-set-head">' +
@@ -766,25 +774,25 @@
       });
       html += '</div>';
     });
+    matShell(key, "Exercises", html);
+  }
 
-    if(m.references && m.references.length){
-      html += '<div class="mat-refs"><h2>Reference material</h2>' +
-        m.references.map(function(r){
-          var links = (r.links || []).map(function(l){
-            return '<a class="dl-link" href="'+attr(l.file)+'" download>'+esc(l.label)+' ↓</a>';
-          }).join("");
-          return '<div class="ref-item">' +
-            '<span class="ref-label">'+esc(r.label)+'</span>' +
-            (r.note ? '<span class="ref-note">'+esc(r.note)+'</span>' : '') +
-            '<span class="ref-links">'+links+'</span>' +
-          '</div>';
-        }).join("") +
-      '</div>';
-    }
-
-    app.innerHTML = '<div class="mat-wrap">' + html + '</div>';
-    document.title = u.unit + " · Exercises & materials — Financial Statement Analysis";
-    window.scrollTo(0,0);
+  function renderReferences(key){
+    if(!hasReferences(key)) return renderDeck(key, 0);
+    var refs = MATERIALS[key].references;
+    var html = '<div class="mat-refs">' +
+      refs.map(function(r){
+        var links = (r.links || []).map(function(l){
+          return '<a class="dl-link" href="'+attr(l.file)+'" download>'+esc(l.label)+' ↓</a>';
+        }).join("");
+        return '<div class="ref-item">' +
+          '<span class="ref-label">'+esc(r.label)+'</span>' +
+          (r.note ? '<span class="ref-note">'+esc(r.note)+'</span>' : '') +
+          '<span class="ref-links">'+links+'</span>' +
+        '</div>';
+      }).join("") +
+    '</div>';
+    matShell(key, "Reference material", html);
   }
 
   function renderDiagram(d){
@@ -888,7 +896,10 @@
         '<div class="deck-bar">' +
           '<a class="back-link" href="#/">← Index</a>' +
           '<span class="deck-title serif">'+esc(u.unit)+' — '+esc(u.name)+'</span>' +
-          (hasMaterials(key) ? '<a class="back-link deck-mat" href="#/'+key+'/materials">Exercises &amp; materials →</a>' : '') +
+          ((hasExercises(key) || hasReferences(key)) ? '<span class="deck-mat">' +
+            (hasExercises(key) ? '<a class="back-link" href="#/'+key+'/exercises">Exercises →</a>' : '') +
+            (hasReferences(key) ? '<a class="back-link" href="#/'+key+'/references">Reference →</a>' : '') +
+          '</span>' : '') +
           '<span class="deck-pos mono">'+(idx+1)+' / '+total+'</span>' +
         '</div>' +
         '<div class="progress-rule"><div class="progress-fill" style="width:'+pct+'%"></div></div>' +
@@ -930,7 +941,8 @@
     var parts = h.split('/');
     var key = parts[0];
     if(!DATA[key]){ renderIndex(); return; }
-    if(parts[1] === 'materials'){ renderMaterials(key); return; }
+    if(parts[1] === 'exercises'){ renderExercises(key); return; }
+    if(parts[1] === 'references' || parts[1] === 'materials'){ renderReferences(key); return; }
     var idx = (parseInt(parts[1],10) || 1) - 1;
     renderDeck(key, idx);
   }

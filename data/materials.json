@@ -1,10 +1,9 @@
 {
-  "_comment": "Per-unit 'Exercises & materials' pages. Route #/unitN/materials. Files live in site/materials/ and are served by GitHub Pages. block types: p (paragraph), ul / ol (list, x = array), table (cap + rows, first row = header), note (italic aside).",
+  "_comment": "Per-unit pages: exercises at #/unitN/exercises, reference material at #/unitN/references. Files live in site/materials/ and are served by GitHub Pages. block types: p (paragraph), ul / ol (list, x = array), table (cap + rows, first row = header), note (italic aside).",
 
   "unit2": {
-    "title": "Unit 2 — Exercises & materials",
     "exercises": {
-      "intro": "Work the statements before class. Download each sheet to fill it in; the models below give the blank balance sheet and income statement formats.",
+      "intro": "Work the statements before class. Download each sheet to fill it in; the standard balance sheet and income statement formats are under Reference material.",
       "sets": [
         {
           "name": "Financial statements",
@@ -181,7 +180,6 @@
   },
 
   "unit3": {
-    "title": "Unit 3 — Exercises & materials",
     "exercises": {
       "intro": "Work the statements before class. Blank statement-of-changes-in-equity and cash-flow-statement templates are in the downloadable files.",
       "sets": [

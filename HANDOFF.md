@@ -50,9 +50,10 @@ Repo: `https://github.com/jorgegallud-boop/FSA` (not pushed yet — see below)
 ## Third session (2026-09-08)
 
 - Pushed to GitHub; Pages live at https://jorgegallud-boop.github.io/FSA/.
-- Added **per-unit "Exercises & materials" pages** (`#/unit2/materials`,
-  `#/unit3/materials`), content in `data/materials.json`, rendered by
-  `renderMaterials()` in the template. Linked from the index (sub-row under the
+- Added **per-unit exercise / reference pages** — separate routes
+  `#/unitN/exercises` and `#/unitN/references`, content in `data/materials.json`
+  (`.exercises` / `.references`), rendered by `renderExercises()` /
+  `renderReferences()`. Linked separately from the index (sub-rows under the
   unit) and the deck top bar.
   - U2: MAPACHE / CUERDA / LINUX (financial statements) + two corporate-income-tax
     exercises, all transcribed from the `Exercises` .docx; CUERDA's given

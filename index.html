@@ -107,6 +107,17 @@
   .toc-row:first-child{border-top:1px solid var(--rule);}
   .toc-row:hover{background:var(--accent-soft);}
   .toc-row:hover .toc-name{color:var(--accent);}
+  .toc-mat-row{
+    display:block;
+    padding:8px 4px 12px 70px;
+    margin-top:-1px;
+    border-bottom:1px solid var(--rule);
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12.5px;
+    color:var(--accent);
+    text-decoration:none;
+  }
+  .toc-mat-row:hover{background:var(--accent-soft); text-decoration:underline;}
   .toc-num{
     font-family:"IBM Plex Mono", monospace;
     font-size:13px;
@@ -267,6 +278,7 @@
     overflow:hidden;
     text-overflow:ellipsis;
   }
+  .deck-mat{margin-left:auto;}
   .deck-pos{
     margin-left:auto;
     font-family:"IBM Plex Mono", monospace;
@@ -274,6 +286,8 @@
     color:var(--ink-soft);
     white-space:nowrap;
   }
+  .deck-mat + .deck-pos{margin-left:16px;}
+  @media (max-width:620px){ .deck-mat{display:none;} }
   .progress-rule{
     height:2px;
     background:var(--rule);
@@ -480,6 +494,76 @@
     color:var(--ink-soft);
   }
 
+  /* ---------- MATERIALS ---------- */
+  .mat-wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:clamp(24px,5vw,60px) 20px 90px;
+  }
+  .mat-wrap .back-link{margin-bottom:26px;}
+  .mat-wrap h1{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600;
+    font-size:clamp(26px,4.4vw,38px);
+    line-height:1.1;
+    margin:0 0 10px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:14px;
+  }
+  .mat-intro{color:var(--ink-soft); font-size:15px; margin:0 0 30px; max-width:60ch;}
+  .mat-set{margin:0 0 14px;}
+  .mat-set-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:14px; flex-wrap:wrap;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:8px; margin-bottom:18px;
+  }
+  .mat-set-head h2{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600; font-size:22px; margin:0;
+  }
+  .dl-link{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    text-decoration:none;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:3px;
+    padding:4px 9px;
+    white-space:nowrap;
+  }
+  .dl-link:hover{background:var(--accent-soft);}
+  .exercise{
+    margin:0 0 26px;
+    padding:0 0 22px;
+    border-bottom:1px dashed var(--rule);
+  }
+  .exercise:last-child{border-bottom:none;}
+  .exercise h3{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600; font-size:18px; margin:0 0 12px;
+  }
+  .exercise p{font-size:15px; line-height:1.55; margin:0 0 12px;}
+  .exercise ul, .exercise ol{
+    margin:0 0 12px; padding-left:22px;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .exercise li{font-size:14.5px; line-height:1.5;}
+  .exercise .mat-note{
+    font-size:13px; color:var(--ink-soft); font-style:italic;
+    border-left:2px solid var(--rule-strong); padding-left:12px; margin:0 0 12px;
+  }
+  .mat-refs{margin-top:14px;}
+  .mat-refs h2{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600; font-size:22px; margin:0 0 16px;
+    border-bottom:1px solid var(--rule); padding-bottom:8px;
+  }
+  .ref-item{margin:0 0 16px;}
+  .ref-item .ref-label{font-size:15px; font-weight:600; display:block;}
+  .ref-item .ref-note{font-size:13.5px; color:var(--ink-soft); display:block; margin:2px 0 6px; max-width:60ch;}
+  .ref-item .ref-links{display:flex; gap:8px; flex-wrap:wrap;}
+
   .content-body{
     display:flex; flex-direction:column; gap:22px;
   }
@@ -658,11 +742,257 @@
   "note": "Summary based on the official course syllabus (guía docente) approved by the Degree Committee. The version published on the UVa website is the authoritative one."
 }
 </script>
+<script type="application/json" id="materials-data">{
+  "_comment": "Per-unit 'Exercises & materials' pages. Route #/unitN/materials. Files live in site/materials/ and are served by GitHub Pages. block types: p (paragraph), ul / ol (list, x = array), table (cap + rows, first row = header), note (italic aside).",
+
+  "unit2": {
+    "title": "Unit 2 — Exercises & materials",
+    "exercises": {
+      "intro": "Work the statements before class. Download each sheet to fill it in; the models below give the blank balance sheet and income statement formats.",
+      "sets": [
+        {
+          "name": "Financial statements",
+          "download": "materials/unit2-financial-statements.docx",
+          "items": [
+            {
+              "title": "MAPACHE, S.A.",
+              "blocks": [
+                { "t": "p", "x": "Knowing the balances of the Other Operating Income (€231,400) and Share Capital (€170,440) accounts, complete the Profit and Loss Account and Balance Sheet of MAPACHE, S.A. as at 31/12/2023. Obtain the cash balance by difference." },
+                { "t": "ul", "x": [
+                  "Volume discounts granted by suppliers are 5% of purchases and amount to €10,000. They will be applied to orders in the next financial year. They were paid in cash. Sales occur on a regular basis. The amount shown in the profit and loss account is €600,000. As of 31/12/2023, sales from the last two months are still outstanding.",
+                  "From the trial balance as at 30/09/2023, the following balances are available: Inventories €35,000; Impairment of Inventories €2,000. At year-end, inventories have a cost of €50,000 and a net realisable value of €46,000.",
+                  "On 31/08/2023, MAPACHE contracted consultancy services for €100 per month, payable every six months at the end of the period.",
+                  "On 30/09/2020, MAPACHE purchased a machine for €90,000. Installation costs amounted to €10,000, and the machine became operational on 01/01/2021. By the end of 2023, its amortisation expense is €30,000, and the accumulated amortisation amounts to €60,000.",
+                  "At the beginning of the year, MAPACHE had two vehicles: a van and a motorbike, purchased for €25,000 and €6,000, respectively. Both vehicles have a residual value of €1,000. The motorbike was fully amortised in 2022 and was sold in May this year for €500, which was collected at the time of sale. For the van, the annual amortisation expense is €2,400, and the accumulated amortisation amounts to €14,400.",
+                  "The balance sheet as at 31/12/2023 shows a liability to the tax authorities of €8,640. Employees receive 14 monthly payments, with the extra payments made in June and December. The employer's social security contribution is 20%, the employee's contribution is 3%, and income tax withholding is 6%. Payments to Social Security are made monthly, and payments to the tax authorities are made quarterly. MAPACHE has granted its employees a loan of €33,840, which will be deducted from the 2024 payroll.",
+                  "On 01/01/2023, MAPACHE obtained a loan of €90,000, agreeing with the financial institution to repay it in two instalments: €50,000 on 31/12/2023 and €49,541 on 31/12/2024. The effective interest rate is 7%."
+                ] }
+              ]
+            },
+            {
+              "title": "CUERDA, S.A.",
+              "blocks": [
+                { "t": "p", "x": "You are given the year-end account balances of CUERDA, S.A. at 31 December 2024. Reclassify them into the standard balance-sheet and income-statement formats." },
+                { "t": "table", "cap": "Balance sheet of CUERDA, S.A. — 31 December 2024", "rows": [
+                  ["Account", "Amount"],
+                  ["A. NON-CURRENT ASSETS", "998,600"],
+                  ["(211) Buildings", "750,000"],
+                  ["(281) Accumulated amortisation of buildings", "(42,000)"],
+                  ["(213) Machinery", "275,000"],
+                  ["(281) Accumulated amortisation of machinery", "(13,750)"],
+                  ["(218) Transport equipment", "50,000"],
+                  ["(281) Accumulated amortisation of transport equipment", "(24,400)"],
+                  ["(217) Information processing equipment", "10,000"],
+                  ["(281) Accumulated depreciation of information processing equipment", "(6,250)"],
+                  ["B. CURRENT ASSETS", "863,250"],
+                  ["(300) Merchandise", "432,000"],
+                  ["(390) Impairment of merchandise", "(32,000)"],
+                  ["(430) Trade receivables", "400,000"],
+                  ["(440) Debtors", "1,100"],
+                  ["(480) Prepaid expenses", "800"],
+                  ["(57) Cash (*)", "61,350"],
+                  ["TOTAL ASSETS (A + B)", "1,861,850"],
+                  ["A. NET EQUITY", "1,500,000"],
+                  ["(100) Share capital", "850,000"],
+                  ["(129) Profit for the year (*)", "650,000"],
+                  ["B. NON-CURRENT LIABILITIES", "256,000"],
+                  ["(170) Long-term debts with credit institutions", "118,500"],
+                  ["(173) Long-term fixed asset suppliers", "137,500"],
+                  ["C. CURRENT LIABILITIES", "105,850"],
+                  ["(520) Short-term debts with credit institutions", "51,500"],
+                  ["(476) Social security organisations, creditors", "10,850"],
+                  ["(4751) Public treasury, creditor for withholdings made", "18,000"],
+                  ["(465) Remuneration pending payment", "25,500"],
+                  ["TOTAL EQUITY AND LIABILITIES", "1,861,850"]
+                ] },
+                { "t": "table", "cap": "Profit and Loss Account of CUERDA, S.A. — 31/12/2024", "rows": [
+                  ["Account", "Amount"],
+                  ["(700) Sales of goods (2)", "4,300,000"],
+                  ["(600) Purchases of goods (2)", "(2,483,000)"],
+                  ["(608) Returns on purchases (2)", "110,000"],
+                  ["(610) Change in merchandise inventory (2)", "(568,000)"],
+                  ["(693) Losses due to deterioration of goods (2)", "(32,000)"],
+                  ["(640) Wages and salaries (1)", "(420,000)"],
+                  ["(642) Social security contributions payable by the company (1)", "(100,800)"],
+                  ["(752) Rental income (4)", "12,400"],
+                  ["(625) Insurance premiums (4)", "(1,200)"],
+                  ["(681) Provision for depreciation of buildings", "(12,000)"],
+                  ["(681) Provision for depreciation of machinery", "(28,750)"],
+                  ["(681) Provision for depreciation of transport equipment (5c)", "(2,400)"],
+                  ["(681) Provision for depreciation of information processing equipment (5d)", "(3,250)"],
+                  ["(771) Gains on tangible fixed assets", "10,000"],
+                  ["Other operating expenses (6)", "(134,800)"],
+                  ["Other operating income (7)", "13,800"],
+                  ["OPERATING RESULT", "660,000"],
+                  ["(662) Interest on debts (3)", "(10,000)"],
+                  ["FINANCIAL RESULT", "(10,000)"],
+                  ["EARNINGS FOR THE YEAR (Profit)", "650,000"]
+                ] }
+              ]
+            },
+            {
+              "title": "LINUX, S.A.",
+              "blocks": [
+                { "t": "p", "x": "The company LINUX, S.A. wishes to complete the Income Statement and the Balance Sheet as at 31/12/2020. It provides the following balances appearing in the financial statements:" },
+                { "t": "p", "x": "Social Security payable €8,400; Change in inventories (expense) €5,000; Deposit received €1,000; Accumulated amortisation transport equipment €2,240; Reserves €51,000; Share capital €200,000; Accumulated amortisation buildings €23,625; Trade payables (suppliers) €20,000; Buildings €250,000; Other operating income €261,600; Other operating expenses €20,660." },
+                { "t": "p", "x": "Other information to take into account when preparing the required financial statements:" },
+                { "t": "ol", "x": [
+                  "The November payroll, identical to the rest of the year except for July and December (which include an extra payment), was prepared from: salaries and wages €20,000; employee Social Security contribution 6%; Personal Income Tax (PIT) withheld 10%. Payments to Social Security and to the tax authorities are made monthly and quarterly, respectively. All monthly payments have been made on time, except for the December payment.",
+                  "On 30/06/2020, LINUX, S.A. obtained a loan of €90,000, agreeing to repay the principal within three years; interest is paid quarterly in arrears at an annual rate of 10%.",
+                  "At the beginning of 2020 the Goods account had a balance of €35,000. The debt with suppliers corresponds to two months of total purchases, which are made regularly. The company was granted a 2% discount on the total amount of purchases. Sales of goods also take place regularly, with annual sales revenue of €360,000 reported in the income statement. At year-end, sales for the last two months remain outstanding. During the year, discounts granted on invoices for early payment amounted to €2,600, and off-invoice discounts for the same purpose amounted to €2,000.",
+                  "Amortisation policy: Buildings — annual amortisation expense €4,500. Machinery — cost €110,000; accumulated amortisation €64,400; annual amortisation expense €5,600; loss on sale €17,600. Furniture — cost €55,000 (including transport and installation); annual amortisation expense €5,500; ready for use on 1 January. Transport — useful life 250,000 km; residual value €2,000; distance travelled in life 70,000 km, of which 20,000 km were in the current year.",
+                  "On 30 June of this financial year, LINUX, S.A. leased some premises it owns in the building to the company XUNIL, S.A., charging a monthly fee in advance on the last day of each month, equivalent to the single deposit received by the company."
+                ] }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Corporate income tax",
+          "download": "materials/unit2-corporate-income-tax.docx",
+          "items": [
+            {
+              "title": "Exercise 1 — prepare the Balance Sheet and the Income Statement at year-end",
+              "blocks": [
+                { "t": "ol", "x": [
+                  "Consider the following accounts at 31 December (in euros): Personnel expenses 30,250; Furniture 10,000; Furniture amortisation expense 1,000; Accumulated amortisation – furniture 4,000; Building amortisation expense 5,000; Supplies 180,000; Suppliers 22,000; Public administration creditors (personnel-related) 1,750; Change in merchandise inventory (debit balance) 20,000.",
+                  "A penalty of €1,500 has been paid during the year. This expense is not tax deductible.",
+                  "Losses due to impairment of receivables are tax deductible when 6 months have passed since the due date of payment. In March, an invoice of €2,150 became due and remains unpaid at year-end. In November, another invoice of €1,600 reached its due date and was also unpaid, with collection still pending at year-end.",
+                  "The building was purchased four years ago for €250,000, with land representing 20% of the total cost. The building is amortised on a straight-line basis. Tax amortisation for buildings is limited to 2% per year according to tax rules.",
+                  "The valuation of the final stock of goods in the balance sheet at the end of the previous year amounted to €80,000. Sales of goods during the financial year amounted to €253,750.",
+                  "The company's share capital is €200,000, unchanged since incorporation. The only reserve in equity is the legal reserve, already at the minimum legal amount.",
+                  "On 1 January, the company obtained a loan of €45,000 repayable in full in four years. During the year, the interest accrued and paid amounted to €1,350.",
+                  "The corporate income tax rate is 25%. The company is entitled to tax deductions of €750 and has paid €1,000 in withholdings and prepayments during the year."
+                ] }
+              ]
+            },
+            {
+              "title": "Exercise 2 — prepare the Balance Sheet and the Income Statement at year-end",
+              "blocks": [
+                { "t": "p", "x": "Financial information as of 31 December 2024:" },
+                { "t": "table", "cap": "Account balances", "rows": [
+                  ["Account", "Amount (€)"],
+                  ["Personnel expenses", "130,000"],
+                  ["Other trade debtors", "55,000"],
+                  ["VAT payable", "26,250"],
+                  ["Social security creditors", "3,000"],
+                  ["Income tax withheld (PIT)", "9,000"],
+                  ["Suppliers", "45,375"],
+                  ["Sales", "800,000"],
+                  ["Other trade creditors", "140,675"],
+                  ["Operating grants", "28,200"],
+                  ["Other operating expenses", "(to be determined)"],
+                  ["Cash and cash equivalents", "(to be determined)"]
+                ] },
+                { "t": "ol", "x": [
+                  "The company was incorporated in January 2023 with a share capital of €400,000, represented by shares with a nominal value of €10, issued at 125%, and 75% of the nominal value was paid up at inception. As of 31 December 2024, the unpaid portion remains uncalled. The 2023 profit was allocated in compliance with legal reserve requirements, and the remainder was transferred to voluntary reserves.",
+                  "On 1 January 2023, the company purchased: a building for €400,000, used for manufacturing, amortised at 3% per year on the total cost; a plot of land as investment property for €100,000 (in 2023 an impairment loss of €10,000 was recognised for the land — non-deductible — and the situation has not changed by 31 December 2024); plant installations worth €60,000, amortised from that date at 20% per year (installations must be amortised for tax purposes over a minimum of 10 years). To finance these fixed assets the company obtained a loan of €40,000, repayable in four equal annual instalments on 31 December each year, starting in 2023, with annual interest of 4% payable on 1 January.",
+                  "On 1 January 2023, the company acquired a machine for €50,000 with an estimated useful life of five years, straight-line amortisation. The machine qualifies for full tax depreciation (free amortisation) in 2023. On the same date it received a capital grant financing 100% of the cost of the machine. The corporate income tax rate is 25%.",
+                  "On 1 January 2024, the company acquired transport equipment through a finance lease. The cash price of the asset is €30,000; the contract details are below. The purchase option will be exercised with the final payment. The finance lease creates a temporary difference. The transport equipment is amortised over five years.",
+                  "Sales and purchases occur uniformly throughout the year. Suppliers are paid 45 days after purchase, and customers pay on the same terms (45 days). The applicable VAT rate is 21%, and VAT is settled quarterly. Opening inventories (1 January 2024): raw materials €25,000; work in progress €25,000; finished goods €50,000. Inventory changes during the year: raw materials €15,000 (debit balance); work in progress €25,000 (credit balance); finished goods €10,000 (debit balance).",
+                  "Corporate income tax rate: 25%. In 2023 — accounting profit before tax €100,000; R&D tax credit €2,500; tax prepayments €7,500. In 2024 — the temporary differences from the previous year remain; accounting profit before tax €150,000; a fine of €2,000 has been paid (non-deductible); tax prepayments €21,500."
+                ] },
+                { "t": "table", "cap": "Finance lease contract", "rows": [
+                  ["Year", "Total (€)", "Principal (€)", "Interest (€)"],
+                  ["31/12/2024", "9,000", "8,000", "1,000"],
+                  ["31/12/2025", "9,000", "8,300", "700"],
+                  ["31/12/2026", "9,000", "8,700", "300"],
+                  ["Total", "27,000", "25,000", "2,000"]
+                ] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "references": [
+      {
+        "label": "Standard financial-statement models",
+        "note": "Blank balance sheet and income statement — full and abbreviated formats, with the corresponding account codes.",
+        "links": [
+          { "file": "materials/unit2-fs-models.pdf", "label": "PDF" },
+          { "file": "materials/unit2-fs-models.xlsx", "label": "Excel" }
+        ]
+      },
+      {
+        "label": "Spanish General Accounting Plan (PGC)",
+        "note": "Reference text: recognition and measurement standards, financial-statement formats and chart of accounts.",
+        "links": [
+          { "file": "materials/unit2-spanish-gaap.pdf", "label": "PDF" }
+        ]
+      }
+    ]
+  },
+
+  "unit3": {
+    "title": "Unit 3 — Exercises & materials",
+    "exercises": {
+      "intro": "Work the statements before class. Blank statement-of-changes-in-equity and cash-flow-statement templates are in the downloadable files.",
+      "sets": [
+        {
+          "name": "Cash flow statement",
+          "download": "materials/unit3-cash-flow.docx",
+          "items": [
+            {
+              "title": "Cash flow statement — worked exercise",
+              "blocks": [
+                { "t": "p", "x": "A company incorporated in 2022 with a share capital of €100,000 presents the following information as at 31 December 2024. Prepare the company's cash flow statement and determine the cash balance at the year-end." },
+                { "t": "ol", "x": [
+                  "The company has carried out a capital increase amounting to 75% of the existing share capital, issued at 120% of nominal value. The shareholders have paid the minimum legal requirement. In the allocation of profit for the previous year, a dividend equal to 10% of share capital was distributed.",
+                  "The company has been awarded a grant of €20,000, of which €2,000 has been transferred to the Income Statement.",
+                  "A plot of land with a book value of €36,000 was sold for €40,000, with €18,500 received in cash.",
+                  "Interest of €4,300 was paid on debts of €4,500 accrued during the year. Financial income of €3,000 was accrued, of which €500 remained outstanding at year-end.",
+                  "A loan repayment of €3,000 was made, and a new loan of €5,000 was obtained.",
+                  "Machinery worth €12,000 has been purchased, of which €5,300 has been paid during the year.",
+                  "Changes in working capital during the year: increase in inventories €2,100; decrease in trade receivables €1,300; increase in trade payables €1,750.",
+                  "Current tax liabilities for the previous year amounted to €16,000. Tax prepayments made during the year were €15,000. Current tax liabilities for the current year amount to €35,000. There are no differences between accounting profit and taxable profit.",
+                  "The opening cash balance on 1 January was €16,700."
+                ] },
+                { "t": "table", "cap": "Income statement for the year", "rows": [
+                  ["A) Continuing operations", ""],
+                  ["1. Revenue", "2,000,000"],
+                  ["4. Supplies", "(1,000,000)"],
+                  ["5. Other operating income", "5,000"],
+                  ["6. Personnel expenses", "(458,000)"],
+                  ["7. Other operating expenses", "(251,500)"],
+                  ["8. Amortisation and depreciation", "(100,000)"],
+                  ["9. Non-financial and other capital grants", "2,000"],
+                  ["11. Impairment and gains (losses) on disposals of fixed assets", "4,000"],
+                  ["A.1) Results from operating activities", "201,500"],
+                  ["12. Financial income", "3,000"],
+                  ["13. Financial expenses", "(4,500)"],
+                  ["A.2) Financial result", "(1,500)"],
+                  ["A.3) Pre-tax result", "200,000"]
+                ] }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Statement of changes in equity + cash flow statement",
+          "download": "materials/unit3-changes-in-equity-and-cash-flow.docx",
+          "items": [
+            {
+              "title": "TRES, S.A. — SCE and CFS",
+              "blocks": [
+                { "t": "p", "x": "Prepare the Statement of Changes in Equity and the Cash Flow Statement for the year 2024. On 31 December 2024 the company TRES, S.A. presented the information from its financial statements (in thousands of euros) shown in the downloadable file: comparative balance sheet 2024/2023, income statement, and notes on financial investments, share capital, appropriation of profit, movements in fixed assets, trade receivables, and movements in debts." },
+                { "t": "note", "x": "The comparative balance sheet, income statement, the six explanatory notes and the blank SCE / cash-flow templates are in the downloadable Word file." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "references": []
+  }
+}
+</script>
 <script>
 (function(){
   var DATA = JSON.parse(document.getElementById('deck-data').textContent);
   var OVERRIDES = JSON.parse(document.getElementById('overrides-data').textContent);
   var ABOUT = JSON.parse(document.getElementById('about-data').textContent);
+  var MATERIALS = JSON.parse(document.getElementById('materials-data').textContent);
   var ORDER = ["unit1","unit2","unit3","unit4"];
   var app = document.getElementById('app');
 
@@ -703,16 +1033,28 @@
     return /^[\-\(]?[\d.,%\s]+\)?$/.test(t) && /\d/.test(t);
   }
 
+  function hasMaterials(key){
+    var m = MATERIALS[key];
+    if(!m) return false;
+    var ex = m.exercises && m.exercises.sets && m.exercises.sets.length;
+    var rf = m.references && m.references.length;
+    return !!(ex || rf);
+  }
+
   function renderIndex(){
     var rows = ORDER.map(function(key, i){
       var u = DATA[key];
-      return '<a class="toc-row" href="#/'+key+'/1">' +
+      var row = '<a class="toc-row" href="#/'+key+'/1">' +
         '<span class="toc-num mono">'+String(i+1).padStart(2,'0')+'</span>' +
         '<span class="toc-body"><span class="toc-name">'+esc(u.unit)+' — '+esc(u.name)+'</span>' +
           '<span class="toc-sub">'+u.slides.length+' slides</span></span>' +
         '<span class="toc-count mono">'+u.slides.length+'</span>' +
         '<span class="toc-go">Open →</span>' +
       '</a>';
+      if(hasMaterials(key)){
+        row += '<a class="toc-mat-row" href="#/'+key+'/materials">Exercises &amp; materials →</a>';
+      }
+      return row;
     }).join("");
 
     app.innerHTML =
@@ -755,6 +1097,72 @@
         (a.note ? '<p class="about-note">'+esc(a.note)+'</p>' : '') +
       '</div>';
     document.title = "About — Financial Statement Analysis";
+    window.scrollTo(0,0);
+  }
+
+  function matBlock(b){
+    if(b.t === "p")  return '<p>'+esc(b.x)+'</p>';
+    if(b.t === "note") return '<p class="mat-note">'+esc(b.x)+'</p>';
+    if(b.t === "ul" || b.t === "ol"){
+      var tag = b.t;
+      return '<'+tag+'>' + (b.x||[]).map(function(li){ return '<li>'+esc(li)+'</li>'; }).join("") + '</'+tag+'>';
+    }
+    if(b.t === "table"){
+      var rows = (b.rows||[]).map(function(r, ri){
+        var cells = r.map(function(c){
+          var cls = (ri>0 && looksNumeric(c)) ? ' class="num"' : '';
+          return '<td'+cls+'>'+esc(c)+'</td>';
+        }).join("");
+        return '<tr>'+cells+'</tr>';
+      }).join("");
+      return (b.cap ? '<p class="diagram-cap">'+esc(b.cap)+'</p>' : '') +
+        '<div class="tbl-wrap"><table class="ledger">'+rows+'</table></div>';
+    }
+    return "";
+  }
+
+  function renderMaterials(key){
+    var m = MATERIALS[key];
+    var u = DATA[key];
+    if(!m || !hasMaterials(key)) return renderDeck(key, 0);
+
+    var html = '<a class="back-link" href="#/'+key+'/1">← '+esc(u.unit)+' slides</a>' +
+      '<h1>'+esc(m.title || (u.unit + " — Exercises & materials"))+'</h1>';
+
+    var ex = m.exercises || {};
+    if(ex.intro) html += '<p class="mat-intro">'+esc(ex.intro)+'</p>';
+
+    (ex.sets || []).forEach(function(set){
+      html += '<div class="mat-set"><div class="mat-set-head">' +
+        '<h2>'+esc(set.name)+'</h2>' +
+        (set.download ? '<a class="dl-link" href="'+attr(set.download)+'" download>Download (Word) ↓</a>' : '') +
+      '</div>';
+      (set.items || []).forEach(function(it){
+        html += '<div class="exercise">' +
+          (it.title ? '<h3>'+esc(it.title)+'</h3>' : '') +
+          (it.blocks || []).map(matBlock).join("") +
+        '</div>';
+      });
+      html += '</div>';
+    });
+
+    if(m.references && m.references.length){
+      html += '<div class="mat-refs"><h2>Reference material</h2>' +
+        m.references.map(function(r){
+          var links = (r.links || []).map(function(l){
+            return '<a class="dl-link" href="'+attr(l.file)+'" download>'+esc(l.label)+' ↓</a>';
+          }).join("");
+          return '<div class="ref-item">' +
+            '<span class="ref-label">'+esc(r.label)+'</span>' +
+            (r.note ? '<span class="ref-note">'+esc(r.note)+'</span>' : '') +
+            '<span class="ref-links">'+links+'</span>' +
+          '</div>';
+        }).join("") +
+      '</div>';
+    }
+
+    app.innerHTML = '<div class="mat-wrap">' + html + '</div>';
+    document.title = u.unit + " · Exercises & materials — Financial Statement Analysis";
     window.scrollTo(0,0);
   }
 
@@ -859,6 +1267,7 @@
         '<div class="deck-bar">' +
           '<a class="back-link" href="#/">← Index</a>' +
           '<span class="deck-title serif">'+esc(u.unit)+' — '+esc(u.name)+'</span>' +
+          (hasMaterials(key) ? '<a class="back-link deck-mat" href="#/'+key+'/materials">Exercises &amp; materials →</a>' : '') +
           '<span class="deck-pos mono">'+(idx+1)+' / '+total+'</span>' +
         '</div>' +
         '<div class="progress-rule"><div class="progress-fill" style="width:'+pct+'%"></div></div>' +
@@ -899,9 +1308,10 @@
     if(h === 'about'){ renderAbout(); return; }
     var parts = h.split('/');
     var key = parts[0];
+    if(!DATA[key]){ renderIndex(); return; }
+    if(parts[1] === 'materials'){ renderMaterials(key); return; }
     var idx = (parseInt(parts[1],10) || 1) - 1;
-    if(DATA[key]) renderDeck(key, idx);
-    else renderIndex();
+    renderDeck(key, idx);
   }
 
   window.addEventListener('hashchange', route);

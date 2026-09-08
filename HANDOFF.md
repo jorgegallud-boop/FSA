@@ -47,20 +47,37 @@ Repo: `https://github.com/jorgegallud-boop/FSA` (not pushed yet — see below)
   `document.title`; images have alt text and a "click to enlarge" hint.
 - CI workflow added.
 
+## Third session (2026-09-08)
+
+- Pushed to GitHub; Pages live at https://jorgegallud-boop.github.io/FSA/.
+- Added **per-unit "Exercises & materials" pages** (`#/unit2/materials`,
+  `#/unit3/materials`), content in `data/materials.json`, rendered by
+  `renderMaterials()` in the template. Linked from the index (sub-row under the
+  unit) and the deck top bar.
+  - U2: MAPACHE / CUERDA / LINUX (financial statements) + two corporate-income-tax
+    exercises, all transcribed from the `Exercises` .docx; CUERDA's given
+    statements and the small CIT tables are rendered inline.
+  - U3: the cash-flow exercise (`03 Exercise CF`) with its income statement, and
+    TRES, S.A. (`03 Exercise complete` — a .docx despite the `.doc` extension)
+    rendered as prompt + note pointing to the download (its comparative balance
+    sheet / P&L / 6 notes / blank templates are large and left in the file only).
+  - Reference material for U2: FS models (`02 Models` PDF + Excel) and the
+    Spanish GAAP text (`02 SGAP.pdf`).
+  - Source files copied into `site/materials/` with clean, space-free names and
+    served by Pages as downloads. `.gitattributes` marks doc/docx/xlsx/pdf binary.
+- `data/materials.json` is keyed by unit id; slide-number-independent, so it is
+  unaffected by re-extraction. Only U2 and U3 have entries.
+
 ## Not done / next steps
 
-- **Push to GitHub.** `gh` is not installed on this machine. Options:
-  `winget install GitHub.cli` then `gh auth login`, or push over HTTPS with a
-  PAT, or use GitHub Desktop. The repo has a clean commit history on `master`;
-  the workflow triggers on `main`, so push as `main`
-  (`git push -u origin HEAD:main`) or rename the branch.
-- **GitHub Pages**: repo Settings → Pages → Deploy from a branch → `main` / root.
-  Ends up at `https://jorgegallud-boop.github.io/FSA/`.
 - **Course-evaluation slide (U1)**: Jorge is fixing the stale dates / bullet
   nesting / "calification" typo directly in `01 Slides.pptx`. After that, drop
   the new pptx in `source-pptx/` and push (CI re-extracts).
-- **Revoke** the old fine-grained PAT at github.com/settings/tokens — no longer
-  needed once `gh auth login` (browser) is used.
+- `gh` is installed (portable, `%LOCALAPPDATA%\Programs\GitHubCLI\bin`) but not
+  `gh auth login`'d in the bash context — the push works via git + Git
+  Credential Manager. Old fine-grained PAT was revoked.
+- Possible later: exercises/materials for U1 and U4; more reference material per
+  unit as it comes up.
 - Possible later: expand into a course hub (syllabus already on the About page)
   with the exercise sheets, Excel models and annual-report cases from the parent
   `FSA/` folder.

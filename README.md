@@ -10,14 +10,16 @@ https://jorgegallud-boop.github.io/FSA/
 ```
 index.html              the site — self-contained, no build step needed to view it
 scripts/
-  template.html         page shell (HTML/CSS/JS) with three JSON placeholders
+  template.html         page shell (HTML/CSS/JS) with the JSON placeholders
   extract_pptx.py       source-pptx/*.pptx  ->  data/deck_data.json   (needs python-pptx)
   build_site.py         template.html + data/*.json  ->  index.html
 data/
   deck_data.json        slide content extracted from the decks (generated)
   overrides.json        hand-written fixes layered on top of deck_data.json
   about.json            content of the "About the course" page
+  materials.json        per-unit "Exercises & materials" pages
 source-pptx/            the original .pptx files
+materials/              exercise statements + reference files, served as downloads
 .github/workflows/      CI that rebuilds index.html on every push
 ```
 
@@ -32,6 +34,8 @@ Action rebuilds `index.html` and commits it back.
 
 - Fix a title / caption / diagram → edit `data/overrides.json`
 - Edit the About page → edit `data/about.json`
+- Add / change exercises or reference material → edit `data/materials.json` and,
+  for a new download, add the file under `materials/` (no spaces in the name)
 - Change the layout, styling or behaviour → edit `scripts/template.html`
 - Replace a slide deck → drop the new file in `source-pptx/` (same name); the
   Action re-runs `extract_pptx.py` automatically

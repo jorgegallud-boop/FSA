@@ -107,6 +107,17 @@
   .toc-row:first-child{border-top:1px solid var(--rule);}
   .toc-row:hover{background:var(--accent-soft);}
   .toc-row:hover .toc-name{color:var(--accent);}
+  .toc-mat-row{
+    display:block;
+    padding:8px 4px 12px 70px;
+    margin-top:-1px;
+    border-bottom:1px solid var(--rule);
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12.5px;
+    color:var(--accent);
+    text-decoration:none;
+  }
+  .toc-mat-row:hover{background:var(--accent-soft); text-decoration:underline;}
   .toc-num{
     font-family:"IBM Plex Mono", monospace;
     font-size:13px;
@@ -267,6 +278,7 @@
     overflow:hidden;
     text-overflow:ellipsis;
   }
+  .deck-mat{margin-left:auto;}
   .deck-pos{
     margin-left:auto;
     font-family:"IBM Plex Mono", monospace;
@@ -274,6 +286,8 @@
     color:var(--ink-soft);
     white-space:nowrap;
   }
+  .deck-mat + .deck-pos{margin-left:16px;}
+  @media (max-width:620px){ .deck-mat{display:none;} }
   .progress-rule{
     height:2px;
     background:var(--rule);
@@ -480,6 +494,76 @@
     color:var(--ink-soft);
   }
 
+  /* ---------- MATERIALS ---------- */
+  .mat-wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:clamp(24px,5vw,60px) 20px 90px;
+  }
+  .mat-wrap .back-link{margin-bottom:26px;}
+  .mat-wrap h1{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600;
+    font-size:clamp(26px,4.4vw,38px);
+    line-height:1.1;
+    margin:0 0 10px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:14px;
+  }
+  .mat-intro{color:var(--ink-soft); font-size:15px; margin:0 0 30px; max-width:60ch;}
+  .mat-set{margin:0 0 14px;}
+  .mat-set-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:14px; flex-wrap:wrap;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:8px; margin-bottom:18px;
+  }
+  .mat-set-head h2{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600; font-size:22px; margin:0;
+  }
+  .dl-link{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    text-decoration:none;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:3px;
+    padding:4px 9px;
+    white-space:nowrap;
+  }
+  .dl-link:hover{background:var(--accent-soft);}
+  .exercise{
+    margin:0 0 26px;
+    padding:0 0 22px;
+    border-bottom:1px dashed var(--rule);
+  }
+  .exercise:last-child{border-bottom:none;}
+  .exercise h3{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600; font-size:18px; margin:0 0 12px;
+  }
+  .exercise p{font-size:15px; line-height:1.55; margin:0 0 12px;}
+  .exercise ul, .exercise ol{
+    margin:0 0 12px; padding-left:22px;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .exercise li{font-size:14.5px; line-height:1.5;}
+  .exercise .mat-note{
+    font-size:13px; color:var(--ink-soft); font-style:italic;
+    border-left:2px solid var(--rule-strong); padding-left:12px; margin:0 0 12px;
+  }
+  .mat-refs{margin-top:14px;}
+  .mat-refs h2{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600; font-size:22px; margin:0 0 16px;
+    border-bottom:1px solid var(--rule); padding-bottom:8px;
+  }
+  .ref-item{margin:0 0 16px;}
+  .ref-item .ref-label{font-size:15px; font-weight:600; display:block;}
+  .ref-item .ref-note{font-size:13.5px; color:var(--ink-soft); display:block; margin:2px 0 6px; max-width:60ch;}
+  .ref-item .ref-links{display:flex; gap:8px; flex-wrap:wrap;}
+
   .content-body{
     display:flex; flex-direction:column; gap:22px;
   }
@@ -523,11 +607,13 @@
 <script type="application/json" id="deck-data">__DECK_JSON__</script>
 <script type="application/json" id="overrides-data">__OVERRIDES_JSON__</script>
 <script type="application/json" id="about-data">__ABOUT_JSON__</script>
+<script type="application/json" id="materials-data">__MATERIALS_JSON__</script>
 <script>
 (function(){
   var DATA = JSON.parse(document.getElementById('deck-data').textContent);
   var OVERRIDES = JSON.parse(document.getElementById('overrides-data').textContent);
   var ABOUT = JSON.parse(document.getElementById('about-data').textContent);
+  var MATERIALS = JSON.parse(document.getElementById('materials-data').textContent);
   var ORDER = ["unit1","unit2","unit3","unit4"];
   var app = document.getElementById('app');
 
@@ -568,16 +654,28 @@
     return /^[\-\(]?[\d.,%\s]+\)?$/.test(t) && /\d/.test(t);
   }
 
+  function hasMaterials(key){
+    var m = MATERIALS[key];
+    if(!m) return false;
+    var ex = m.exercises && m.exercises.sets && m.exercises.sets.length;
+    var rf = m.references && m.references.length;
+    return !!(ex || rf);
+  }
+
   function renderIndex(){
     var rows = ORDER.map(function(key, i){
       var u = DATA[key];
-      return '<a class="toc-row" href="#/'+key+'/1">' +
+      var row = '<a class="toc-row" href="#/'+key+'/1">' +
         '<span class="toc-num mono">'+String(i+1).padStart(2,'0')+'</span>' +
         '<span class="toc-body"><span class="toc-name">'+esc(u.unit)+' — '+esc(u.name)+'</span>' +
           '<span class="toc-sub">'+u.slides.length+' slides</span></span>' +
         '<span class="toc-count mono">'+u.slides.length+'</span>' +
         '<span class="toc-go">Open →</span>' +
       '</a>';
+      if(hasMaterials(key)){
+        row += '<a class="toc-mat-row" href="#/'+key+'/materials">Exercises &amp; materials →</a>';
+      }
+      return row;
     }).join("");
 
     app.innerHTML =
@@ -620,6 +718,72 @@
         (a.note ? '<p class="about-note">'+esc(a.note)+'</p>' : '') +
       '</div>';
     document.title = "About — Financial Statement Analysis";
+    window.scrollTo(0,0);
+  }
+
+  function matBlock(b){
+    if(b.t === "p")  return '<p>'+esc(b.x)+'</p>';
+    if(b.t === "note") return '<p class="mat-note">'+esc(b.x)+'</p>';
+    if(b.t === "ul" || b.t === "ol"){
+      var tag = b.t;
+      return '<'+tag+'>' + (b.x||[]).map(function(li){ return '<li>'+esc(li)+'</li>'; }).join("") + '</'+tag+'>';
+    }
+    if(b.t === "table"){
+      var rows = (b.rows||[]).map(function(r, ri){
+        var cells = r.map(function(c){
+          var cls = (ri>0 && looksNumeric(c)) ? ' class="num"' : '';
+          return '<td'+cls+'>'+esc(c)+'</td>';
+        }).join("");
+        return '<tr>'+cells+'</tr>';
+      }).join("");
+      return (b.cap ? '<p class="diagram-cap">'+esc(b.cap)+'</p>' : '') +
+        '<div class="tbl-wrap"><table class="ledger">'+rows+'</table></div>';
+    }
+    return "";
+  }
+
+  function renderMaterials(key){
+    var m = MATERIALS[key];
+    var u = DATA[key];
+    if(!m || !hasMaterials(key)) return renderDeck(key, 0);
+
+    var html = '<a class="back-link" href="#/'+key+'/1">← '+esc(u.unit)+' slides</a>' +
+      '<h1>'+esc(m.title || (u.unit + " — Exercises & materials"))+'</h1>';
+
+    var ex = m.exercises || {};
+    if(ex.intro) html += '<p class="mat-intro">'+esc(ex.intro)+'</p>';
+
+    (ex.sets || []).forEach(function(set){
+      html += '<div class="mat-set"><div class="mat-set-head">' +
+        '<h2>'+esc(set.name)+'</h2>' +
+        (set.download ? '<a class="dl-link" href="'+attr(set.download)+'" download>Download (Word) ↓</a>' : '') +
+      '</div>';
+      (set.items || []).forEach(function(it){
+        html += '<div class="exercise">' +
+          (it.title ? '<h3>'+esc(it.title)+'</h3>' : '') +
+          (it.blocks || []).map(matBlock).join("") +
+        '</div>';
+      });
+      html += '</div>';
+    });
+
+    if(m.references && m.references.length){
+      html += '<div class="mat-refs"><h2>Reference material</h2>' +
+        m.references.map(function(r){
+          var links = (r.links || []).map(function(l){
+            return '<a class="dl-link" href="'+attr(l.file)+'" download>'+esc(l.label)+' ↓</a>';
+          }).join("");
+          return '<div class="ref-item">' +
+            '<span class="ref-label">'+esc(r.label)+'</span>' +
+            (r.note ? '<span class="ref-note">'+esc(r.note)+'</span>' : '') +
+            '<span class="ref-links">'+links+'</span>' +
+          '</div>';
+        }).join("") +
+      '</div>';
+    }
+
+    app.innerHTML = '<div class="mat-wrap">' + html + '</div>';
+    document.title = u.unit + " · Exercises & materials — Financial Statement Analysis";
     window.scrollTo(0,0);
   }
 
@@ -724,6 +888,7 @@
         '<div class="deck-bar">' +
           '<a class="back-link" href="#/">← Index</a>' +
           '<span class="deck-title serif">'+esc(u.unit)+' — '+esc(u.name)+'</span>' +
+          (hasMaterials(key) ? '<a class="back-link deck-mat" href="#/'+key+'/materials">Exercises &amp; materials →</a>' : '') +
           '<span class="deck-pos mono">'+(idx+1)+' / '+total+'</span>' +
         '</div>' +
         '<div class="progress-rule"><div class="progress-fill" style="width:'+pct+'%"></div></div>' +
@@ -764,9 +929,10 @@
     if(h === 'about'){ renderAbout(); return; }
     var parts = h.split('/');
     var key = parts[0];
+    if(!DATA[key]){ renderIndex(); return; }
+    if(parts[1] === 'materials'){ renderMaterials(key); return; }
     var idx = (parseInt(parts[1],10) || 1) - 1;
-    if(DATA[key]) renderDeck(key, idx);
-    else renderIndex();
+    renderDeck(key, idx);
   }
 
   window.addEventListener('hashchange', route);

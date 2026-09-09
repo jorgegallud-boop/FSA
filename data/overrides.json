@@ -4,7 +4,7 @@
   "_config": {
     "_hint": "hidden: unit ids not shown on the site (no index row, no nav). hiddenPages: standalone pages (glossary, accounts) whose footer link is hidden. In both cases the content still builds and is reachable by direct URL for previewing. Empty a list to publish.",
     "hidden": ["unit3", "unit4", "unit5"],
-    "hiddenPages": ["glossary", "accounts"]
+    "hiddenPages": []
   },
 
   "unit1": {

@@ -33,15 +33,16 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Re-extract decks if any .pptx changed
+      - name: Re-extract decks if the decks or the extractor changed
         run: |
           if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" \
-               | grep -q '^source-pptx/'; then
-            echo "source-pptx changed - re-extracting"
+               | grep -qE '^source-pptx/|^scripts/extract_pptx\.py$' \
+             || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "decks or extractor changed - re-extracting"
             pip install --quiet python-pptx
             python scripts/extract_pptx.py
           else
-            echo "no .pptx change - keeping data/deck_data.json as committed"
+            echo "no relevant change - keeping data/deck_data.json as committed"
           fi
 
       - name: Assemble index.html

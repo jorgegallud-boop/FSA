@@ -37,7 +37,17 @@ BODY_NAMES = (
 NUMBER_NAMES = ("marcador de número", "marcador de numero", "slide number placeholder")
 TEXTBOX_NAMES = ("textbox", "cuadro de texto", "text box")
 
-TITLE_LAYOUTS = ("diapositiva de título", "título", "title slide", "title")
+# Layout names that mark a full-bleed divider / section slide (title + subtitle,
+# no body). Matched as an EXACT name (case-insensitive). Do NOT put bare
+# "título" / "title" here: PowerPoint's normal content layout is called
+# "Título y objetos" ("Title and Content"), which starts with "título" and would
+# then be misread as a divider, dropping every bullet on the slide.
+TITLE_LAYOUTS = (
+    "diapositiva de título", "diapositiva de titulo",
+    "title slide",
+    "encabezado de sección", "encabezado de seccion",
+    "section header",
+)
 
 _warnings = []
 
@@ -103,7 +113,7 @@ def extract_deck(key, path):
     slides_out = []
     for s_i, slide in enumerate(p.slides, 1):
         layout_name = (slide.slide_layout.name or "").strip().lower()
-        is_title = any(layout_name.startswith(x) for x in TITLE_LAYOUTS)
+        is_title = layout_name in TITLE_LAYOUTS
 
         title_text = ""
         subtitle_text = ""

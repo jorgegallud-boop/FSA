@@ -6,7 +6,14 @@ A static mini-site with the slide decks for the "Financial Statement Analysis"
 course (taught in English), converted from PowerPoint to a self-contained HTML
 site for Jorge to share with students and update through the course.
 
-Repo: `https://github.com/jorgegallud-boop/FSA` (not pushed yet — see below)
+Repo: `https://github.com/jorgegallud-boop/FSA` · live at
+`https://jorgegallud-boop.github.io/FSA/`
+
+Local working copy: `C:\Users\jorge\OneDrive - UVa\OTROS\Claude\FSA` (moved here
+2026-09-09 from `OneDrive - UVa\DOCENCIA\FSA\site`). The raw course materials
+stay in `DOCENCIA\FSA`; when a deck changes, copy it into this repo's
+`source-pptx/` and push. Sync between machines is through GitHub only —
+`git pull` before working, `git push` after.
 
 ## How it is built (see README.md for the short version)
 

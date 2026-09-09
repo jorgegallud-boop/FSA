@@ -89,9 +89,8 @@ Repo: `https://github.com/jorgegallud-boop/FSA` (not pushed yet — see below)
 - **Glossary** (`data/glossary.json`, `#/glossary`) and **PGC accounts**
   (`data/accounts.json`, `#/accounts`) support pages added. English. Accounts
   are a course-curated subset of the PGC Part-4 chart (English names from
-  `02 SGAP.pdf`). Both are in `_config.hiddenPages` so their footer links are
-  suppressed — reachable only by direct URL — until Jorge signs off, then drop
-  them from that list.
+  `02 SGAP.pdf`). Published 2026-09-09 (`_config.hiddenPages` now empty); linked
+  from the index footer.
 
 ## Not done / next steps
 

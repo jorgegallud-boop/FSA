@@ -1,0 +1,382 @@
+{
+  "_comment": "Chart-of-accounts extract shown at #/accounts. English account names from the PGC (Part 4). Curated to the accounts used across units 2-5; not the full plan. groups[].subgroups[].accounts = [code, name].",
+  "title": "PGC accounts used in the course",
+  "intro": "The Spanish General Accounting Plan (PGC) numbers every account. This is the subset that appears in the units and exercises, in English, grouped as in Part 4 of the plan. The full plan is in the Unit 2 reference material.",
+  "groups": [
+    {
+      "n": "1", "name": "Basic financing",
+      "subgroups": [
+        { "name": "10 · Capital", "accounts": [
+          ["100", "Share capital"],
+          ["1030", "Uncalled capital"],
+          ["1034", "Uncalled capital pending registration"],
+          ["108", "Own shares or holdings in special situations"],
+          ["109", "Own shares or holdings for reduction of capital"]
+        ]},
+        { "name": "11 · Reserves and other equity instruments", "accounts": [
+          ["110", "Share premium"],
+          ["112", "Legal reserve"],
+          ["113", "Voluntary reserves"],
+          ["114", "Special reserves"],
+          ["1141", "Statutory reserves"],
+          ["118", "Contributions from equity holders or owners"]
+        ]},
+        { "name": "12 · Profit or loss pending application", "accounts": [
+          ["120", "Retained earnings"],
+          ["121", "Prior periods' losses"],
+          ["129", "Profit or loss for the period"]
+        ]},
+        { "name": "13 · Grants, donations and valuation adjustments", "accounts": [
+          ["130", "Government capital grants"],
+          ["131", "Capital donations and bequests"],
+          ["132", "Other grants, donations and bequests"],
+          ["133", "Valuation adjustments to financial assets at fair value through equity"],
+          ["134", "Hedging transactions"],
+          ["137", "Deferred tax income"]
+        ]},
+        { "name": "14 · Provisions", "accounts": [
+          ["140", "Provisions for long-term employee benefits"],
+          ["141", "Provisions for taxes"],
+          ["143", "Provisions for dismantlement, removal or restoration of fixed assets"],
+          ["145", "Provisions for environmental actions"],
+          ["146", "Provisions for restructuring costs"]
+        ]},
+        { "name": "17 · Non-current payables for loans and other", "accounts": [
+          ["170", "Non-current debt with financial institutions"],
+          ["171", "Non-current payables"],
+          ["173", "Non-current payables to suppliers of fixed assets"],
+          ["174", "Non-current finance lease payables"],
+          ["177", "Bonds and obligations"],
+          ["178", "Convertible bonds and obligations"],
+          ["179", "Other marketable securities"]
+        ]},
+        { "name": "18 · Non-current guarantees and deposits received", "accounts": [
+          ["180", "Non-current guarantees received"],
+          ["185", "Non-current deposits received"]
+        ]},
+        { "name": "19 · Temporary financing", "accounts": [
+          ["190", "Shares or holdings issued"],
+          ["192", "Subscribed shares"],
+          ["194", "Issued capital pending registration"]
+        ]}
+      ]
+    },
+    {
+      "n": "2", "name": "Non-current assets",
+      "subgroups": [
+        { "name": "20 · Intangible assets", "accounts": [
+          ["200", "Research"],
+          ["201", "Development"],
+          ["202", "Administrative concessions"],
+          ["203", "Industrial property"],
+          ["204", "Goodwill"],
+          ["206", "Computer software"]
+        ]},
+        { "name": "21 · Property, plant and equipment", "accounts": [
+          ["210", "Land and natural resources"],
+          ["211", "Buildings"],
+          ["212", "Technical installations"],
+          ["213", "Machinery"],
+          ["214", "Equipment"],
+          ["216", "Furniture"],
+          ["217", "Information technology equipment"],
+          ["218", "Motor vehicles"]
+        ]},
+        { "name": "22 · Investment property", "accounts": [
+          ["220", "Investments in land and natural resources"],
+          ["221", "Investments in buildings"]
+        ]},
+        { "name": "25 · Other non-current investments", "accounts": [
+          ["250", "Non-current investments in equity instruments"],
+          ["251", "Non-current debt securities"],
+          ["252", "Non-current loans"],
+          ["255", "Non-current assets from derivative financial instruments"],
+          ["258", "Non-current deposits"]
+        ]},
+        { "name": "28 · Accumulated amortisation and depreciation", "accounts": [
+          ["280", "Accumulated amortisation of intangible assets"],
+          ["281", "Accumulated depreciation of property, plant and equipment"],
+          ["282", "Accumulated depreciation of investment property"]
+        ]},
+        { "name": "29 · Impairment of non-current assets", "accounts": [
+          ["290", "Impairment of intangible assets"],
+          ["291", "Impairment of property, plant and equipment"],
+          ["292", "Impairment of investment property"]
+        ]}
+      ]
+    },
+    {
+      "n": "3", "name": "Inventories",
+      "subgroups": [
+        { "name": "30–36 · Stocks", "accounts": [
+          ["300", "Merchandise (goods for resale)"],
+          ["310", "Raw materials"],
+          ["320", "Components / other supplies"],
+          ["330", "Work in progress"],
+          ["340", "Semi-finished goods"],
+          ["350", "Finished goods"],
+          ["360", "By-products, waste and recovered materials"]
+        ]},
+        { "name": "39 · Impairment of inventories", "accounts": [
+          ["390", "Impairment of merchandise"],
+          ["391", "Impairment of raw materials"],
+          ["393", "Impairment of work in progress"],
+          ["395", "Impairment of finished goods"]
+        ]}
+      ]
+    },
+    {
+      "n": "4", "name": "Trade receivables and trade payables",
+      "subgroups": [
+        { "name": "40 · Suppliers", "accounts": [
+          ["400", "Suppliers"],
+          ["401", "Suppliers, trade bills payable"],
+          ["403", "Suppliers, group companies"],
+          ["406", "Containers and packaging returnable to suppliers"],
+          ["407", "Advances to suppliers"]
+        ]},
+        { "name": "41 · Other payables", "accounts": [
+          ["410", "Payables for the rendering of services"],
+          ["411", "Trade bills payable"]
+        ]},
+        { "name": "43 · Trade receivables", "accounts": [
+          ["430", "Trade receivables"],
+          ["431", "Trade receivables, trade bills receivable"],
+          ["433", "Trade receivables, group companies"],
+          ["436", "Doubtful trade receivables"],
+          ["438", "Advances from customers"]
+        ]},
+        { "name": "44 · Other receivables", "accounts": [
+          ["440", "Receivables"],
+          ["446", "Doubtful receivables"]
+        ]},
+        { "name": "46 · Personnel", "accounts": [
+          ["460", "Salary advances"],
+          ["465", "Salaries payable"],
+          ["466", "Employee benefits payable, defined contribution schemes"]
+        ]},
+        { "name": "47 · Public entities", "accounts": [
+          ["470", "Taxation authorities, receivables"],
+          ["4700", "VAT recoverable"],
+          ["4708", "Grants receivable"],
+          ["471", "Social Security, receivables"],
+          ["472", "Input VAT"],
+          ["473", "Withholdings and payments on account"],
+          ["474", "Deferred tax assets"],
+          ["4740", "Assets from deductible temporary differences"],
+          ["4742", "Rights to tax deductions and credits pending application"],
+          ["4745", "Tax loss carryforwards"],
+          ["475", "Taxation authorities, taxes payable"],
+          ["4750", "VAT payable"],
+          ["4751", "Taxation authorities, withholding tax"],
+          ["4752", "Income tax payable"],
+          ["4758", "Repayable grants"],
+          ["476", "Social Security, payables"],
+          ["477", "Output VAT"],
+          ["479", "Liabilities from taxable temporary differences"]
+        ]},
+        { "name": "48 · Accruals", "accounts": [
+          ["480", "Prepaid expenses"],
+          ["485", "Deferred income"]
+        ]},
+        { "name": "49 · Impairment of trade receivables", "accounts": [
+          ["490", "Impairment of trade receivables"],
+          ["499", "Trade provisions"]
+        ]}
+      ]
+    },
+    {
+      "n": "5", "name": "Financial accounts",
+      "subgroups": [
+        { "name": "50 · Current debentures and similar", "accounts": [
+          ["500", "Current bonds and obligations"],
+          ["501", "Current convertible bonds and obligations"],
+          ["505", "Other current marketable securities"],
+          ["506", "Current interest on debentures and similar issues"]
+        ]},
+        { "name": "52 · Current payables for loans and other", "accounts": [
+          ["520", "Current debt with financial institutions"],
+          ["521", "Current payables"],
+          ["523", "Current payables to suppliers of fixed assets"],
+          ["524", "Current finance lease payables"],
+          ["525", "Current bills payable"],
+          ["526", "Dividend payable"],
+          ["527", "Current interest on debt with financial institutions"],
+          ["528", "Current interest on payables"],
+          ["529", "Current provisions"]
+        ]},
+        { "name": "54 · Other current investments", "accounts": [
+          ["540", "Current investments in equity instruments"],
+          ["541", "Current debt securities"],
+          ["542", "Current loans"],
+          ["545", "Dividend receivable"],
+          ["546", "Current interest on debt securities"],
+          ["547", "Current interest on loans"],
+          ["548", "Current deposits"]
+        ]},
+        { "name": "55 · Other non-bank accounts", "accounts": [
+          ["551", "Current account with equity holders and directors"],
+          ["555", "Items pending application"],
+          ["557", "Interim dividend"],
+          ["558", "Receivable on called-up capital"]
+        ]},
+        { "name": "57 · Cash", "accounts": [
+          ["570", "Cash, euros"],
+          ["572", "Banks, demand current accounts, euros"],
+          ["576", "Short-term highly-liquid investments"]
+        ]},
+        { "name": "59 · Impairment of current investments", "accounts": [
+          ["593", "Impairment of current investments in related parties"],
+          ["597", "Impairment of current debt securities"],
+          ["598", "Impairment of current loans"]
+        ]}
+      ]
+    },
+    {
+      "n": "6", "name": "Purchases and expenses",
+      "subgroups": [
+        { "name": "60 · Purchases", "accounts": [
+          ["600", "Merchandise purchased"],
+          ["601", "Raw materials purchased"],
+          ["602", "Other supplies purchased"],
+          ["606", "Prompt payment discounts on purchases"],
+          ["607", "Subcontracted work"],
+          ["608", "Purchase returns and similar transactions"],
+          ["609", "Volume discounts on purchases"]
+        ]},
+        { "name": "61 · Changes in inventories", "accounts": [
+          ["610", "Changes in inventories of merchandise"],
+          ["611", "Changes in inventories of raw materials"],
+          ["612", "Changes in inventories of other supplies"]
+        ]},
+        { "name": "62 · External services", "accounts": [
+          ["620", "Research and development expenses for the period"],
+          ["621", "Leases and royalties"],
+          ["622", "Repairs and maintenance"],
+          ["623", "Independent professional services"],
+          ["624", "Transport"],
+          ["625", "Insurance premiums"],
+          ["626", "Banking and similar services"],
+          ["627", "Advertising, publicity and public relations"],
+          ["628", "Utilities"],
+          ["629", "Other services"]
+        ]},
+        { "name": "63 · Taxes", "accounts": [
+          ["630", "Income tax"],
+          ["6300", "Current tax"],
+          ["6301", "Deferred tax"],
+          ["631", "Other taxes"],
+          ["633", "Negative adjustments to income tax"],
+          ["638", "Positive adjustments to income tax"]
+        ]},
+        { "name": "64 · Personnel expenses", "accounts": [
+          ["640", "Salaries and wages"],
+          ["641", "Termination benefits"],
+          ["642", "Social Security payable by the company"],
+          ["649", "Other employee benefits expense"]
+        ]},
+        { "name": "65 · Other expenses", "accounts": [
+          ["650", "Losses on irrecoverable trade receivables"],
+          ["659", "Other operating losses"]
+        ]},
+        { "name": "66 · Finance expenses", "accounts": [
+          ["661", "Interest on bonds and obligations"],
+          ["662", "Interest on payables"],
+          ["6623", "Interest on debt with financial institutions"],
+          ["663", "Losses on fair value measurement of financial instruments"],
+          ["668", "Exchange losses"],
+          ["669", "Other finance expenses"]
+        ]},
+        { "name": "67 · Losses on non-current assets and exceptional expenses", "accounts": [
+          ["670", "Losses on intangible assets"],
+          ["671", "Losses on property, plant and equipment"],
+          ["672", "Losses on investment property"],
+          ["678", "Exceptional expenses"]
+        ]},
+        { "name": "68 · Amortisation and depreciation", "accounts": [
+          ["680", "Amortisation of intangible assets"],
+          ["681", "Depreciation of property, plant and equipment"],
+          ["682", "Depreciation of investment property"]
+        ]},
+        { "name": "69 · Impairment losses and other charges", "accounts": [
+          ["690", "Impairment losses on intangible assets"],
+          ["691", "Impairment losses on property, plant and equipment"],
+          ["693", "Impairment losses on inventories"],
+          ["694", "Impairment losses on trade receivables"],
+          ["695", "Trade provisions"]
+        ]}
+      ]
+    },
+    {
+      "n": "7", "name": "Sales and income",
+      "subgroups": [
+        { "name": "70 · Sales", "accounts": [
+          ["700", "Merchandise sold"],
+          ["701", "Finished goods sold"],
+          ["705", "Services rendered"],
+          ["706", "Prompt payment discounts on sales"],
+          ["708", "Sales returns and similar transactions"],
+          ["709", "Volume discounts on sales"]
+        ]},
+        { "name": "71 · Changes in inventories", "accounts": [
+          ["710", "Changes in inventories of work in progress"],
+          ["712", "Changes in inventories of finished goods"]
+        ]},
+        { "name": "73 · Work carried out by the company for its assets", "accounts": [
+          ["730", "Work carried out for intangible assets"],
+          ["731", "Work carried out for property, plant and equipment"]
+        ]},
+        { "name": "74 · Grants, donations and bequests", "accounts": [
+          ["740", "Operating grants, donations and bequests"],
+          ["746", "Capital grants, donations and bequests taken to income"],
+          ["747", "Other grants, donations and bequests taken to income"]
+        ]},
+        { "name": "75 · Other income", "accounts": [
+          ["752", "Income from lease agreements"],
+          ["753", "Income from transfer of industrial property rights"],
+          ["754", "Commission income"],
+          ["759", "Income from other services"]
+        ]},
+        { "name": "76 · Finance income", "accounts": [
+          ["760", "Dividends"],
+          ["761", "Income from debt securities"],
+          ["762", "Income from loans"],
+          ["763", "Gains on fair value measurement of financial instruments"],
+          ["768", "Exchange gains"],
+          ["769", "Other finance income"]
+        ]},
+        { "name": "77 · Gains on non-current assets and exceptional income", "accounts": [
+          ["770", "Gains on intangible assets"],
+          ["771", "Gains on property, plant and equipment"],
+          ["772", "Gains on investment property"],
+          ["778", "Exceptional income"]
+        ]},
+        { "name": "79 · Reversals of provisions and impairment", "accounts": [
+          ["790", "Reversal of impairment of intangible assets"],
+          ["791", "Reversal of impairment of property, plant and equipment"],
+          ["793", "Reversal of impairment of inventories"],
+          ["794", "Reversal of impairment of trade receivables"],
+          ["795", "Provision surpluses"]
+        ]}
+      ]
+    },
+    {
+      "n": "8 / 9", "name": "Expenses and income recognised in equity",
+      "subgroups": [
+        { "name": "Used for the statement of recognised income and expense", "accounts": [
+          ["800", "Losses on financial assets at fair value through equity"],
+          ["802", "Transfer of gains on financial assets at fair value through equity"],
+          ["810", "Losses on cash flow hedges"],
+          ["820", "Negative translation differences"],
+          ["830", "Income tax (recognised in equity)"],
+          ["840", "Transfer of government capital grants"],
+          ["900", "Gains on financial assets at fair value through equity"],
+          ["902", "Transfer of losses on financial assets at fair value through equity"],
+          ["910", "Gains on cash flow hedges"],
+          ["920", "Positive translation differences"],
+          ["940", "Income from government capital grants"]
+        ]}
+      ]
+    }
+  ]
+}

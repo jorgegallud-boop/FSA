@@ -245,6 +245,76 @@
     padding-top:16px;
   }
 
+  /* ---------- GLOSSARY / ACCOUNTS ---------- */
+  .doc-wrap{
+    max-width:820px;
+    margin:0 auto;
+    padding:clamp(24px,5vw,60px) 20px 90px;
+  }
+  .doc-wrap .back-link{margin-bottom:22px;}
+  .doc-wrap h1{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600;
+    font-size:clamp(26px,4.4vw,38px);
+    margin:0 0 10px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:14px;
+  }
+  .doc-intro{color:var(--ink-soft); font-size:15px; margin:0 0 22px; max-width:64ch;}
+  .doc-toc{
+    display:flex; flex-wrap:wrap; gap:6px 16px;
+    padding:14px 0 4px;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:30px;
+  }
+  .doc-toc .ref-jump{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    color:var(--accent);
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .doc-toc .ref-jump:hover{text-decoration:underline;}
+  .gl-sec{margin:0 0 34px; scroll-margin-top:16px;}
+  .gl-sec h2{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600; font-size:21px; margin:0 0 14px;
+    padding-bottom:6px; border-bottom:1px solid var(--rule);
+  }
+  .gl-sec h3{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--ink-soft); margin:22px 0 8px;
+  }
+  .gl-list{margin:0;}
+  .gl-item{
+    display:grid;
+    grid-template-columns:minmax(0,13em) 1fr;
+    gap:6px 22px;
+    padding:11px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .gl-item dt{font-weight:600; font-size:14.5px;}
+  .gl-item dd{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink);}
+  @media (max-width:560px){
+    .gl-item{grid-template-columns:1fr; gap:2px;}
+    .gl-item dt{color:var(--accent);}
+  }
+  table.ac-table td{padding:6px 12px; font-size:14px;}
+  table.ac-table tr:first-child td{
+    background:none; color:inherit;
+    font-family:"Public Sans", ui-sans-serif, sans-serif;
+    font-size:14px; letter-spacing:normal; text-transform:none;
+  }
+  table.ac-table tr:first-child td.ac-code{
+    font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--ink-soft);
+  }
+  table.ac-table td.ac-code{
+    white-space:nowrap; color:var(--ink-soft);
+    width:1%; text-align:left;
+  }
+  .index-foot-links{display:flex; gap:16px; flex-wrap:wrap;}
+
   /* ---------- DECK ---------- */
   .deck{
     min-height:100vh;
@@ -609,8 +679,9 @@
   "_comment": "Hand-authored fixes applied ON TOP OF data/deck_data.json at page-build time. Keys are the unit id and the slide number as shown in the site (1-based). Regenerating deck_data.json from the .pptx files does NOT touch this file. If you insert or delete slides in a deck, re-check the slide numbers here. Supported keys per slide: title (string, \\n allowed on divider slides), caption (string, shown under the first image), diagram (see build), dropTables (bool), dropImages (bool), hideAsides (bool).",
 
   "_config": {
-    "_hint": "hidden: unit ids not shown on the site (no index row, no nav). Content still builds and is reachable by direct #/unitN/1 link for previewing. Empty the list to publish all.",
-    "hidden": ["unit3", "unit4", "unit5"]
+    "_hint": "hidden: unit ids not shown on the site (no index row, no nav). hiddenPages: standalone pages (glossary, accounts) whose footer link is hidden. In both cases the content still builds and is reachable by direct URL for previewing. Empty a list to publish.",
+    "hidden": ["unit3", "unit4", "unit5"],
+    "hiddenPages": ["glossary", "accounts"]
   },
 
   "unit1": {
@@ -995,15 +1066,551 @@
   }
 }
 </script>
+<script type="application/json" id="glossary-data">{
+  "_comment": "Glossary shown at #/glossary. Sections render in order; each term is [term, definition]. English only. Edit freely; no rebuild logic depends on the wording.",
+  "title": "Glossary",
+  "intro": "Working definitions of the technical terms used in the course. Where a term has a precise legal meaning under Spanish GAAP (PGC), the definition follows it.",
+  "sections": [
+    {
+      "heading": "Financial statements",
+      "terms": [
+        ["Annual accounts / financial statements", "The set of statements a company prepares at the end of each financial year: balance sheet, income statement, statement of changes in equity, cash flow statement and the notes. They must give a true and fair view of the company's equity, financial position and results."],
+        ["Balance sheet", "Statement of the company's financial position at a given date: what it owns and is owed (assets) against what it owes (liabilities) and the residual belonging to the owners (equity). Assets = Equity + Liabilities."],
+        ["Income statement (profit and loss account, P&L)", "Statement of the income earned and the expenses incurred over the financial year, and the resulting profit or loss. It explains part of the change in equity between two balance sheets."],
+        ["Statement of changes in equity (SCE)", "Statement in two parts explaining how equity changed during the year: the statement of recognised income and expense, and the statement of total changes in equity."],
+        ["Statement of recognised income and expense (SRIE)", "First part of the SCE: the profit for the year plus income and expenses that the rules require to be recognised directly in equity (e.g. certain financial instruments, cash flow hedges, grants), net of their tax effect, plus amounts transferred from equity to profit or loss."],
+        ["Statement of total changes in equity (STCE)", "Second part of the SCE: a matrix showing, for each equity item, the opening balance, the total recognised income and expense, transactions with owners (capital increases, dividends) and other movements, over three year-ends."],
+        ["Cash flow statement (CFS)", "Statement classifying the year's cash movements into operating, investing and financing activities, reconciling opening and closing cash."],
+        ["Notes to the financial statements", "Narrative and numerical disclosures that complete, explain and break down the figures in the other statements. Part 3 of the PGC sets out their content."],
+        ["Management report", "A report on the company's situation, performance, risks and outlook. It is not part of the financial statements but the Capital Companies Law requires most companies to prepare it."],
+        ["Abbreviated financial statements", "Simplified formats (balance sheet, notes and, separately, P&L) that a company may use when it stays below size thresholds for total assets, turnover and employees in two consecutive years. Using the abbreviated balance sheet exempts the company from the SCE and the CFS."],
+        ["True and fair view (\"faithful image\")", "The overriding requirement that the financial statements faithfully represent the company's economic reality. If applying a rule would conflict with it, the rule is set aside and the departure is explained in the notes."]
+      ]
+    },
+    {
+      "heading": "Balance sheet items",
+      "terms": [
+        ["Asset", "A resource controlled by the company as a result of past events, from which future economic benefits are expected."],
+        ["Liability", "A present obligation arising from past events, whose settlement is expected to require an outflow of resources."],
+        ["Equity (net worth)", "The residual interest in the assets after deducting all liabilities; the part belonging to the owners. Includes capital, reserves, prior-year results, the result for the year and valuation adjustments."],
+        ["Non-current vs current", "Current assets and liabilities are those expected to be realised, sold, consumed or settled within the normal operating cycle or within twelve months; everything else is non-current."],
+        ["Intangible assets", "Identifiable non-monetary assets without physical substance: computer software, patents and industrial property, administrative concessions, goodwill, development expenditure."],
+        ["Property, plant and equipment (PPE)", "Tangible assets held for use in production or supply of goods and services over more than one year: land and buildings, machinery, technical installations, motor vehicles, furniture, IT equipment."],
+        ["Investment property", "Land or buildings held to earn rentals or for capital appreciation rather than for use in the business."],
+        ["Inventories", "Assets held for sale in the ordinary course of business (merchandise, finished goods), in production (work in progress) or to be consumed in production (raw materials, other supplies)."],
+        ["Trade receivables", "Amounts owed to the company by customers for goods sold or services rendered."],
+        ["Impairment (value adjustment)", "A reduction in the carrying amount of an asset to reflect that its recoverable amount has fallen below its book value; recognised as an expense and reversible if the situation improves."],
+        ["Accumulated depreciation / amortisation", "The cumulative portion of a fixed asset's cost charged to expense over its useful life; shown as a deduction from the asset."],
+        ["Provision", "A liability of uncertain timing or amount (e.g. for taxes, environmental actions, restructuring, dismantling)."],
+        ["Working capital (fondo de maniobra)", "Current assets minus current liabilities. A positive figure means long-term funds finance part of the current assets, a common sign of short-term financial stability."],
+        ["Share premium", "The amount paid in by shareholders above the par value of the shares issued."],
+        ["Legal reserve", "A reserve that companies must build up by allocating at least 10% of the year's profit until it reaches 20% of share capital; its use is restricted."],
+        ["Retained earnings / prior periods' results", "Accumulated profits not yet distributed or transferred to reserves, or accumulated losses pending offset."]
+      ]
+    },
+    {
+      "heading": "Income statement items",
+      "terms": [
+        ["Revenue (turnover)", "Income from the sale of goods and the rendering of services that form the company's ordinary activity, net of returns and discounts."],
+        ["Supplies (consumption)", "The cost of goods and materials used: purchases adjusted for the change in inventories."],
+        ["Change in inventories", "The adjustment that turns purchases (or production) into consumption (or sales): closing minus opening inventory of the relevant class."],
+        ["Other operating expenses", "External services (leases, professional services, transport, insurance, utilities, advertising), taxes other than income tax, and losses on trade receivables."],
+        ["Operating result (EBIT)", "Earnings before interest and taxes: the result of the company's ordinary operating activity, before the financial result and income tax."],
+        ["Financial result", "Finance income (dividends, interest received, gains on financial instruments) minus finance expenses (interest paid, losses on financial instruments), plus exchange differences."],
+        ["Earnings before taxes (EBT / PBT)", "Operating result plus financial result; the base on which the accounting income tax expense is computed."],
+        ["Profit for the year (net income)", "Earnings before taxes minus the income tax expense; the bottom line that feeds into equity."],
+        ["EBITDA", "Operating result before depreciation and amortisation; a rough proxy for operating cash generation."]
+      ]
+    },
+    {
+      "heading": "Regulation and audit",
+      "terms": [
+        ["PGC — Spanish General Accounting Plan", "The accounting rulebook applicable in Spain: conceptual framework, recognition and measurement standards, financial-statement formats, chart of accounts and definitions."],
+        ["Commercial Code (CCo)", "Sets the trader's basic bookkeeping obligations: keeping a journal and an inventory-and-accounts book, legalising the books at the Commercial Registry, and retaining records for six years."],
+        ["Capital Companies Law (TRLSC)", "Governs the preparation, audit, approval and filing of the financial statements and the allocation of profit for corporations and limited-liability companies."],
+        ["Audit", "Independent examination of the financial statements to give an opinion on whether they show a true and fair view. Mandatory above certain size thresholds; the auditor is appointed by the general meeting for 3 to 9 years."],
+        ["General meeting (of shareholders)", "The body that approves the financial statements and the allocation of profit, within six months of year-end, and appoints the auditor."],
+        ["Filing at the Commercial Registry", "Submission of the approved financial statements, management report and audit report, within one month of approval; makes them publicly available."],
+        ["Accrual basis", "Transactions are recognised when the underlying economic events occur, not when cash is received or paid."],
+        ["Going concern", "The assumption that the company will continue operating for the foreseeable future, so assets and liabilities are not measured at liquidation values."],
+        ["Prudence", "Recognise losses and risks as soon as they are known, but gains only when realised."],
+        ["Uniformity (consistency)", "Once a criterion is adopted, keep it over time; change it only for good reason and disclose the effect."],
+        ["No offsetting", "Do not net assets against liabilities, or income against expenses, unless a rule allows it."],
+        ["Materiality (relative importance)", "A rule may be departed from when its effect is negligible and does not affect the true and fair view."]
+      ]
+    },
+    {
+      "heading": "Corporate income tax",
+      "terms": [
+        ["Corporate income tax (IS)", "A direct tax on the profits of companies, governed by Law 27/2014. The general rate used in the course is 25%."],
+        ["Taxable base", "The accounting result before taxes adjusted for the differences between accounting and tax rules, and reduced by tax losses carried forward."],
+        ["Permanent difference", "A difference between accounting and taxable income that will never reverse (e.g. fines and penalties, non-deductible donations, the exemption for qualifying dividends). It changes the current tax but creates no deferred tax."],
+        ["Temporary difference", "A difference that will reverse in future years (e.g. accounting depreciation faster or slower than tax depreciation, impairment of receivables not yet tax-deductible). It gives rise to a deferred tax asset or liability."],
+        ["Deferred tax asset (4740, 4742, 4745)", "A future tax saving: from deductible temporary differences, from tax credits and deductions pending application, or from tax loss carryforwards."],
+        ["Deferred tax liability (479)", "A future tax payment arising from taxable temporary differences."],
+        ["Gross tax / net tax", "Gross tax = taxable base × rate. Net tax (tax payable) = gross tax minus deductions and credits."],
+        ["Withholdings and payments on account (473)", "Amounts prepaid to the tax authorities during the year; recognised as an asset and offset against the final tax liability."],
+        ["Tax deductions and credits (4742)", "Reductions of the gross tax to encourage certain activities (R&D&i, job creation, film production) or to relieve double taxation; the unused part can be carried forward."],
+        ["Tax loss carryforward (4745)", "The right to reduce future taxable bases by losses of prior years."],
+        ["Free / accelerated depreciation", "A tax incentive allowing an asset's cost to be deducted for tax faster than the accounting depreciation, creating a temporary difference."],
+        ["Current tax (6300) / deferred tax (6301)", "The two components of the income tax expense in the P&L: the tax on this year's taxable base, and the change in deferred tax assets and liabilities."]
+      ]
+    },
+    {
+      "heading": "Grants, donations and bequests",
+      "terms": [
+        ["Capital grant", "A grant to finance the acquisition of a fixed asset; recognised initially in equity (net of tax) and taken to income over the asset's useful life, in proportion to its depreciation."],
+        ["Operating grant", "A grant to cover specific expenses or a revenue shortfall of the year; recognised as income of the same period as the expense it covers."],
+        ["Non-refundable grant", "A grant for which all conditions have been met and there is no reasonable doubt it will be kept; recognised in equity and then in income."],
+        ["Refundable grant", "A grant still subject to conditions; recognised as a liability until it becomes non-refundable."]
+      ]
+    },
+    {
+      "heading": "Financial statement analysis — general",
+      "terms": [
+        ["Vertical (common-size) analysis", "Expressing each item as a percentage of a total (total assets, or revenue) to see the structure of the statements and how it changes over time. Also called structural or static analysis."],
+        ["Horizontal analysis", "Comparing each item with a base year to measure growth rates and compare the growth of different items. Also called dynamic analysis."],
+        ["Ratio analysis", "Relating two figures from the statements to measure profitability, liquidity, solvency or activity, and comparing the ratio over time and against the sector."],
+        ["Sources and uses of funds", "A table classifying the year-on-year change in each balance-sheet item as a source of funds (increase in equity or liabilities, decrease in assets) or a use of funds (the opposite)."],
+        ["Book value", "The value of an item as recorded in the accounts."],
+        ["Market value", "The value the market places on the company (market capitalisation) or on one of its assets."]
+      ]
+    },
+    {
+      "heading": "Profitability",
+      "terms": [
+        ["Return on assets (ROA)", "EBIT / total assets. The return the company obtains on all the resources invested in it, regardless of how they are financed. Also called economic profitability or return on investment."],
+        ["Return on equity (ROE)", "Earnings before taxes / equity (or net profit / equity). The return obtained by the owners on the funds they have committed. Also called financial profitability."],
+        ["Margin", "Result / revenue. The share of each euro of sales that is left as profit; one of the two drivers of ROA."],
+        ["Asset turnover (rotation)", "Revenue / total assets. How many euros of sales each euro of assets generates; the other driver of ROA (ROA = margin × turnover)."],
+        ["Leverage (financial)", "The use of debt to finance assets. The financial leverage effect is positive when ROA exceeds the cost of debt, so borrowing raises ROE; negative when it is the other way round."],
+        ["Cost of debt", "Finance expenses / interest-bearing debt; the average interest rate the company pays."]
+      ]
+    },
+    {
+      "heading": "Liquidity and solvency",
+      "terms": [
+        ["Liquidity", "The ability to meet obligations as they fall due in the short term."],
+        ["Solvency", "The ability to meet all obligations, including in the long term; broadly, whether total assets exceed total liabilities."],
+        ["Current ratio (liquidity ratio)", "Current assets / current liabilities. A value around or above 1 suggests the company can cover its short-term debts."],
+        ["Acid test (quick ratio)", "(Current assets − inventories) / current liabilities. A stricter test that excludes the least liquid current asset."],
+        ["Average collection period", "The average number of days customers take to pay: trade receivables / credit sales × 365."],
+        ["Average payment period", "The average number of days the company takes to pay suppliers: trade payables / credit purchases × 365."],
+        ["Solvency ratio", "Total assets / total liabilities. Above 1 means assets are enough to cover all debts."],
+        ["Altman Z-score", "A composite indicator combining several ratios into a single score that estimates the risk of insolvency."]
+      ]
+    },
+    {
+      "heading": "Growth and value creation",
+      "terms": [
+        ["Internal growth", "Growth financed by retained earnings (profits not distributed as dividends)."],
+        ["External growth", "Growth financed by new debt or new capital from outside the company."],
+        ["Dividend / payout ratio", "The dividend is the part of profit distributed to shareholders; the payout ratio is dividends / profit. The retention ratio is the complement."],
+        ["Earnings per share (EPS)", "Profit for the year / number of shares."],
+        ["Price-earnings ratio (PER)", "Share price / earnings per share; how many years of current earnings the market is paying for."],
+        ["Market-to-book ratio (M/B)", "Market value of equity / book value of equity; above 1 means the market expects the company to create value."],
+        ["Market capitalisation", "Share price × number of shares; the market's valuation of the company's equity."]
+      ]
+    }
+  ]
+}
+</script>
+<script type="application/json" id="accounts-data">{
+  "_comment": "Chart-of-accounts extract shown at #/accounts. English account names from the PGC (Part 4). Curated to the accounts used across units 2-5; not the full plan. groups[].subgroups[].accounts = [code, name].",
+  "title": "PGC accounts used in the course",
+  "intro": "The Spanish General Accounting Plan (PGC) numbers every account. This is the subset that appears in the units and exercises, in English, grouped as in Part 4 of the plan. The full plan is in the Unit 2 reference material.",
+  "groups": [
+    {
+      "n": "1", "name": "Basic financing",
+      "subgroups": [
+        { "name": "10 · Capital", "accounts": [
+          ["100", "Share capital"],
+          ["1030", "Uncalled capital"],
+          ["1034", "Uncalled capital pending registration"],
+          ["108", "Own shares or holdings in special situations"],
+          ["109", "Own shares or holdings for reduction of capital"]
+        ]},
+        { "name": "11 · Reserves and other equity instruments", "accounts": [
+          ["110", "Share premium"],
+          ["112", "Legal reserve"],
+          ["113", "Voluntary reserves"],
+          ["114", "Special reserves"],
+          ["1141", "Statutory reserves"],
+          ["118", "Contributions from equity holders or owners"]
+        ]},
+        { "name": "12 · Profit or loss pending application", "accounts": [
+          ["120", "Retained earnings"],
+          ["121", "Prior periods' losses"],
+          ["129", "Profit or loss for the period"]
+        ]},
+        { "name": "13 · Grants, donations and valuation adjustments", "accounts": [
+          ["130", "Government capital grants"],
+          ["131", "Capital donations and bequests"],
+          ["132", "Other grants, donations and bequests"],
+          ["133", "Valuation adjustments to financial assets at fair value through equity"],
+          ["134", "Hedging transactions"],
+          ["137", "Deferred tax income"]
+        ]},
+        { "name": "14 · Provisions", "accounts": [
+          ["140", "Provisions for long-term employee benefits"],
+          ["141", "Provisions for taxes"],
+          ["143", "Provisions for dismantlement, removal or restoration of fixed assets"],
+          ["145", "Provisions for environmental actions"],
+          ["146", "Provisions for restructuring costs"]
+        ]},
+        { "name": "17 · Non-current payables for loans and other", "accounts": [
+          ["170", "Non-current debt with financial institutions"],
+          ["171", "Non-current payables"],
+          ["173", "Non-current payables to suppliers of fixed assets"],
+          ["174", "Non-current finance lease payables"],
+          ["177", "Bonds and obligations"],
+          ["178", "Convertible bonds and obligations"],
+          ["179", "Other marketable securities"]
+        ]},
+        { "name": "18 · Non-current guarantees and deposits received", "accounts": [
+          ["180", "Non-current guarantees received"],
+          ["185", "Non-current deposits received"]
+        ]},
+        { "name": "19 · Temporary financing", "accounts": [
+          ["190", "Shares or holdings issued"],
+          ["192", "Subscribed shares"],
+          ["194", "Issued capital pending registration"]
+        ]}
+      ]
+    },
+    {
+      "n": "2", "name": "Non-current assets",
+      "subgroups": [
+        { "name": "20 · Intangible assets", "accounts": [
+          ["200", "Research"],
+          ["201", "Development"],
+          ["202", "Administrative concessions"],
+          ["203", "Industrial property"],
+          ["204", "Goodwill"],
+          ["206", "Computer software"]
+        ]},
+        { "name": "21 · Property, plant and equipment", "accounts": [
+          ["210", "Land and natural resources"],
+          ["211", "Buildings"],
+          ["212", "Technical installations"],
+          ["213", "Machinery"],
+          ["214", "Equipment"],
+          ["216", "Furniture"],
+          ["217", "Information technology equipment"],
+          ["218", "Motor vehicles"]
+        ]},
+        { "name": "22 · Investment property", "accounts": [
+          ["220", "Investments in land and natural resources"],
+          ["221", "Investments in buildings"]
+        ]},
+        { "name": "25 · Other non-current investments", "accounts": [
+          ["250", "Non-current investments in equity instruments"],
+          ["251", "Non-current debt securities"],
+          ["252", "Non-current loans"],
+          ["255", "Non-current assets from derivative financial instruments"],
+          ["258", "Non-current deposits"]
+        ]},
+        { "name": "28 · Accumulated amortisation and depreciation", "accounts": [
+          ["280", "Accumulated amortisation of intangible assets"],
+          ["281", "Accumulated depreciation of property, plant and equipment"],
+          ["282", "Accumulated depreciation of investment property"]
+        ]},
+        { "name": "29 · Impairment of non-current assets", "accounts": [
+          ["290", "Impairment of intangible assets"],
+          ["291", "Impairment of property, plant and equipment"],
+          ["292", "Impairment of investment property"]
+        ]}
+      ]
+    },
+    {
+      "n": "3", "name": "Inventories",
+      "subgroups": [
+        { "name": "30–36 · Stocks", "accounts": [
+          ["300", "Merchandise (goods for resale)"],
+          ["310", "Raw materials"],
+          ["320", "Components / other supplies"],
+          ["330", "Work in progress"],
+          ["340", "Semi-finished goods"],
+          ["350", "Finished goods"],
+          ["360", "By-products, waste and recovered materials"]
+        ]},
+        { "name": "39 · Impairment of inventories", "accounts": [
+          ["390", "Impairment of merchandise"],
+          ["391", "Impairment of raw materials"],
+          ["393", "Impairment of work in progress"],
+          ["395", "Impairment of finished goods"]
+        ]}
+      ]
+    },
+    {
+      "n": "4", "name": "Trade receivables and trade payables",
+      "subgroups": [
+        { "name": "40 · Suppliers", "accounts": [
+          ["400", "Suppliers"],
+          ["401", "Suppliers, trade bills payable"],
+          ["403", "Suppliers, group companies"],
+          ["406", "Containers and packaging returnable to suppliers"],
+          ["407", "Advances to suppliers"]
+        ]},
+        { "name": "41 · Other payables", "accounts": [
+          ["410", "Payables for the rendering of services"],
+          ["411", "Trade bills payable"]
+        ]},
+        { "name": "43 · Trade receivables", "accounts": [
+          ["430", "Trade receivables"],
+          ["431", "Trade receivables, trade bills receivable"],
+          ["433", "Trade receivables, group companies"],
+          ["436", "Doubtful trade receivables"],
+          ["438", "Advances from customers"]
+        ]},
+        { "name": "44 · Other receivables", "accounts": [
+          ["440", "Receivables"],
+          ["446", "Doubtful receivables"]
+        ]},
+        { "name": "46 · Personnel", "accounts": [
+          ["460", "Salary advances"],
+          ["465", "Salaries payable"],
+          ["466", "Employee benefits payable, defined contribution schemes"]
+        ]},
+        { "name": "47 · Public entities", "accounts": [
+          ["470", "Taxation authorities, receivables"],
+          ["4700", "VAT recoverable"],
+          ["4708", "Grants receivable"],
+          ["471", "Social Security, receivables"],
+          ["472", "Input VAT"],
+          ["473", "Withholdings and payments on account"],
+          ["474", "Deferred tax assets"],
+          ["4740", "Assets from deductible temporary differences"],
+          ["4742", "Rights to tax deductions and credits pending application"],
+          ["4745", "Tax loss carryforwards"],
+          ["475", "Taxation authorities, taxes payable"],
+          ["4750", "VAT payable"],
+          ["4751", "Taxation authorities, withholding tax"],
+          ["4752", "Income tax payable"],
+          ["4758", "Repayable grants"],
+          ["476", "Social Security, payables"],
+          ["477", "Output VAT"],
+          ["479", "Liabilities from taxable temporary differences"]
+        ]},
+        { "name": "48 · Accruals", "accounts": [
+          ["480", "Prepaid expenses"],
+          ["485", "Deferred income"]
+        ]},
+        { "name": "49 · Impairment of trade receivables", "accounts": [
+          ["490", "Impairment of trade receivables"],
+          ["499", "Trade provisions"]
+        ]}
+      ]
+    },
+    {
+      "n": "5", "name": "Financial accounts",
+      "subgroups": [
+        { "name": "50 · Current debentures and similar", "accounts": [
+          ["500", "Current bonds and obligations"],
+          ["501", "Current convertible bonds and obligations"],
+          ["505", "Other current marketable securities"],
+          ["506", "Current interest on debentures and similar issues"]
+        ]},
+        { "name": "52 · Current payables for loans and other", "accounts": [
+          ["520", "Current debt with financial institutions"],
+          ["521", "Current payables"],
+          ["523", "Current payables to suppliers of fixed assets"],
+          ["524", "Current finance lease payables"],
+          ["525", "Current bills payable"],
+          ["526", "Dividend payable"],
+          ["527", "Current interest on debt with financial institutions"],
+          ["528", "Current interest on payables"],
+          ["529", "Current provisions"]
+        ]},
+        { "name": "54 · Other current investments", "accounts": [
+          ["540", "Current investments in equity instruments"],
+          ["541", "Current debt securities"],
+          ["542", "Current loans"],
+          ["545", "Dividend receivable"],
+          ["546", "Current interest on debt securities"],
+          ["547", "Current interest on loans"],
+          ["548", "Current deposits"]
+        ]},
+        { "name": "55 · Other non-bank accounts", "accounts": [
+          ["551", "Current account with equity holders and directors"],
+          ["555", "Items pending application"],
+          ["557", "Interim dividend"],
+          ["558", "Receivable on called-up capital"]
+        ]},
+        { "name": "57 · Cash", "accounts": [
+          ["570", "Cash, euros"],
+          ["572", "Banks, demand current accounts, euros"],
+          ["576", "Short-term highly-liquid investments"]
+        ]},
+        { "name": "59 · Impairment of current investments", "accounts": [
+          ["593", "Impairment of current investments in related parties"],
+          ["597", "Impairment of current debt securities"],
+          ["598", "Impairment of current loans"]
+        ]}
+      ]
+    },
+    {
+      "n": "6", "name": "Purchases and expenses",
+      "subgroups": [
+        { "name": "60 · Purchases", "accounts": [
+          ["600", "Merchandise purchased"],
+          ["601", "Raw materials purchased"],
+          ["602", "Other supplies purchased"],
+          ["606", "Prompt payment discounts on purchases"],
+          ["607", "Subcontracted work"],
+          ["608", "Purchase returns and similar transactions"],
+          ["609", "Volume discounts on purchases"]
+        ]},
+        { "name": "61 · Changes in inventories", "accounts": [
+          ["610", "Changes in inventories of merchandise"],
+          ["611", "Changes in inventories of raw materials"],
+          ["612", "Changes in inventories of other supplies"]
+        ]},
+        { "name": "62 · External services", "accounts": [
+          ["620", "Research and development expenses for the period"],
+          ["621", "Leases and royalties"],
+          ["622", "Repairs and maintenance"],
+          ["623", "Independent professional services"],
+          ["624", "Transport"],
+          ["625", "Insurance premiums"],
+          ["626", "Banking and similar services"],
+          ["627", "Advertising, publicity and public relations"],
+          ["628", "Utilities"],
+          ["629", "Other services"]
+        ]},
+        { "name": "63 · Taxes", "accounts": [
+          ["630", "Income tax"],
+          ["6300", "Current tax"],
+          ["6301", "Deferred tax"],
+          ["631", "Other taxes"],
+          ["633", "Negative adjustments to income tax"],
+          ["638", "Positive adjustments to income tax"]
+        ]},
+        { "name": "64 · Personnel expenses", "accounts": [
+          ["640", "Salaries and wages"],
+          ["641", "Termination benefits"],
+          ["642", "Social Security payable by the company"],
+          ["649", "Other employee benefits expense"]
+        ]},
+        { "name": "65 · Other expenses", "accounts": [
+          ["650", "Losses on irrecoverable trade receivables"],
+          ["659", "Other operating losses"]
+        ]},
+        { "name": "66 · Finance expenses", "accounts": [
+          ["661", "Interest on bonds and obligations"],
+          ["662", "Interest on payables"],
+          ["6623", "Interest on debt with financial institutions"],
+          ["663", "Losses on fair value measurement of financial instruments"],
+          ["668", "Exchange losses"],
+          ["669", "Other finance expenses"]
+        ]},
+        { "name": "67 · Losses on non-current assets and exceptional expenses", "accounts": [
+          ["670", "Losses on intangible assets"],
+          ["671", "Losses on property, plant and equipment"],
+          ["672", "Losses on investment property"],
+          ["678", "Exceptional expenses"]
+        ]},
+        { "name": "68 · Amortisation and depreciation", "accounts": [
+          ["680", "Amortisation of intangible assets"],
+          ["681", "Depreciation of property, plant and equipment"],
+          ["682", "Depreciation of investment property"]
+        ]},
+        { "name": "69 · Impairment losses and other charges", "accounts": [
+          ["690", "Impairment losses on intangible assets"],
+          ["691", "Impairment losses on property, plant and equipment"],
+          ["693", "Impairment losses on inventories"],
+          ["694", "Impairment losses on trade receivables"],
+          ["695", "Trade provisions"]
+        ]}
+      ]
+    },
+    {
+      "n": "7", "name": "Sales and income",
+      "subgroups": [
+        { "name": "70 · Sales", "accounts": [
+          ["700", "Merchandise sold"],
+          ["701", "Finished goods sold"],
+          ["705", "Services rendered"],
+          ["706", "Prompt payment discounts on sales"],
+          ["708", "Sales returns and similar transactions"],
+          ["709", "Volume discounts on sales"]
+        ]},
+        { "name": "71 · Changes in inventories", "accounts": [
+          ["710", "Changes in inventories of work in progress"],
+          ["712", "Changes in inventories of finished goods"]
+        ]},
+        { "name": "73 · Work carried out by the company for its assets", "accounts": [
+          ["730", "Work carried out for intangible assets"],
+          ["731", "Work carried out for property, plant and equipment"]
+        ]},
+        { "name": "74 · Grants, donations and bequests", "accounts": [
+          ["740", "Operating grants, donations and bequests"],
+          ["746", "Capital grants, donations and bequests taken to income"],
+          ["747", "Other grants, donations and bequests taken to income"]
+        ]},
+        { "name": "75 · Other income", "accounts": [
+          ["752", "Income from lease agreements"],
+          ["753", "Income from transfer of industrial property rights"],
+          ["754", "Commission income"],
+          ["759", "Income from other services"]
+        ]},
+        { "name": "76 · Finance income", "accounts": [
+          ["760", "Dividends"],
+          ["761", "Income from debt securities"],
+          ["762", "Income from loans"],
+          ["763", "Gains on fair value measurement of financial instruments"],
+          ["768", "Exchange gains"],
+          ["769", "Other finance income"]
+        ]},
+        { "name": "77 · Gains on non-current assets and exceptional income", "accounts": [
+          ["770", "Gains on intangible assets"],
+          ["771", "Gains on property, plant and equipment"],
+          ["772", "Gains on investment property"],
+          ["778", "Exceptional income"]
+        ]},
+        { "name": "79 · Reversals of provisions and impairment", "accounts": [
+          ["790", "Reversal of impairment of intangible assets"],
+          ["791", "Reversal of impairment of property, plant and equipment"],
+          ["793", "Reversal of impairment of inventories"],
+          ["794", "Reversal of impairment of trade receivables"],
+          ["795", "Provision surpluses"]
+        ]}
+      ]
+    },
+    {
+      "n": "8 / 9", "name": "Expenses and income recognised in equity",
+      "subgroups": [
+        { "name": "Used for the statement of recognised income and expense", "accounts": [
+          ["800", "Losses on financial assets at fair value through equity"],
+          ["802", "Transfer of gains on financial assets at fair value through equity"],
+          ["810", "Losses on cash flow hedges"],
+          ["820", "Negative translation differences"],
+          ["830", "Income tax (recognised in equity)"],
+          ["840", "Transfer of government capital grants"],
+          ["900", "Gains on financial assets at fair value through equity"],
+          ["902", "Transfer of losses on financial assets at fair value through equity"],
+          ["910", "Gains on cash flow hedges"],
+          ["920", "Positive translation differences"],
+          ["940", "Income from government capital grants"]
+        ]}
+      ]
+    }
+  ]
+}
+</script>
 <script>
 (function(){
   var DATA = JSON.parse(document.getElementById('deck-data').textContent);
   var OVERRIDES = JSON.parse(document.getElementById('overrides-data').textContent);
   var ABOUT = JSON.parse(document.getElementById('about-data').textContent);
   var MATERIALS = JSON.parse(document.getElementById('materials-data').textContent);
+  var GLOSSARY = JSON.parse(document.getElementById('glossary-data').textContent);
+  var ACCOUNTS = JSON.parse(document.getElementById('accounts-data').textContent);
   var ORDER = ["unit1","unit2","unit3","unit4","unit5"];
   var HIDDEN = (OVERRIDES._config && OVERRIDES._config.hidden) || [];
+  var HIDDEN_PAGES = (OVERRIDES._config && OVERRIDES._config.hiddenPages) || [];
   function isHidden(key){ return HIDDEN.indexOf(key) !== -1; }
+  function pageHidden(name){ return HIDDEN_PAGES.indexOf(name) !== -1; }
   function visibleUnits(){
     return ORDER.filter(function(k){ return DATA[k] && !isHidden(k); });
   }
@@ -1083,7 +1690,11 @@
         '</div>' +
         '<ul class="toc">' + rows + '</ul>' +
         '<div class="index-foot">' +
-          '<span><a href="#/about">About the course →</a></span>' +
+          '<span class="index-foot-links">' +
+            '<a href="#/about">About the course →</a>' +
+            (pageHidden('glossary') ? '' : '<a href="#/glossary">Glossary →</a>') +
+            (pageHidden('accounts') ? '' : '<a href="#/accounts">PGC accounts →</a>') +
+          '</span>' +
           '<span>jorge.gallud@uva.es · University of Valladolid</span>' +
         '</div>' +
       '</div>';
@@ -1185,6 +1796,66 @@
       }).join("") +
     '</div>';
     matShell(key, "Reference material", html);
+  }
+
+  function renderGlossary(){
+    var g = GLOSSARY;
+    var toc = (g.sections || []).map(function(s, i){
+      return '<a href="#/glossary" data-jump="'+i+'" class="ref-jump">'+esc(s.heading)+'</a>';
+    }).join("");
+    var body = (g.sections || []).map(function(s, i){
+      var rows = (s.terms || []).map(function(t){
+        return '<div class="gl-item" id="gl-'+i+'"><dt>'+esc(t[0])+'</dt><dd>'+esc(t[1])+'</dd></div>';
+      }).join("");
+      return '<section class="gl-sec"><h2>'+esc(s.heading)+'</h2><dl class="gl-list">'+rows+'</dl></section>';
+    }).join("");
+    app.innerHTML = '<div class="doc-wrap">' +
+      '<a class="back-link" href="#/">← Index</a>' +
+      '<h1>'+esc(g.title || "Glossary")+'</h1>' +
+      (g.intro ? '<p class="doc-intro">'+esc(g.intro)+'</p>' : '') +
+      (toc ? '<nav class="doc-toc">'+toc+'</nav>' : '') +
+      body +
+    '</div>';
+    document.title = "Glossary — Financial Statement Analysis";
+    wireJumps();
+    window.scrollTo(0,0);
+  }
+
+  function renderAccounts(){
+    var a = ACCOUNTS;
+    var toc = (a.groups || []).map(function(gr, i){
+      return '<a href="#/accounts" data-jump="'+i+'" class="ref-jump">'+esc(gr.n)+' · '+esc(gr.name)+'</a>';
+    }).join("");
+    var body = (a.groups || []).map(function(gr, i){
+      var subs = (gr.subgroups || []).map(function(sg){
+        var rows = (sg.accounts || []).map(function(ac){
+          return '<tr><td class="ac-code mono">'+esc(ac[0])+'</td><td>'+esc(ac[1])+'</td></tr>';
+        }).join("");
+        return '<h3>'+esc(sg.name)+'</h3><div class="tbl-wrap"><table class="ledger ac-table">'+rows+'</table></div>';
+      }).join("");
+      return '<section class="gl-sec" id="ac-'+i+'"><h2>Group '+esc(gr.n)+' — '+esc(gr.name)+'</h2>'+subs+'</section>';
+    }).join("");
+    app.innerHTML = '<div class="doc-wrap">' +
+      '<a class="back-link" href="#/">← Index</a>' +
+      '<h1>'+esc(a.title || "PGC accounts")+'</h1>' +
+      (a.intro ? '<p class="doc-intro">'+esc(a.intro)+'</p>' : '') +
+      (toc ? '<nav class="doc-toc">'+toc+'</nav>' : '') +
+      body +
+    '</div>';
+    document.title = "PGC accounts — Financial Statement Analysis";
+    wireJumps();
+    window.scrollTo(0,0);
+  }
+
+  function wireJumps(){
+    var secs = app.querySelectorAll('.gl-sec');
+    app.querySelectorAll('.ref-jump').forEach(function(link){
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        var t = secs[parseInt(link.getAttribute('data-jump'), 10)];
+        if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
   }
 
   function renderDiagram(d){
@@ -1330,6 +2001,8 @@
     var h = location.hash.replace(/^#\/?/, '');
     if(!h){ renderIndex(); return; }
     if(h === 'about'){ renderAbout(); return; }
+    if(h === 'glossary'){ renderGlossary(); return; }
+    if(h === 'accounts'){ renderAccounts(); return; }
     var parts = h.split('/');
     var key = parts[0];
     if(!DATA[key]){ renderIndex(); return; }

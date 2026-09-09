@@ -245,6 +245,76 @@
     padding-top:16px;
   }
 
+  /* ---------- GLOSSARY / ACCOUNTS ---------- */
+  .doc-wrap{
+    max-width:820px;
+    margin:0 auto;
+    padding:clamp(24px,5vw,60px) 20px 90px;
+  }
+  .doc-wrap .back-link{margin-bottom:22px;}
+  .doc-wrap h1{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600;
+    font-size:clamp(26px,4.4vw,38px);
+    margin:0 0 10px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:14px;
+  }
+  .doc-intro{color:var(--ink-soft); font-size:15px; margin:0 0 22px; max-width:64ch;}
+  .doc-toc{
+    display:flex; flex-wrap:wrap; gap:6px 16px;
+    padding:14px 0 4px;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:30px;
+  }
+  .doc-toc .ref-jump{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    color:var(--accent);
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .doc-toc .ref-jump:hover{text-decoration:underline;}
+  .gl-sec{margin:0 0 34px; scroll-margin-top:16px;}
+  .gl-sec h2{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600; font-size:21px; margin:0 0 14px;
+    padding-bottom:6px; border-bottom:1px solid var(--rule);
+  }
+  .gl-sec h3{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--ink-soft); margin:22px 0 8px;
+  }
+  .gl-list{margin:0;}
+  .gl-item{
+    display:grid;
+    grid-template-columns:minmax(0,13em) 1fr;
+    gap:6px 22px;
+    padding:11px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .gl-item dt{font-weight:600; font-size:14.5px;}
+  .gl-item dd{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink);}
+  @media (max-width:560px){
+    .gl-item{grid-template-columns:1fr; gap:2px;}
+    .gl-item dt{color:var(--accent);}
+  }
+  table.ac-table td{padding:6px 12px; font-size:14px;}
+  table.ac-table tr:first-child td{
+    background:none; color:inherit;
+    font-family:"Public Sans", ui-sans-serif, sans-serif;
+    font-size:14px; letter-spacing:normal; text-transform:none;
+  }
+  table.ac-table tr:first-child td.ac-code{
+    font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--ink-soft);
+  }
+  table.ac-table td.ac-code{
+    white-space:nowrap; color:var(--ink-soft);
+    width:1%; text-align:left;
+  }
+  .index-foot-links{display:flex; gap:16px; flex-wrap:wrap;}
+
   /* ---------- DECK ---------- */
   .deck{
     min-height:100vh;
@@ -608,15 +678,21 @@
 <script type="application/json" id="overrides-data">__OVERRIDES_JSON__</script>
 <script type="application/json" id="about-data">__ABOUT_JSON__</script>
 <script type="application/json" id="materials-data">__MATERIALS_JSON__</script>
+<script type="application/json" id="glossary-data">__GLOSSARY_JSON__</script>
+<script type="application/json" id="accounts-data">__ACCOUNTS_JSON__</script>
 <script>
 (function(){
   var DATA = JSON.parse(document.getElementById('deck-data').textContent);
   var OVERRIDES = JSON.parse(document.getElementById('overrides-data').textContent);
   var ABOUT = JSON.parse(document.getElementById('about-data').textContent);
   var MATERIALS = JSON.parse(document.getElementById('materials-data').textContent);
+  var GLOSSARY = JSON.parse(document.getElementById('glossary-data').textContent);
+  var ACCOUNTS = JSON.parse(document.getElementById('accounts-data').textContent);
   var ORDER = ["unit1","unit2","unit3","unit4","unit5"];
   var HIDDEN = (OVERRIDES._config && OVERRIDES._config.hidden) || [];
+  var HIDDEN_PAGES = (OVERRIDES._config && OVERRIDES._config.hiddenPages) || [];
   function isHidden(key){ return HIDDEN.indexOf(key) !== -1; }
+  function pageHidden(name){ return HIDDEN_PAGES.indexOf(name) !== -1; }
   function visibleUnits(){
     return ORDER.filter(function(k){ return DATA[k] && !isHidden(k); });
   }
@@ -696,7 +772,11 @@
         '</div>' +
         '<ul class="toc">' + rows + '</ul>' +
         '<div class="index-foot">' +
-          '<span><a href="#/about">About the course →</a></span>' +
+          '<span class="index-foot-links">' +
+            '<a href="#/about">About the course →</a>' +
+            (pageHidden('glossary') ? '' : '<a href="#/glossary">Glossary →</a>') +
+            (pageHidden('accounts') ? '' : '<a href="#/accounts">PGC accounts →</a>') +
+          '</span>' +
           '<span>jorge.gallud@uva.es · University of Valladolid</span>' +
         '</div>' +
       '</div>';
@@ -798,6 +878,66 @@
       }).join("") +
     '</div>';
     matShell(key, "Reference material", html);
+  }
+
+  function renderGlossary(){
+    var g = GLOSSARY;
+    var toc = (g.sections || []).map(function(s, i){
+      return '<a href="#/glossary" data-jump="'+i+'" class="ref-jump">'+esc(s.heading)+'</a>';
+    }).join("");
+    var body = (g.sections || []).map(function(s, i){
+      var rows = (s.terms || []).map(function(t){
+        return '<div class="gl-item" id="gl-'+i+'"><dt>'+esc(t[0])+'</dt><dd>'+esc(t[1])+'</dd></div>';
+      }).join("");
+      return '<section class="gl-sec"><h2>'+esc(s.heading)+'</h2><dl class="gl-list">'+rows+'</dl></section>';
+    }).join("");
+    app.innerHTML = '<div class="doc-wrap">' +
+      '<a class="back-link" href="#/">← Index</a>' +
+      '<h1>'+esc(g.title || "Glossary")+'</h1>' +
+      (g.intro ? '<p class="doc-intro">'+esc(g.intro)+'</p>' : '') +
+      (toc ? '<nav class="doc-toc">'+toc+'</nav>' : '') +
+      body +
+    '</div>';
+    document.title = "Glossary — Financial Statement Analysis";
+    wireJumps();
+    window.scrollTo(0,0);
+  }
+
+  function renderAccounts(){
+    var a = ACCOUNTS;
+    var toc = (a.groups || []).map(function(gr, i){
+      return '<a href="#/accounts" data-jump="'+i+'" class="ref-jump">'+esc(gr.n)+' · '+esc(gr.name)+'</a>';
+    }).join("");
+    var body = (a.groups || []).map(function(gr, i){
+      var subs = (gr.subgroups || []).map(function(sg){
+        var rows = (sg.accounts || []).map(function(ac){
+          return '<tr><td class="ac-code mono">'+esc(ac[0])+'</td><td>'+esc(ac[1])+'</td></tr>';
+        }).join("");
+        return '<h3>'+esc(sg.name)+'</h3><div class="tbl-wrap"><table class="ledger ac-table">'+rows+'</table></div>';
+      }).join("");
+      return '<section class="gl-sec" id="ac-'+i+'"><h2>Group '+esc(gr.n)+' — '+esc(gr.name)+'</h2>'+subs+'</section>';
+    }).join("");
+    app.innerHTML = '<div class="doc-wrap">' +
+      '<a class="back-link" href="#/">← Index</a>' +
+      '<h1>'+esc(a.title || "PGC accounts")+'</h1>' +
+      (a.intro ? '<p class="doc-intro">'+esc(a.intro)+'</p>' : '') +
+      (toc ? '<nav class="doc-toc">'+toc+'</nav>' : '') +
+      body +
+    '</div>';
+    document.title = "PGC accounts — Financial Statement Analysis";
+    wireJumps();
+    window.scrollTo(0,0);
+  }
+
+  function wireJumps(){
+    var secs = app.querySelectorAll('.gl-sec');
+    app.querySelectorAll('.ref-jump').forEach(function(link){
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        var t = secs[parseInt(link.getAttribute('data-jump'), 10)];
+        if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
   }
 
   function renderDiagram(d){
@@ -943,6 +1083,8 @@
     var h = location.hash.replace(/^#\/?/, '');
     if(!h){ renderIndex(); return; }
     if(h === 'about'){ renderAbout(); return; }
+    if(h === 'glossary'){ renderGlossary(); return; }
+    if(h === 'accounts'){ renderAccounts(); return; }
     var parts = h.split('/');
     var key = parts[0];
     if(!DATA[key]){ renderIndex(); return; }

@@ -1,0 +1,148 @@
+{
+  "_comment": "Glossary shown at #/glossary. Sections render in order; each term is [term, definition]. English only. Edit freely; no rebuild logic depends on the wording.",
+  "title": "Glossary",
+  "intro": "Working definitions of the technical terms used in the course. Where a term has a precise legal meaning under Spanish GAAP (PGC), the definition follows it.",
+  "sections": [
+    {
+      "heading": "Financial statements",
+      "terms": [
+        ["Annual accounts / financial statements", "The set of statements a company prepares at the end of each financial year: balance sheet, income statement, statement of changes in equity, cash flow statement and the notes. They must give a true and fair view of the company's equity, financial position and results."],
+        ["Balance sheet", "Statement of the company's financial position at a given date: what it owns and is owed (assets) against what it owes (liabilities) and the residual belonging to the owners (equity). Assets = Equity + Liabilities."],
+        ["Income statement (profit and loss account, P&L)", "Statement of the income earned and the expenses incurred over the financial year, and the resulting profit or loss. It explains part of the change in equity between two balance sheets."],
+        ["Statement of changes in equity (SCE)", "Statement in two parts explaining how equity changed during the year: the statement of recognised income and expense, and the statement of total changes in equity."],
+        ["Statement of recognised income and expense (SRIE)", "First part of the SCE: the profit for the year plus income and expenses that the rules require to be recognised directly in equity (e.g. certain financial instruments, cash flow hedges, grants), net of their tax effect, plus amounts transferred from equity to profit or loss."],
+        ["Statement of total changes in equity (STCE)", "Second part of the SCE: a matrix showing, for each equity item, the opening balance, the total recognised income and expense, transactions with owners (capital increases, dividends) and other movements, over three year-ends."],
+        ["Cash flow statement (CFS)", "Statement classifying the year's cash movements into operating, investing and financing activities, reconciling opening and closing cash."],
+        ["Notes to the financial statements", "Narrative and numerical disclosures that complete, explain and break down the figures in the other statements. Part 3 of the PGC sets out their content."],
+        ["Management report", "A report on the company's situation, performance, risks and outlook. It is not part of the financial statements but the Capital Companies Law requires most companies to prepare it."],
+        ["Abbreviated financial statements", "Simplified formats (balance sheet, notes and, separately, P&L) that a company may use when it stays below size thresholds for total assets, turnover and employees in two consecutive years. Using the abbreviated balance sheet exempts the company from the SCE and the CFS."],
+        ["True and fair view (\"faithful image\")", "The overriding requirement that the financial statements faithfully represent the company's economic reality. If applying a rule would conflict with it, the rule is set aside and the departure is explained in the notes."]
+      ]
+    },
+    {
+      "heading": "Balance sheet items",
+      "terms": [
+        ["Asset", "A resource controlled by the company as a result of past events, from which future economic benefits are expected."],
+        ["Liability", "A present obligation arising from past events, whose settlement is expected to require an outflow of resources."],
+        ["Equity (net worth)", "The residual interest in the assets after deducting all liabilities; the part belonging to the owners. Includes capital, reserves, prior-year results, the result for the year and valuation adjustments."],
+        ["Non-current vs current", "Current assets and liabilities are those expected to be realised, sold, consumed or settled within the normal operating cycle or within twelve months; everything else is non-current."],
+        ["Intangible assets", "Identifiable non-monetary assets without physical substance: computer software, patents and industrial property, administrative concessions, goodwill, development expenditure."],
+        ["Property, plant and equipment (PPE)", "Tangible assets held for use in production or supply of goods and services over more than one year: land and buildings, machinery, technical installations, motor vehicles, furniture, IT equipment."],
+        ["Investment property", "Land or buildings held to earn rentals or for capital appreciation rather than for use in the business."],
+        ["Inventories", "Assets held for sale in the ordinary course of business (merchandise, finished goods), in production (work in progress) or to be consumed in production (raw materials, other supplies)."],
+        ["Trade receivables", "Amounts owed to the company by customers for goods sold or services rendered."],
+        ["Impairment (value adjustment)", "A reduction in the carrying amount of an asset to reflect that its recoverable amount has fallen below its book value; recognised as an expense and reversible if the situation improves."],
+        ["Accumulated depreciation / amortisation", "The cumulative portion of a fixed asset's cost charged to expense over its useful life; shown as a deduction from the asset."],
+        ["Provision", "A liability of uncertain timing or amount (e.g. for taxes, environmental actions, restructuring, dismantling)."],
+        ["Working capital (fondo de maniobra)", "Current assets minus current liabilities. A positive figure means long-term funds finance part of the current assets, a common sign of short-term financial stability."],
+        ["Share premium", "The amount paid in by shareholders above the par value of the shares issued."],
+        ["Legal reserve", "A reserve that companies must build up by allocating at least 10% of the year's profit until it reaches 20% of share capital; its use is restricted."],
+        ["Retained earnings / prior periods' results", "Accumulated profits not yet distributed or transferred to reserves, or accumulated losses pending offset."]
+      ]
+    },
+    {
+      "heading": "Income statement items",
+      "terms": [
+        ["Revenue (turnover)", "Income from the sale of goods and the rendering of services that form the company's ordinary activity, net of returns and discounts."],
+        ["Supplies (consumption)", "The cost of goods and materials used: purchases adjusted for the change in inventories."],
+        ["Change in inventories", "The adjustment that turns purchases (or production) into consumption (or sales): closing minus opening inventory of the relevant class."],
+        ["Other operating expenses", "External services (leases, professional services, transport, insurance, utilities, advertising), taxes other than income tax, and losses on trade receivables."],
+        ["Operating result (EBIT)", "Earnings before interest and taxes: the result of the company's ordinary operating activity, before the financial result and income tax."],
+        ["Financial result", "Finance income (dividends, interest received, gains on financial instruments) minus finance expenses (interest paid, losses on financial instruments), plus exchange differences."],
+        ["Earnings before taxes (EBT / PBT)", "Operating result plus financial result; the base on which the accounting income tax expense is computed."],
+        ["Profit for the year (net income)", "Earnings before taxes minus the income tax expense; the bottom line that feeds into equity."],
+        ["EBITDA", "Operating result before depreciation and amortisation; a rough proxy for operating cash generation."]
+      ]
+    },
+    {
+      "heading": "Regulation and audit",
+      "terms": [
+        ["PGC — Spanish General Accounting Plan", "The accounting rulebook applicable in Spain: conceptual framework, recognition and measurement standards, financial-statement formats, chart of accounts and definitions."],
+        ["Commercial Code (CCo)", "Sets the trader's basic bookkeeping obligations: keeping a journal and an inventory-and-accounts book, legalising the books at the Commercial Registry, and retaining records for six years."],
+        ["Capital Companies Law (TRLSC)", "Governs the preparation, audit, approval and filing of the financial statements and the allocation of profit for corporations and limited-liability companies."],
+        ["Audit", "Independent examination of the financial statements to give an opinion on whether they show a true and fair view. Mandatory above certain size thresholds; the auditor is appointed by the general meeting for 3 to 9 years."],
+        ["General meeting (of shareholders)", "The body that approves the financial statements and the allocation of profit, within six months of year-end, and appoints the auditor."],
+        ["Filing at the Commercial Registry", "Submission of the approved financial statements, management report and audit report, within one month of approval; makes them publicly available."],
+        ["Accrual basis", "Transactions are recognised when the underlying economic events occur, not when cash is received or paid."],
+        ["Going concern", "The assumption that the company will continue operating for the foreseeable future, so assets and liabilities are not measured at liquidation values."],
+        ["Prudence", "Recognise losses and risks as soon as they are known, but gains only when realised."],
+        ["Uniformity (consistency)", "Once a criterion is adopted, keep it over time; change it only for good reason and disclose the effect."],
+        ["No offsetting", "Do not net assets against liabilities, or income against expenses, unless a rule allows it."],
+        ["Materiality (relative importance)", "A rule may be departed from when its effect is negligible and does not affect the true and fair view."]
+      ]
+    },
+    {
+      "heading": "Corporate income tax",
+      "terms": [
+        ["Corporate income tax (IS)", "A direct tax on the profits of companies, governed by Law 27/2014. The general rate used in the course is 25%."],
+        ["Taxable base", "The accounting result before taxes adjusted for the differences between accounting and tax rules, and reduced by tax losses carried forward."],
+        ["Permanent difference", "A difference between accounting and taxable income that will never reverse (e.g. fines and penalties, non-deductible donations, the exemption for qualifying dividends). It changes the current tax but creates no deferred tax."],
+        ["Temporary difference", "A difference that will reverse in future years (e.g. accounting depreciation faster or slower than tax depreciation, impairment of receivables not yet tax-deductible). It gives rise to a deferred tax asset or liability."],
+        ["Deferred tax asset (4740, 4742, 4745)", "A future tax saving: from deductible temporary differences, from tax credits and deductions pending application, or from tax loss carryforwards."],
+        ["Deferred tax liability (479)", "A future tax payment arising from taxable temporary differences."],
+        ["Gross tax / net tax", "Gross tax = taxable base × rate. Net tax (tax payable) = gross tax minus deductions and credits."],
+        ["Withholdings and payments on account (473)", "Amounts prepaid to the tax authorities during the year; recognised as an asset and offset against the final tax liability."],
+        ["Tax deductions and credits (4742)", "Reductions of the gross tax to encourage certain activities (R&D&i, job creation, film production) or to relieve double taxation; the unused part can be carried forward."],
+        ["Tax loss carryforward (4745)", "The right to reduce future taxable bases by losses of prior years."],
+        ["Free / accelerated depreciation", "A tax incentive allowing an asset's cost to be deducted for tax faster than the accounting depreciation, creating a temporary difference."],
+        ["Current tax (6300) / deferred tax (6301)", "The two components of the income tax expense in the P&L: the tax on this year's taxable base, and the change in deferred tax assets and liabilities."]
+      ]
+    },
+    {
+      "heading": "Grants, donations and bequests",
+      "terms": [
+        ["Capital grant", "A grant to finance the acquisition of a fixed asset; recognised initially in equity (net of tax) and taken to income over the asset's useful life, in proportion to its depreciation."],
+        ["Operating grant", "A grant to cover specific expenses or a revenue shortfall of the year; recognised as income of the same period as the expense it covers."],
+        ["Non-refundable grant", "A grant for which all conditions have been met and there is no reasonable doubt it will be kept; recognised in equity and then in income."],
+        ["Refundable grant", "A grant still subject to conditions; recognised as a liability until it becomes non-refundable."]
+      ]
+    },
+    {
+      "heading": "Financial statement analysis — general",
+      "terms": [
+        ["Vertical (common-size) analysis", "Expressing each item as a percentage of a total (total assets, or revenue) to see the structure of the statements and how it changes over time. Also called structural or static analysis."],
+        ["Horizontal analysis", "Comparing each item with a base year to measure growth rates and compare the growth of different items. Also called dynamic analysis."],
+        ["Ratio analysis", "Relating two figures from the statements to measure profitability, liquidity, solvency or activity, and comparing the ratio over time and against the sector."],
+        ["Sources and uses of funds", "A table classifying the year-on-year change in each balance-sheet item as a source of funds (increase in equity or liabilities, decrease in assets) or a use of funds (the opposite)."],
+        ["Book value", "The value of an item as recorded in the accounts."],
+        ["Market value", "The value the market places on the company (market capitalisation) or on one of its assets."]
+      ]
+    },
+    {
+      "heading": "Profitability",
+      "terms": [
+        ["Return on assets (ROA)", "EBIT / total assets. The return the company obtains on all the resources invested in it, regardless of how they are financed. Also called economic profitability or return on investment."],
+        ["Return on equity (ROE)", "Earnings before taxes / equity (or net profit / equity). The return obtained by the owners on the funds they have committed. Also called financial profitability."],
+        ["Margin", "Result / revenue. The share of each euro of sales that is left as profit; one of the two drivers of ROA."],
+        ["Asset turnover (rotation)", "Revenue / total assets. How many euros of sales each euro of assets generates; the other driver of ROA (ROA = margin × turnover)."],
+        ["Leverage (financial)", "The use of debt to finance assets. The financial leverage effect is positive when ROA exceeds the cost of debt, so borrowing raises ROE; negative when it is the other way round."],
+        ["Cost of debt", "Finance expenses / interest-bearing debt; the average interest rate the company pays."]
+      ]
+    },
+    {
+      "heading": "Liquidity and solvency",
+      "terms": [
+        ["Liquidity", "The ability to meet obligations as they fall due in the short term."],
+        ["Solvency", "The ability to meet all obligations, including in the long term; broadly, whether total assets exceed total liabilities."],
+        ["Current ratio (liquidity ratio)", "Current assets / current liabilities. A value around or above 1 suggests the company can cover its short-term debts."],
+        ["Acid test (quick ratio)", "(Current assets − inventories) / current liabilities. A stricter test that excludes the least liquid current asset."],
+        ["Average collection period", "The average number of days customers take to pay: trade receivables / credit sales × 365."],
+        ["Average payment period", "The average number of days the company takes to pay suppliers: trade payables / credit purchases × 365."],
+        ["Solvency ratio", "Total assets / total liabilities. Above 1 means assets are enough to cover all debts."],
+        ["Altman Z-score", "A composite indicator combining several ratios into a single score that estimates the risk of insolvency."]
+      ]
+    },
+    {
+      "heading": "Growth and value creation",
+      "terms": [
+        ["Internal growth", "Growth financed by retained earnings (profits not distributed as dividends)."],
+        ["External growth", "Growth financed by new debt or new capital from outside the company."],
+        ["Dividend / payout ratio", "The dividend is the part of profit distributed to shareholders; the payout ratio is dividends / profit. The retention ratio is the complement."],
+        ["Earnings per share (EPS)", "Profit for the year / number of shares."],
+        ["Price-earnings ratio (PER)", "Share price / earnings per share; how many years of current earnings the market is paying for."],
+        ["Market-to-book ratio (M/B)", "Market value of equity / book value of equity; above 1 means the market expects the company to create value."],
+        ["Market capitalisation", "Share price × number of shares; the market's valuation of the company's equity."]
+      ]
+    }
+  ]
+}

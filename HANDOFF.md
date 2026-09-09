@@ -69,6 +69,30 @@ Repo: `https://github.com/jorgegallud-boop/FSA` (not pushed yet — see below)
 - `data/materials.json` is keyed by unit id; slide-number-independent, so it is
   unaffected by re-extraction. Only U2 and U3 have entries.
 
+## Fourth session (2026-09-09)
+
+- `01 Slides.pptx` refreshed (Jorge's course-evaluation edits).
+- Jorge split the old 15-slide unit 4 into `04.pptx` ("Financial Analysis",
+  3 slides) + `05.pptx` ("Profitability Analysis", 13 slides). Added `unit5` to
+  `extract_pptx.py` FILES and to `ORDER`. The old `unit4` overrides moved to
+  `unit5` verbatim (slide order matched); new `unit4` only fixes its divider.
+- **`overrides.json` `_config.hidden`** = `["unit3","unit4","unit5"]`. Hidden
+  units get no index row and no nav but still build and are reachable by direct
+  `#/unitN/1` link (for previewing). Empty the list to publish. Wiring:
+  `visibleUnits()` / `isHidden()` in the template.
+- **Bug fixed:** `extract_pptx.py` `TITLE_LAYOUTS` matched by `startswith`, so
+  `"título"` caught the normal content layout `"Título y objetos"` and, on the
+  first real CI run of this (session-2) extractor, every content slide came out
+  as a divider with its bullets/tables dropped. Now matches the layout name
+  exactly. The workflow also re-extracts when `scripts/extract_pptx.py` changes,
+  not only when a `.pptx` does.
+- **Glossary** (`data/glossary.json`, `#/glossary`) and **PGC accounts**
+  (`data/accounts.json`, `#/accounts`) support pages added. English. Accounts
+  are a course-curated subset of the PGC Part-4 chart (English names from
+  `02 SGAP.pdf`). Both are in `_config.hiddenPages` so their footer links are
+  suppressed — reachable only by direct URL — until Jorge signs off, then drop
+  them from that list.
+
 ## Not done / next steps
 
 - **Course-evaluation slide (U1)**: Jorge is fixing the stale dates / bullet

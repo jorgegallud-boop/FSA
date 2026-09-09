@@ -1,6 +1,11 @@
 {
   "_comment": "Hand-authored fixes applied ON TOP OF data/deck_data.json at page-build time. Keys are the unit id and the slide number as shown in the site (1-based). Regenerating deck_data.json from the .pptx files does NOT touch this file. If you insert or delete slides in a deck, re-check the slide numbers here. Supported keys per slide: title (string, \\n allowed on divider slides), caption (string, shown under the first image), diagram (see build), dropTables (bool), dropImages (bool), hideAsides (bool).",
 
+  "_config": {
+    "_hint": "hidden: unit ids not shown on the site (no index row, no nav). Content still builds and is reachable by direct #/unitN/1 link for previewing. Empty the list to publish all.",
+    "hidden": ["unit3", "unit4", "unit5"]
+  },
+
   "unit1": {
     "4": { "title": "Unit 1\nIntroduction" },
     "7": { "hideAsides": true }
@@ -49,6 +54,11 @@
   },
 
   "unit4": {
+    "1": { "title": "Unit 4\nFinancial Analysis" }
+  },
+
+  "unit5": {
+    "1":  { "title": "Unit 5\nProfitability Analysis" },
     "3":  { "title": "Example 1 · sources and uses of funds" },
     "4":  { "caption": "Each user group reads the statements with a different question in mind." },
     "6":  { "title": "Example 2 · sources and uses of funds" },

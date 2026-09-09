@@ -614,7 +614,12 @@
   var OVERRIDES = JSON.parse(document.getElementById('overrides-data').textContent);
   var ABOUT = JSON.parse(document.getElementById('about-data').textContent);
   var MATERIALS = JSON.parse(document.getElementById('materials-data').textContent);
-  var ORDER = ["unit1","unit2","unit3","unit4"];
+  var ORDER = ["unit1","unit2","unit3","unit4","unit5"];
+  var HIDDEN = (OVERRIDES._config && OVERRIDES._config.hidden) || [];
+  function isHidden(key){ return HIDDEN.indexOf(key) !== -1; }
+  function visibleUnits(){
+    return ORDER.filter(function(k){ return DATA[k] && !isHidden(k); });
+  }
   var app = document.getElementById('app');
 
   // --- apply hand-authored fixes from data/overrides.json ---
@@ -664,7 +669,7 @@
   }
 
   function renderIndex(){
-    var rows = ORDER.map(function(key, i){
+    var rows = visibleUnits().map(function(key, i){
       var u = DATA[key];
       var row = '<a class="toc-row" href="#/'+key+'/1">' +
         '<span class="toc-num mono">'+String(i+1).padStart(2,'0')+'</span>' +
@@ -687,7 +692,7 @@
         '<div class="masthead">' +
           '<p class="kicker">Financial Statement Analysis</p>' +
           '<h1>Course slides</h1>' +
-          '<p>The four units of the course, in web format. Navigate with the keyboard arrows, by tapping the sides, or with the buttons at the bottom. This site is updated as the course progresses.</p>' +
+          '<p>The units of the course, in web format. Navigate with the keyboard arrows, by tapping the sides, or with the buttons at the bottom. More units are added as the course progresses.</p>' +
         '</div>' +
         '<ul class="toc">' + rows + '</ul>' +
         '<div class="index-foot">' +

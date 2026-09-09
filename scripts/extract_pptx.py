@@ -22,7 +22,8 @@ FILES = [
     ("unit1", "01 Slides.pptx", "Unit 1", "Introduction"),
     ("unit2", "02.pptx", "Unit 2", "Financial Statements I"),
     ("unit3", "03.pptx", "Unit 3", "Financial Statements II"),
-    ("unit4", "04.pptx", "Unit 4", "Financial Statement Analysis"),
+    ("unit4", "04.pptx", "Unit 4", "Financial Analysis"),
+    ("unit5", "05.pptx", "Unit 5", "Profitability Analysis"),
 ]
 
 # Placeholder shape names, Spanish (current decks) and English (in case a deck is

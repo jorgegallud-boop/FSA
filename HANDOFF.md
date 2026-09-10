@@ -125,14 +125,24 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   Fonts, offline navigations fall back to the cached `index.html`. Bump `CACHE`
   in `sw.js` to force old entries out. Install: Android/desktop Chrome from the
   manifest; iOS via Add to Home Screen (apple-touch-icon + `apple-mobile-web-app-
-  capable`). SW verified by code only — the sandboxed preview browsers here block
-  SW script registration; check once on the live HTTPS site.
+  capable`). Verified live 2026-09-10: SW active and controlling, cache populated,
+  manifest + icons all 200. "Add to Home Screen" on a real phone still to confirm.
+- **Glossary search.** `#/glossary` has a live filter box: `renderGlossary()`
+  emits `.gl-search` + a clear button + a `.gl-nomatch` line; `wireGlossarySearch()`
+  matches the typed text against each `.gl-item`'s text (diacritic-folded via
+  `foldText()`), hides non-matching items and empty sections, and hides the
+  section-jump nav while a query is active. `#/accounts` is unchanged.
+- **Glossary content.** Added "Expense" and "Payment" to *Income statement items*
+  (to teach expense ≠ payment); expanded "Asset" / "Liability" with the
+  economic-structure / financial-structure framing (use of funds vs origin of
+  funds). Also linked the Weygandt textbook (About → Main references) to its
+  authorised Campus Virtual copy; About list items now accept `{t, href, suffix}`.
+- Office 145 now shows next to the email (index footer + About → Contact).
 
 ## Not done / next steps
 
-- Verify the service worker registers on the live site (DevTools → Application →
-  Service Workers) and that "Add to Home Screen" gives a standalone window with
-  the FSA icon on a real phone.
+- Confirm "Add to Home Screen" gives a standalone window with the FSA icon on a
+  real phone (Android Chrome / iOS Safari).
 - `gh` is installed (portable, `%LOCALAPPDATA%\Programs\GitHubCLI\bin`) but not
   `gh auth login`'d in the bash context — the push works via git + Git
   Credential Manager. Old fine-grained PAT was revoked.

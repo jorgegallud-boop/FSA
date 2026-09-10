@@ -22,8 +22,8 @@
     {
       "heading": "Balance sheet items",
       "terms": [
-        ["Asset", "A resource controlled by the company as a result of past events, from which future economic benefits are expected."],
-        ["Liability", "A present obligation arising from past events, whose settlement is expected to require an outflow of resources."],
+        ["Asset", "A resource controlled by the company as a result of past events, from which future economic benefits are expected. Taken as a whole, the assets are the company's economic structure: the use it has made of its funds — what it has invested in and works with."],
+        ["Liability", "A present obligation arising from past events, whose settlement is expected to require an outflow of resources. Taken as a whole, liabilities and equity are the company's financial structure: the origin of its funds — where the resources it holds have come from."],
         ["Equity (net worth)", "The residual interest in the assets after deducting all liabilities; the part belonging to the owners. Includes capital, reserves, prior-year results, the result for the year and valuation adjustments."],
         ["Non-current vs current", "Current assets and liabilities are those expected to be realised, sold, consumed or settled within the normal operating cycle or within twelve months; everything else is non-current."],
         ["Intangible assets", "Identifiable non-monetary assets without physical substance: computer software, patents and industrial property, administrative concessions, goodwill, development expenditure."],
@@ -44,6 +44,8 @@
       "heading": "Income statement items",
       "terms": [
         ["Revenue (turnover)", "Income from the sale of goods and the rendering of services that form the company's ordinary activity, net of returns and discounts."],
+        ["Expense", "A decrease in equity during the year — an outflow or a fall in the value of assets, or the recognition or increase of a liability — that does not arise from a distribution to the owners. Most expenses are recognised in the income statement; a few go directly to equity."],
+        ["Payment", "An outflow of cash or cash equivalents. It belongs to the cash flow statement, not the income statement: under the accrual basis an expense need not be paid in the same year, and many payments (buying a fixed asset, repaying a loan, paying a dividend) are not expenses at all."],
         ["Supplies (consumption)", "The cost of goods and materials used: purchases adjusted for the change in inventories."],
         ["Change in inventories", "The adjustment that turns purchases (or production) into consumption (or sales): closing minus opening inventory of the relevant class."],
         ["Other operating expenses", "External services (leases, professional services, transport, insurance, utilities, advertising), taxes other than income tax, and losses on trade receivables."],

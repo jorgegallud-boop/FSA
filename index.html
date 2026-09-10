@@ -274,6 +274,27 @@
     padding-bottom:14px;
   }
   .doc-intro{color:var(--ink-soft); font-size:15px; margin:0 0 22px; max-width:64ch;}
+  .gl-search-wrap{position:relative; margin:0 0 24px; max-width:34em;}
+  .gl-search{
+    width:100%;
+    font-family:"Public Sans", ui-sans-serif, sans-serif;
+    font-size:15px;
+    color:var(--ink);
+    background:var(--surface);
+    border:1px solid var(--rule-strong);
+    border-radius:3px;
+    padding:10px 34px 10px 12px;
+  }
+  .gl-search:focus{outline:none; border-color:var(--accent);}
+  .gl-search::-webkit-search-cancel-button{-webkit-appearance:none;}
+  .gl-search-clear{
+    position:absolute; right:4px; top:50%; transform:translateY(-50%);
+    border:0; background:none; cursor:pointer;
+    font-size:20px; line-height:1; color:var(--ink-soft);
+    padding:4px 9px;
+  }
+  .gl-search-clear:hover{color:var(--accent);}
+  .gl-nomatch{color:var(--ink-soft); font-size:14px; font-style:italic; margin:0 0 24px;}
   .doc-toc{
     display:flex; flex-wrap:wrap; gap:6px 16px;
     padding:14px 0 4px;
@@ -1111,8 +1132,8 @@
     {
       "heading": "Balance sheet items",
       "terms": [
-        ["Asset", "A resource controlled by the company as a result of past events, from which future economic benefits are expected."],
-        ["Liability", "A present obligation arising from past events, whose settlement is expected to require an outflow of resources."],
+        ["Asset", "A resource controlled by the company as a result of past events, from which future economic benefits are expected. Taken as a whole, the assets are the company's economic structure: the use it has made of its funds — what it has invested in and works with."],
+        ["Liability", "A present obligation arising from past events, whose settlement is expected to require an outflow of resources. Taken as a whole, liabilities and equity are the company's financial structure: the origin of its funds — where the resources it holds have come from."],
         ["Equity (net worth)", "The residual interest in the assets after deducting all liabilities; the part belonging to the owners. Includes capital, reserves, prior-year results, the result for the year and valuation adjustments."],
         ["Non-current vs current", "Current assets and liabilities are those expected to be realised, sold, consumed or settled within the normal operating cycle or within twelve months; everything else is non-current."],
         ["Intangible assets", "Identifiable non-monetary assets without physical substance: computer software, patents and industrial property, administrative concessions, goodwill, development expenditure."],
@@ -1133,6 +1154,8 @@
       "heading": "Income statement items",
       "terms": [
         ["Revenue (turnover)", "Income from the sale of goods and the rendering of services that form the company's ordinary activity, net of returns and discounts."],
+        ["Expense", "A decrease in equity during the year — an outflow or a fall in the value of assets, or the recognition or increase of a liability — that does not arise from a distribution to the owners. Most expenses are recognised in the income statement; a few go directly to equity."],
+        ["Payment", "An outflow of cash or cash equivalents. It belongs to the cash flow statement, not the income statement: under the accrual basis an expense need not be paid in the same year, and many payments (buying a fixed asset, repaying a loan, paying a dividend) are not expenses at all."],
         ["Supplies (consumption)", "The cost of goods and materials used: purchases adjusted for the change in inventories."],
         ["Change in inventories", "The adjustment that turns purchases (or production) into consumption (or sales): closing minus opening inventory of the relevant class."],
         ["Other operating expenses", "External services (leases, professional services, transport, insurance, utilities, advertising), taxes other than income tax, and losses on trade receivables."],
@@ -1850,12 +1873,65 @@
       '<a class="back-link" href="#/">← Index</a>' +
       '<h1>'+esc(g.title || "Glossary")+'</h1>' +
       (g.intro ? '<p class="doc-intro">'+esc(g.intro)+'</p>' : '') +
+      '<div class="gl-search-wrap">' +
+        '<input type="search" class="gl-search" placeholder="Search the glossary…" aria-label="Search the glossary" autocomplete="off" autocapitalize="none" spellcheck="false">' +
+        '<button type="button" class="gl-search-clear" aria-label="Clear search" hidden>&times;</button>' +
+      '</div>' +
+      '<p class="gl-nomatch" hidden></p>' +
       (toc ? '<nav class="doc-toc">'+toc+'</nav>' : '') +
       body +
     '</div>';
     document.title = "Glossary — Financial Statement Analysis";
     wireJumps();
+    wireGlossarySearch();
     window.scrollTo(0,0);
+  }
+
+  function foldText(s){
+    return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  }
+
+  function wireGlossarySearch(){
+    var input = app.querySelector('.gl-search');
+    if(!input) return;
+    var clearBtn = app.querySelector('.gl-search-clear');
+    var noMatch = app.querySelector('.gl-nomatch');
+    var toc = app.querySelector('.doc-toc');
+    var secs = [].slice.call(app.querySelectorAll('.gl-sec'));
+    var items = [].slice.call(app.querySelectorAll('.gl-item'));
+    items.forEach(function(it){ it._hay = foldText(it.textContent); });
+
+    function apply(){
+      var raw = input.value.trim();
+      var q = foldText(raw);
+      clearBtn.hidden = !input.value;
+      if(!q){
+        items.forEach(function(it){ it.hidden = false; });
+        secs.forEach(function(s){ s.hidden = false; });
+        if(toc) toc.hidden = false;
+        noMatch.hidden = true;
+        return;
+      }
+      if(toc) toc.hidden = true;
+      var any = false;
+      secs.forEach(function(sec){
+        var hitInSec = false;
+        [].slice.call(sec.querySelectorAll('.gl-item')).forEach(function(it){
+          var hit = it._hay.indexOf(q) !== -1;
+          it.hidden = !hit;
+          if(hit){ hitInSec = true; any = true; }
+        });
+        sec.hidden = !hitInSec;
+      });
+      noMatch.hidden = any;
+      if(!any) noMatch.textContent = 'No matches for “' + raw + '”.';
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && input.value){ e.preventDefault(); input.value = ''; apply(); }
+    });
+    clearBtn.addEventListener('click', function(){ input.value = ''; apply(); input.focus(); });
   }
 
   function renderAccounts(){

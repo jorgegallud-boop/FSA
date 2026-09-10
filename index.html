@@ -1874,7 +1874,7 @@
       '<h1>'+esc(g.title || "Glossary")+'</h1>' +
       (g.intro ? '<p class="doc-intro">'+esc(g.intro)+'</p>' : '') +
       '<div class="gl-search-wrap">' +
-        '<input type="search" class="gl-search" placeholder="Search the glossary…" aria-label="Search the glossary" autocomplete="off" autocapitalize="none" spellcheck="false">' +
+        '<input type="search" class="gl-search" placeholder="Search terms…" aria-label="Search glossary terms" autocomplete="off" autocapitalize="none" spellcheck="false">' +
         '<button type="button" class="gl-search-clear" aria-label="Clear search" hidden>&times;</button>' +
       '</div>' +
       '<p class="gl-nomatch" hidden></p>' +
@@ -1899,7 +1899,11 @@
     var toc = app.querySelector('.doc-toc');
     var secs = [].slice.call(app.querySelectorAll('.gl-sec'));
     var items = [].slice.call(app.querySelectorAll('.gl-item'));
-    items.forEach(function(it){ it._hay = foldText(it.textContent); });
+    // match the term (the <dt>) only, not its definition
+    items.forEach(function(it){
+      var dt = it.querySelector('dt');
+      it._hay = foldText(dt ? dt.textContent : it.textContent);
+    });
 
     function apply(){
       var raw = input.value.trim();

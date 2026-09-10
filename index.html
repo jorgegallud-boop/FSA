@@ -250,34 +250,6 @@
   }
   .about-sec a{color:var(--accent); text-decoration:none;}
   .about-sec a:hover{text-decoration:underline;}
-
-  /* ---------- QR ---------- */
-  .qr-wrap{
-    max-width:520px;
-    margin:0 auto;
-    padding:clamp(24px,5vw,60px) 20px 90px;
-    text-align:center;
-  }
-  .qr-wrap .back-link{display:inline-flex; margin-bottom:30px;}
-  .qr-wrap h1{
-    font-family:"Newsreader", Georgia, serif;
-    font-weight:600;
-    font-size:clamp(24px,4vw,34px);
-    margin:0 0 6px;
-  }
-  .qr-sub{color:var(--ink-soft); font-size:15px; margin:0 0 30px;}
-  .qr-code{
-    display:inline-block;
-    background:#fff;
-    padding:18px;
-    border:1px solid var(--rule-strong);
-    border-radius:6px;
-    box-shadow:var(--shadow);
-  }
-  .qr-code img{display:block; width:min(320px,72vw); height:auto;}
-  .qr-url{margin:24px 0 0; font-size:13px; word-break:break-all;}
-  .qr-url a{color:var(--accent); text-decoration:none;}
-  .qr-url a:hover{text-decoration:underline;}
   .about-note{
     margin-top:34px;
     font-size:12.5px;
@@ -1681,7 +1653,6 @@
   var GLOSSARY = JSON.parse(document.getElementById('glossary-data').textContent);
   var ACCOUNTS = JSON.parse(document.getElementById('accounts-data').textContent);
   var ORDER = ["unit1","unit2","unit3","unit4","unit5"];
-  var SITE_URL = "https://jorgegallud-boop.github.io/FSA/"; // what qr.svg encodes
   var HIDDEN = (OVERRIDES._config && OVERRIDES._config.hidden) || [];
   var HIDDEN_PAGES = (OVERRIDES._config && OVERRIDES._config.hiddenPages) || [];
   function isHidden(key){ return HIDDEN.indexOf(key) !== -1; }
@@ -1776,7 +1747,6 @@
             '<a href="#/about">About the course →</a>' +
             (pageHidden('glossary') ? '' : '<a href="#/glossary">Glossary →</a>') +
             (pageHidden('accounts') ? '' : '<a href="#/accounts">PGC accounts →</a>') +
-            '<a href="#/qr">QR code →</a>' +
           '</span>' +
           '<span>jorge.gallud@uva.es · Office 145 · University of Valladolid</span>' +
         '</div>' +
@@ -1996,20 +1966,6 @@
     window.scrollTo(0,0);
   }
 
-  function renderQr(){
-    app.innerHTML = '<div class="qr-wrap">' +
-      '<a class="back-link" href="#/">← Index</a>' +
-      '<h1>Financial Statement Analysis</h1>' +
-      '<p class="qr-sub">Scan to open the course site on your phone — or click the code.</p>' +
-      '<a class="qr-code" href="'+attr(SITE_URL)+'">' +
-        '<img src="qr.svg" alt="QR code linking to '+attr(SITE_URL)+'" width="320" height="320">' +
-      '</a>' +
-      '<p class="qr-url mono"><a href="'+attr(SITE_URL)+'">'+esc(SITE_URL)+'</a></p>' +
-    '</div>';
-    document.title = "QR code — Financial Statement Analysis";
-    window.scrollTo(0,0);
-  }
-
   function wireJumps(){
     var secs = app.querySelectorAll('.gl-sec');
     app.querySelectorAll('.ref-jump').forEach(function(link){
@@ -2166,7 +2122,6 @@
     if(h === 'about'){ renderAbout(); return; }
     if(h === 'glossary'){ renderGlossary(); return; }
     if(h === 'accounts'){ renderAccounts(); return; }
-    if(h === 'qr'){ renderQr(); return; }
     var parts = h.split('/');
     var key = parts[0];
     if(!DATA[key]){ renderIndex(); return; }

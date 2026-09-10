@@ -10,14 +10,15 @@
  *
  * Bump CACHE to force old entries out on the next visit.
  */
-var CACHE = 'fsa-2026-09-10';
+var CACHE = 'fsa-2026-09-10b';
 var SHELL = [
   './',
   './index.html',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
-  './apple-touch-icon.png'
+  './apple-touch-icon.png',
+  './qr.svg'
 ];
 
 self.addEventListener('install', function (e) {

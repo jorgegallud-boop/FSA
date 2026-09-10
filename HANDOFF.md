@@ -133,12 +133,19 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   (diacritic-folded via `foldText()`), hides non-matching items and empty
   sections, and hides the section-jump nav while a query is active. `#/accounts`
   is unchanged.
-- **Glossary content.** Added "Expense" and "Payment" to *Income statement items*
-  (to teach expense ≠ payment); expanded "Asset" / "Liability" with the
-  economic-structure / financial-structure framing (use of funds vs origin of
-  funds). Also linked the Weygandt textbook (About → Main references) to its
-  authorised Campus Virtual copy; About list items now accept `{t, href, suffix}`.
+- **Glossary content.** Added Income / Expense / Collection / Payment to *Income
+  statement items* (to teach that income ≠ collection and expense ≠ payment);
+  expanded "Asset" / "Liability" with the economic-structure / financial-structure
+  framing (use of funds vs origin of funds). Also linked the Weygandt textbook
+  (About → Main references) to its authorised Campus Virtual copy; About list
+  items now accept `{t, href, suffix}`.
 - Office 145 now shows next to the email (index footer + About → Contact).
+- **QR page + full-screen key.** `#/qr` (`renderQr()`, linked from the index
+  footer) shows the `qr.svg` code — clickable, links to `SITE_URL`
+  (`https://jorgegallud-boop.github.io/FSA/`, the string `scripts/make_qr.py`
+  encodes; needs `segno`). `qr.svg` + `qr.png` at the repo root. Press **F**
+  anywhere (except in a text field) to toggle the Fullscreen API —
+  `toggleFullscreen()` on the global keydown handler.
 
 ## Not done / next steps
 

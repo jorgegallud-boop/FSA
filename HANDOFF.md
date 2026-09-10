@@ -129,9 +129,10 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   manifest + icons all 200. "Add to Home Screen" on a real phone still to confirm.
 - **Glossary search.** `#/glossary` has a live filter box: `renderGlossary()`
   emits `.gl-search` + a clear button + a `.gl-nomatch` line; `wireGlossarySearch()`
-  matches the typed text against each `.gl-item`'s text (diacritic-folded via
-  `foldText()`), hides non-matching items and empty sections, and hides the
-  section-jump nav while a query is active. `#/accounts` is unchanged.
+  matches the query against the term (`<dt>`) only, not the definition
+  (diacritic-folded via `foldText()`), hides non-matching items and empty
+  sections, and hides the section-jump nav while a query is active. `#/accounts`
+  is unchanged.
 - **Glossary content.** Added "Expense" and "Payment" to *Income statement items*
   (to teach expense ≠ payment); expanded "Asset" / "Liability" with the
   economic-structure / financial-structure framing (use of funds vs origin of

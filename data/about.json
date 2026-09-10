@@ -66,7 +66,11 @@
     {
       "heading": "Main references",
       "list": [
-        "Weygandt, Kimmel & Mitchell — Financial Accounting, 12th ed., Wiley, 2023.",
+        {
+          "t": "Weygandt, Kimmel & Mitchell — Financial Accounting, 12th ed., Wiley, 2023.",
+          "href": "https://campusvirtual.uva.es/mod/resource/view.php?id=424978",
+          "suffix": "— authorised copy on the Campus Virtual (UVa login required)"
+        },
         "Horngren — Introduction to Financial Accounting, 11th ed., Pearson, 2014.",
         "Horngren, Harrison & Bamber — Financial Accounting, 5th ed., Pearson, 2003."
       ]

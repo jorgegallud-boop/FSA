@@ -248,6 +248,8 @@
     position:absolute; left:0; top:0;
     color:var(--accent);
   }
+  .about-sec a{color:var(--accent); text-decoration:none;}
+  .about-sec a:hover{text-decoration:underline;}
   .about-note{
     margin-top:34px;
     font-size:12.5px;
@@ -810,7 +812,16 @@
       var body = "";
       (s.paras||[]).forEach(function(p){ body += '<p>'+esc(p)+'</p>'; });
       if(s.list && s.list.length){
-        body += '<ul>' + s.list.map(function(li){ return '<li>'+esc(li)+'</li>'; }).join("") + '</ul>';
+        body += '<ul>' + s.list.map(function(li){
+          // a plain string, or { t, href?, suffix? } for an external link
+          if(li && typeof li === 'object'){
+            var main = li.href
+              ? '<a href="'+attr(li.href)+'" target="_blank" rel="noopener">'+esc(li.t)+' ↗</a>'
+              : esc(li.t);
+            return '<li>'+main+(li.suffix ? ' '+esc(li.suffix) : '')+'</li>';
+          }
+          return '<li>'+esc(li)+'</li>';
+        }).join("") + '</ul>';
       }
       return '<section class="about-sec"><h2>'+esc(s.heading)+'</h2>'+body+'</section>';
     }).join("");

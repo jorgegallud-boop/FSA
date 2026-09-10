@@ -1,5 +1,5 @@
 {
-  "_comment": "Hand-authored fixes applied ON TOP OF data/deck_data.json at page-build time. Keys are the unit id and the slide number as shown in the site (1-based). Regenerating deck_data.json from the .pptx files does NOT touch this file. If you insert or delete slides in a deck, re-check the slide numbers here. Supported keys per slide: title (string, \\n allowed on divider slides), caption (string, shown under the first image), diagram (see build), dropTables (bool), dropImages (bool), hideAsides (bool).",
+  "_comment": "Hand-authored fixes applied ON TOP OF data/deck_data.json in the browser. Keys are the unit id and the 1-based slide number in the extracted deck (data/deck_data.json); with no 'drop' in that unit this is also the number shown on the site. Regenerating deck_data.json from the .pptx files does NOT touch this file. If you insert or delete slides in a .pptx, re-check the numbers here. Supported keys per slide: title (string, \\n allowed on divider slides), caption (string, shown under the first image), diagram (see build), dropTables (bool), dropImages (bool), hideAsides (bool), drop (bool - removes the slide from the rendered deck; applied after every other key so the numbers above never shift).",
 
   "_config": {
     "_hint": "hidden: unit ids not shown on the site (no index row, no nav). hiddenPages: standalone pages (glossary, accounts) whose footer link is hidden. In both cases the content still builds and is reachable by direct URL for previewing. Empty a list to publish.",
@@ -8,6 +8,9 @@
   },
 
   "unit1": {
+    "1": { "drop": true },
+    "2": { "drop": true },
+    "3": { "drop": true },
     "4": { "title": "Unit 1\nIntroduction" },
     "7": { "hideAsides": true }
   },

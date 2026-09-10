@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#0f6b57"/>
+  <text x="32" y="34" text-anchor="middle" dominant-baseline="central"
+        font-family="Georgia, 'Times New Roman', serif" font-weight="700"
+        font-size="24" fill="#eef1ef">FSA</text>
+  <rect x="22" y="42" width="20" height="1.6" fill="#7fb0a4"/>
+</svg>

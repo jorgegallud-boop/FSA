@@ -9,25 +9,30 @@ site for Jorge to share with students and update through the course.
 Repo: `https://github.com/jorgegallud-boop/FSA` · live at
 `https://jorgegallud-boop.github.io/FSA/`
 
-Local working copy: `C:\Users\jorge\OneDrive - UVa\OTROS\Claude\FSA` (moved here
-2026-09-09 from `OneDrive - UVa\DOCENCIA\FSA\site`). The raw course materials
-stay in `DOCENCIA\FSA`; when a deck changes, copy it into this repo's
-`source-pptx/` and push. Sync between machines is through GitHub only —
-`git pull` before working, `git push` after.
+Local working copy: `OneDrive - UVa\OTROS\Claude\FSA` (moved here 2026-09-09 from
+`OneDrive - UVa\DOCENCIA\FSA\site`). The raw course materials stay in
+`DOCENCIA\FSA`; when a deck changes, copy it into this repo's `source-pptx/` and
+push. From 2026-09-10 Jorge works on this from **one machine only** (university),
+so the folder can stay inside OneDrive; normal flow is edit → commit → push (no
+`git pull` needed).
 
 ## How it is built (see README.md for the short version)
 
-- `scripts/template.html` — the whole page (HTML/CSS/JS) with three tokens:
-  `__DECK_JSON__`, `__OVERRIDES_JSON__`, `__ABOUT_JSON__`.
-- `scripts/build_site.py` — substitutes the three `data/*.json` files into the
-  template and writes `index.html`. No content processing; just string replace.
+- `scripts/template.html` — the whole page (HTML/CSS/JS) with one `__*_JSON__`
+  token per `data/*.json` file (deck, overrides, about, materials, glossary,
+  accounts).
+- `scripts/build_site.py` — substitutes the `data/*.json` files into the template
+  and writes `index.html`. No content processing; just string replace.
+- PWA static files at the repo root — `manifest.webmanifest`, `sw.js`, the icons
+  — are **not** built; Pages serves them as-is. `scripts/make_icons.py` (Pillow)
+  regenerates the icon set when the mark changes.
 - `scripts/extract_pptx.py` — regenerates `data/deck_data.json` from
   `source-pptx/*.pptx` (needs `python-pptx`). Speaker notes are deliberately not
   extracted. `#`-prefixed speaker-cue text boxes are dropped.
 - The **overrides layer**: `data/overrides.json` is merged over `deck_data.json`
   *in the browser* (`applyOverrides()` in the template). This is why re-running
   the extractor never disturbs the hand fixes. Keyed by unit id + 1-based slide
-  number as shown in the site.
+  number in `deck_data.json` (= the site number unless the unit uses `drop`).
 - `.github/workflows/build.yml` — on every push touching `source-pptx/`,
   `scripts/`, `data/` or the workflow, CI rebuilds `index.html` (and re-extracts
   if a `.pptx` changed) and commits the result. So **no local Python is needed**
@@ -99,11 +104,35 @@ stay in `DOCENCIA\FSA`; when a deck changes, copy it into this repo's
   `02 SGAP.pdf`). Published 2026-09-09 (`_config.hiddenPages` now empty); linked
   from the index footer.
 
+## Fifth session (2026-09-10)
+
+- **Unit 1 trimmed to just the unit.** The three pre-unit slides (course-title,
+  "Course programme", "Course evaluation") are dropped, so U1 now opens on its
+  "Unit 1 — Introduction" divider like every other unit. Their substance already
+  lived on the About page (Contents + Assessment); added one line there about the
+  exam calendar. This retires the "course-evaluation slide" to-do.
+  - New **`drop`** key in `overrides.json` (bool, removes a slide from the
+    rendered deck). `applyOverrides()` collects dropped indices and splices them
+    **after** applying every other keyed fix, so override keys stay aligned with
+    positions in `deck_data.json` no matter what is dropped. `unit1` keys `1`,
+    `2`, `3` = `{drop:true}`; keys `4`/`7` unchanged and still land correctly.
+- **PWA / installable app.** `manifest.webmanifest`, `sw.js` and the icon set
+  (`icon-192/512.png`, `apple-touch-icon.png`, `favicon-32.png`, `favicon.svg`)
+  live at the repo root and are served by Pages as-is. `scripts/make_icons.py`
+  (needs Pillow) regenerates the icons — an "FSA" serif wordmark, cream on teal.
+  Head links + apple/theme-color meta + the SW registration are in
+  `template.html`. SW = network-first for same-origin, cache-first for Google
+  Fonts, offline navigations fall back to the cached `index.html`. Bump `CACHE`
+  in `sw.js` to force old entries out. Install: Android/desktop Chrome from the
+  manifest; iOS via Add to Home Screen (apple-touch-icon + `apple-mobile-web-app-
+  capable`). SW verified by code only — the sandboxed preview browsers here block
+  SW script registration; check once on the live HTTPS site.
+
 ## Not done / next steps
 
-- **Course-evaluation slide (U1)**: Jorge is fixing the stale dates / bullet
-  nesting / "calification" typo directly in `01 Slides.pptx`. After that, drop
-  the new pptx in `source-pptx/` and push (CI re-extracts).
+- Verify the service worker registers on the live site (DevTools → Application →
+  Service Workers) and that "Add to Home Screen" gives a standalone window with
+  the FSA icon on a real phone.
 - `gh` is installed (portable, `%LOCALAPPDATA%\Programs\GitHubCLI\bin`) but not
   `gh auth login`'d in the bash context — the push works via git + Git
   Credential Manager. Old fine-grained PAT was revoked.

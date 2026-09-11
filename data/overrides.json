@@ -16,6 +16,10 @@
   },
 
   "unit2": {
+    "4": {
+      "hideAsides": true,
+      "caption": "*The obligation to audit has its own thresholds, which are lower."
+    },
     "6": {
       "dropTables": true,
       "diagram": {

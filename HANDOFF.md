@@ -149,6 +149,22 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   to send students to the site; there was briefly a `#/qr` page but he asked for
   it removed. `https://jorgegallud-boop.github.io/FSA/qr.png` is a stable URL.
 
+## Sixth session (2026-09-11)
+
+- **Audit-report footnote (U2 slide 4).** Jorge added an asterisk to "Audit
+  report" in the abbreviated-accounts table plus a footnote textbox ("*The
+  obligation to audit has its own thresholds, which are lower.") directly in
+  `02.pptx`, matching a nuance flagged when reviewing that slide's content
+  against TRLSC art. 257/258/263. Copied the refreshed `02.pptx` into
+  `source-pptx/`, re-ran `extract_pptx.py` — confirmed via diff against the
+  previous `deck_data.json` that this is the **only** change anywhere in the
+  deck (same 27 slides, only slide 4's table + asides differ). A plain textbox
+  extracts as an `asides` entry, which renders as the flagged dashed-border
+  `.aside-note` pill (meant for speaker cues) — wrong look for a citation aimed
+  at students. Used the existing override mechanism instead: `unit2."4"` sets
+  `hideAsides: true` + `caption: "*The obligation…"`, so it renders as the
+  quiet `.diagram-cap` line under the table, same as any other slide caption.
+
 ## Not done / next steps
 
 - Confirm "Add to Home Screen" gives a standalone window with the FSA icon on a

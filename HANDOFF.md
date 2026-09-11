@@ -164,6 +164,15 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   at students. Used the existing override mechanism instead: `unit2."4"` sets
   `hideAsides: true` + `caption: "*The obligation…"`, so it renders as the
   quiet `.diagram-cap` line under the table, same as any other slide caption.
+- **U2 exercises: Part 1 / Part 2 labels + a MAPACHE paragraph split.**
+  `materials.json` unit2 exercise-set names are now "Part 1 — Financial
+  statements (BS, P&L)" and "Part 2 — Corporate income tax (CIT)" (were
+  "Financial statements" / "Corporate income tax"). Also mirrored a paragraph
+  break Jorge added in `02.1 Exercises FS.docx` (split the tax-liability/payroll
+  sentence from "MAPACHE has granted its employees a loan…" into its own
+  bullet) — refreshed `materials/unit2-financial-statements.docx` from the same
+  source file. Diffed both `.docx` paragraph-by-paragraph first to confirm that
+  split was the only change.
 
 ## Not done / next steps
 

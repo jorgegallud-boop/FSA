@@ -174,6 +174,18 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   source file. Diffed both `.docx` paragraph-by-paragraph first to confirm that
   split was the only change.
 
+## Seventh session (2026-09-16)
+
+- **U2 Part 1 item order: CUERDA now before MAPACHE.** Jorge moved the whole
+  CUERDA block (caption + both tables) in `02.1 Exercises FS.docx` to before
+  the MAPACHE exercise; LINUX stays last. Checked with a body-order dump
+  (paragraphs *and* tables interleaved, not just `python-docx`'s `.paragraphs`,
+  which skips table cells and would have hidden this) and a table-by-table
+  content diff — confirmed the reorder was the only change, every table and
+  paragraph byte-identical otherwise. Reordered the `items` array in
+  `materials.json` unit2.exercises.sets[0] to match (CUERDA, MAPACHE, LINUX)
+  and refreshed `materials/unit2-financial-statements.docx` again.
+
 ## Not done / next steps
 
 - Confirm "Add to Home Screen" gives a standalone window with the FSA icon on a

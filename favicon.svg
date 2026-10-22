@@ -1,7 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#0f6b57"/>
-  <text x="32" y="34" text-anchor="middle" dominant-baseline="central"
-        font-family="Georgia, 'Times New Roman', serif" font-weight="700"
-        font-size="24" fill="#eef1ef">FSA</text>
-  <rect x="22" y="42" width="20" height="1.6" fill="#7fb0a4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect width="512" height="512" fill="#ffffff"/>
+<g fill="#111111" transform="translate(-6,0)">
+<path d="M266 52
+ C306 52 334 82 340 122
+ C344 148 346 166 356 184
+ C378 222 392 262 394 318
+ C396 380 386 420 364 448
+ L208 448
+ C186 420 176 380 178 318
+ C180 262 196 222 216 188
+ C226 172 232 158 230 144
+ C228 130 214 122 196 118
+ C184 115 180 106 190 102
+ C206 96 222 96 234 88
+ C242 70 250 52 266 52 Z"/>
+<path d="M200 216 C172 250 150 300 140 356 C136 380 142 394 154 392 C166 390 178 366 184 340 C190 316 192 290 196 268 Z"/>
+<path d="M372 216 C400 250 422 300 432 356 C436 380 430 394 418 392 C406 390 394 366 388 340 C382 316 380 290 376 268 Z"/>
+<path d="M218 440 C204 448 190 458 192 468 L276 468 L270 444 Z"/>
+<path d="M302 444 L296 468 L380 468 C382 458 368 448 354 440 Z"/>
+</g>
 </svg>

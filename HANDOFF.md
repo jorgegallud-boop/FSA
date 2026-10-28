@@ -186,6 +186,21 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   `materials.json` unit2.exercises.sets[0] to match (CUERDA, MAPACHE, LINUX)
   and refreshed `materials/unit2-financial-statements.docx` again.
 
+## Eighth session (2026-10-28)
+
+- **U2 Part 2, Exercise 1, point 8 reworded.** "entitled to tax deductions of
+  €750" now reads "tax deductions of €750 pending application, which were
+  recognised as an asset in previous years and are applied in this year's tax
+  return", so it is clear they are carried-forward deductions (deferred tax asset,
+  account 4742) whose asset must be derecognised. Changed in all three places so
+  they stay in sync: `02.2 Exercises CIT.docx` (the master, edited in
+  `DOCENCIA\FSA`), its copy `materials/unit2-corporate-income-tax.docx`, and
+  `data/materials.json`.
+- Pulled 8 commits from another session's penguin-favicon experiment (2026-10-22);
+  they were reverted within the series, net diff empty.
+- Reminder: the exams in `DOCENCIA\FSA\Examenes\` (reworked 2026-10-05) are
+  deliberately **not** in the repo — confidential.
+
 ## Not done / next steps
 
 - Confirm "Add to Home Screen" gives a standalone window with the FSA icon on a

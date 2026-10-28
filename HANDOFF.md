@@ -189,10 +189,10 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
 ## Eighth session (2026-10-28)
 
 - **U2 Part 2, Exercise 1, point 8 reworded.** "entitled to tax deductions of
-  €750" now reads "tax deductions of €750 pending application, which were
-  recognised as an asset in previous years and are applied in this year's tax
-  return", so it is clear they are carried-forward deductions (deferred tax asset,
-  account 4742) whose asset must be derecognised. Changed in all three places so
+  €750" now reads "tax deductions of €750 pending application from previous
+  years" (first drafted longer, trimmed at Jorge's suggestion), so it is clear
+  they are carried-forward deductions (deferred tax asset, account 4742) whose
+  asset must be derecognised. Changed in all three places so
   they stay in sync: `02.2 Exercises CIT.docx` (the master, edited in
   `DOCENCIA\FSA`), its copy `materials/unit2-corporate-income-tax.docx`, and
   `data/materials.json`.

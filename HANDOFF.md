@@ -201,7 +201,27 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
 - Reminder: the exams in `DOCENCIA\FSA\Examenes\` (reworked 2026-10-05) are
   deliberately **not** in the repo — confidential.
 
+## Ninth session (2026-11-01)
+
+- **Unit 2: finance leases.** Jorge's master is now `DOCENCIA\FSA\02 Slides.pptx`
+  (renamed from `02.pptx`; the repo copy keeps the name `source-pptx/02.pptx`).
+  New block before the grants: slide 24 "Finance leases (RMS 8th)" (definition +
+  the LIS art. 106 rules), 25 exercise 8 (statement + lease schedule, from
+  supuesto 9 of Sofía's `AEF\Otros\Sofía\Tema 2.2 Supuestos.pptx`), 26 its
+  solution — **hidden in PowerPoint** and kept off the site. Grants exercises are
+  now 9 and 10. Slides 1–20 unchanged, so the unit2 overrides (keys 4–14) still
+  line up.
+- **Hidden slides = off the site.** `extract_pptx.py` skips slides with
+  `show="0"`. Because the repo (and Pages, which serves `source-pptx/`) is public,
+  decks are copied in with `scripts/publish_pptx.py`, which deletes hidden slides
+  from the copy and scrubs their titles from `docProps/app.xml`. Checked: no part
+  of `source-pptx/02.pptx` contains the solution.
+
 ## Not done / next steps
+
+- Unit 2: financial assets at fair value (through P&L vs through equity) and their
+  effect on the tax liquidation — proposal made (3 slides, exercise 11 after the
+  grants, data from Sofía's supuesto 13), waiting for Jorge's go-ahead.
 
 - Confirm "Add to Home Screen" gives a standalone window with the FSA icon on a
   real phone (Android Chrome / iOS Safari).

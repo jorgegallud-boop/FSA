@@ -7,7 +7,8 @@ Only the raw slide content is pulled out here (titles, bullets, tables,
 pictures). Hand-authored corrections live in data/overrides.json and are applied
 in the browser, so this script can be re-run freely after replacing a .pptx.
 
-Speaker notes are intentionally NOT extracted.
+Speaker notes are intentionally NOT extracted, and slides hidden in PowerPoint
+(Hide Slide) are skipped - that is how a slide is kept off the site.
 """
 
 import base64
@@ -112,6 +113,10 @@ def extract_deck(key, path):
     p = Presentation(path)
     slides_out = []
     for s_i, slide in enumerate(p.slides, 1):
+        # slides hidden in PowerPoint (Hide Slide) stay off the site, e.g. exercise solutions
+        if slide._element.get("show") == "0":
+            _warnings.append("%s slide %d: hidden in PowerPoint, skipped" % (key, s_i))
+            continue
         layout_name = (slide.slide_layout.name or "").strip().lower()
         is_title = layout_name in TITLE_LAYOUTS
 

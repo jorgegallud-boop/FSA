@@ -37,8 +37,13 @@ Action rebuilds `index.html` and commits it back.
 - Add / change exercises or reference material → edit `data/materials.json` and,
   for a new download, add the file under `materials/` (no spaces in the name)
 - Change the layout, styling or behaviour → edit `scripts/template.html`
-- Replace a slide deck → drop the new file in `source-pptx/` (same name); the
-  Action re-runs `extract_pptx.py` automatically
+- Replace a slide deck → copy it into `source-pptx/` (same name) with
+  `python scripts/publish_pptx.py "<master .pptx>" source-pptx/<name>.pptx`;
+  the Action re-runs `extract_pptx.py` automatically
+- Keep a slide off the site (e.g. an exercise solution) → **hide it in
+  PowerPoint** (Hide Slide). `publish_pptx.py` removes hidden slides from the
+  copy — the repo is public, so a plain copy would expose them — and
+  `extract_pptx.py` skips any hidden slide as a second safeguard
 
 To build locally instead (optional):
 

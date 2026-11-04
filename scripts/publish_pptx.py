@@ -1,6 +1,6 @@
 """Copy a master deck into source-pptx/ WITHOUT its hidden slides.
 
-    python scripts/publish_pptx.py "<path to master .pptx>" source-pptx/02.pptx
+    python scripts/publish_pptx.py "<path to master .pptx>" "source-pptx/02 Slides.pptx"
 
 The repo (and GitHub Pages) is public, so anything in source-pptx/ can be
 downloaded. Slides hidden in PowerPoint (e.g. exercise solutions) are removed

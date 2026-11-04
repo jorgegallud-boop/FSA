@@ -6,7 +6,7 @@
       "intro": "Work the statements before class. Download each sheet to fill it in; the standard balance sheet and income statement formats are under Reference material.",
       "sets": [
         {
-          "name": "Part 1 — Financial statements (BS, P&L)",
+          "name": "Financial statements (BS, P&L)",
           "download": "materials/unit2-financial-statements.docx",
           "items": [
             {
@@ -102,10 +102,35 @@
               ]
             }
           ]
-        },
+        }
+      ]
+    },
+    "references": [
+      {
+        "label": "Standard financial-statement models",
+        "note": "Blank balance sheet and income statement — full and abbreviated formats, with the corresponding account codes.",
+        "links": [
+          { "file": "materials/unit2-fs-models.pdf", "label": "PDF" },
+          { "file": "materials/unit2-fs-models.xlsx", "label": "Excel" }
+        ]
+      },
+      {
+        "label": "Spanish General Accounting Plan (PGC)",
+        "note": "Reference text: recognition and measurement standards, financial-statement formats and chart of accounts.",
+        "links": [
+          { "file": "materials/unit2-spanish-gaap.pdf", "label": "PDF" }
+        ]
+      }
+    ]
+  },
+
+  "unit3": {
+    "exercises": {
+      "intro": "Work the exercises before class. Download the sheet to fill it in; the standard balance sheet and income statement formats are under Reference material in Unit 2.",
+      "sets": [
         {
-          "name": "Part 2 — Corporate income tax (CIT)",
-          "download": "materials/unit2-corporate-income-tax.docx",
+          "name": "Corporate income tax (CIT)",
+          "download": "materials/unit3-corporate-income-tax.docx",
           "items": [
             {
               "title": "Exercise 1 — prepare the Balance Sheet and the Income Statement at year-end",
@@ -161,35 +186,19 @@
         }
       ]
     },
-    "references": [
-      {
-        "label": "Standard financial-statement models",
-        "note": "Blank balance sheet and income statement — full and abbreviated formats, with the corresponding account codes.",
-        "links": [
-          { "file": "materials/unit2-fs-models.pdf", "label": "PDF" },
-          { "file": "materials/unit2-fs-models.xlsx", "label": "Excel" }
-        ]
-      },
-      {
-        "label": "Spanish General Accounting Plan (PGC)",
-        "note": "Reference text: recognition and measurement standards, financial-statement formats and chart of accounts.",
-        "links": [
-          { "file": "materials/unit2-spanish-gaap.pdf", "label": "PDF" }
-        ]
-      }
-    ]
+    "references": []
   },
 
-  "unit3": {
+  "unit4": {
     "exercises": {
-      "intro": "Work the statements before class. Blank statement-of-changes-in-equity and cash-flow-statement templates are in the downloadable files.",
+      "intro": "Work the statements before class. Blank statement-of-changes-in-equity and cash-flow-statement templates are in the downloadable file.",
       "sets": [
         {
-          "name": "Cash flow statement",
-          "download": "materials/unit3-cash-flow.docx",
+          "name": "Cash flow statement and statement of changes in equity",
+          "download": "materials/unit4-cash-flow-and-changes-in-equity.docx",
           "items": [
             {
-              "title": "Cash flow statement — worked exercise",
+              "title": "Exercise 1 — Cash flow statement",
               "blocks": [
                 { "t": "p", "x": "A company incorporated in 2022 with a share capital of €100,000 presents the following information as at 31 December 2024. Prepare the company's cash flow statement and determine the cash balance at the year-end." },
                 { "t": "ol", "x": [
@@ -220,15 +229,9 @@
                   ["A.3) Pre-tax result", "200,000"]
                 ] }
               ]
-            }
-          ]
-        },
-        {
-          "name": "Statement of changes in equity + cash flow statement",
-          "download": "materials/unit3-changes-in-equity-and-cash-flow.docx",
-          "items": [
+            },
             {
-              "title": "TRES, S.A. — SCE and CFS",
+              "title": "Exercise 2 — TRES, S.A.: statement of changes in equity and cash flow statement",
               "blocks": [
                 { "t": "p", "x": "Prepare the Statement of Changes in Equity and the Cash Flow Statement for the year 2024. On 31 December 2024 the company TRES, S.A. presented the information from its financial statements (in thousands of euros) shown in the downloadable file: comparative balance sheet 2024/2023, income statement, and notes on financial investments, share capital, appropriation of profit, movements in fixed assets, trade receivables, and movements in debts." },
                 { "t": "note", "x": "The comparative balance sheet, income statement, the six explanatory notes and the blank SCE / cash-flow templates are in the downloadable Word file." }

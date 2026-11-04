@@ -3,7 +3,7 @@
 
   "_config": {
     "_hint": "hidden: unit ids not shown on the site (no index row, no nav). hiddenPages: standalone pages (glossary, accounts) whose footer link is hidden. In both cases the content still builds and is reachable by direct URL for previewing. Empty a list to publish.",
-    "hidden": ["unit3", "unit4", "unit5"],
+    "hidden": ["unit4", "unit5", "unit6"],
     "hiddenPages": []
   },
 
@@ -61,12 +61,7 @@
     "14": { "title": "Standard income statement — Finance result, tax and profit (2 of 2)", "caption": "Official Spanish GAAP (PGC) model, Part 3." }
   },
 
-  "unit4": {
-    "1": { "title": "Unit 4\nFinancial Analysis" }
-  },
-
-  "unit5": {
-    "1":  { "title": "Unit 5\nProfitability Analysis" },
+  "unit6": {
     "3":  { "title": "Example 1 · sources and uses of funds" },
     "4":  { "caption": "Each user group reads the statements with a different question in mind." },
     "6":  { "title": "Example 2 · sources and uses of funds" },

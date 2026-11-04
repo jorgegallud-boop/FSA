@@ -217,11 +217,23 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   from the copy and scrubs their titles from `docProps/app.xml`. Checked: no part
   of `source-pptx/02.pptx` contains the solution.
 
-## Not done / next steps
+## Tenth session (2026-11-04)
 
-- Unit 2: financial assets at fair value (through P&L vs through equity) and their
-  effect on the tax liquidation — proposal made (3 slides, exercise 11 after the
-  grants, data from Sofía's supuesto 13), waiting for Jorge's go-ahead.
+- **Jorge renumbered the course.** Corporate income tax left unit 2 and is now
+  unit 3, so the site went from 5 to 6 units: unit1 Introduction, unit2 Financial
+  Statements I, unit3 Corporate Income Tax, unit4 Financial Statements II, unit5
+  Financial Analysis, unit6 Profitability Analysis. Units 4-6 stay hidden in
+  `overrides.json`.
+- **Annex.** `03-4 Slides annex.pptx` (grants and financial assets at fair value)
+  is a deck of its own, key `annex`, listed between units 3 and 4 and belonging to
+  neither. The index now shows each unit's own number, and "–" for the annex, so
+  it does not shift the numbering.
+- `source-pptx/` file names now match the masters in `DOCENCIA\FSA`. Hidden
+  solutions (03 Slides 13, annex 7-8) were removed by `publish_pptx.py`.
+- Materials: the CIT sheet moved to unit 3; `04 Exercises.docx` joins the two old
+  unit 3 sheets into `materials/unit4-cash-flow-and-changes-in-equity.docx`.
+
+## Not done / next steps
 
 - Confirm "Add to Home Screen" gives a standalone window with the FSA icon on a
   real phone (Android Chrome / iOS Safari).
@@ -237,8 +249,8 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
 ## Design decisions carried over (keep unless Jorge asks otherwise)
 
 - English only, no Spanish strings on the page.
-- Only the 4 English decks (01–04). `02.3 Auditoria - Impuestos.pptx` is a
-  different course and stays out.
+- Only the English course decks. `03 Auditoria.pptx` is a different course and
+  stays out.
 - Speaker notes not shown to students.
 - Dense PGC reference screenshots kept as images with click-to-zoom, not rebuilt
   as tables. Clean numeric tables ARE real HTML tables.

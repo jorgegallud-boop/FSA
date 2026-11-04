@@ -21,10 +21,12 @@ from pptx import Presentation
 SRC = os.path.join(os.path.dirname(__file__), "..", "source-pptx")
 FILES = [
     ("unit1", "01 Slides.pptx", "Unit 1", "Introduction"),
-    ("unit2", "02.pptx", "Unit 2", "Financial Statements I"),
-    ("unit3", "03.pptx", "Unit 3", "Financial Statements II"),
-    ("unit4", "04.pptx", "Unit 4", "Financial Analysis"),
-    ("unit5", "05.pptx", "Unit 5", "Profitability Analysis"),
+    ("unit2", "02 Slides.pptx", "Unit 2", "Financial Statements I"),
+    ("unit3", "03 Slides.pptx", "Unit 3", "Corporate Income Tax"),
+    ("annex", "03-4 Slides annex.pptx", "Annex", "Review: grants and financial assets"),
+    ("unit4", "04.pptx", "Unit 4", "Financial Statements II"),
+    ("unit5", "05.pptx", "Unit 5", "Financial Analysis"),
+    ("unit6", "06.pptx", "Unit 6", "Profitability Analysis"),
 ]
 
 # Placeholder shape names, Spanish (current decks) and English (in case a deck is

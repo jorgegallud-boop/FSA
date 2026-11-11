@@ -232,6 +232,8 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   solutions (03 Slides 13, annex 7-8) were removed by `publish_pptx.py`.
 - Materials: the CIT sheet moved to unit 3; `04 Exercises.docx` joins the two old
   unit 3 sheets into `materials/unit4-cash-flow-and-changes-in-equity.docx`.
+- 2026-11-11: **unit 4 published** (removed from `_config.hidden`; units 5-6 stay
+  hidden). Its deck has no hidden slides and the exercise sheet has no solutions.
 
 ## Not done / next steps
 

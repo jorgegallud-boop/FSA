@@ -202,8 +202,8 @@
               "blocks": [
                 { "t": "p", "x": "A company incorporated in 2022 with a share capital of €100,000 presents the following information as at 31 December 2024. Prepare the company's cash flow statement and determine the cash balance at the year-end." },
                 { "t": "ol", "x": [
-                  "The company has carried out a capital increase amounting to 75% of the existing share capital, issued at 120% of nominal value. The shareholders have paid the minimum legal requirement. In the allocation of profit for the previous year, a dividend equal to 10% of share capital was distributed.",
-                  "The company has been awarded a grant of €20,000, of which €2,000 has been transferred to the Income Statement.",
+                  "The company has carried out a capital increase amounting to 75% of the existing share capital, issued at 120% of nominal value. The shareholders have paid the minimum legal requirement. In the allocation of the previous year's profit, a dividend equal to 10% of the share capital before the increase was distributed and paid.",
+                  "The company has been awarded and collected a grant of €20,000, of which €2,000 has been transferred to the Income Statement.",
                   "A plot of land with a book value of €36,000 was sold for €40,000, with €18,500 received in cash.",
                   "Interest of €4,300 was paid on debts of €4,500 accrued during the year. Financial income of €3,000 was accrued, of which €500 remained outstanding at year-end.",
                   "A loan repayment of €3,000 was made, and a new loan of €5,000 was obtained.",

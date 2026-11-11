@@ -235,9 +235,10 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
 - 2026-11-11: **unit 4 published** (removed from `_config.hidden`; units 5-6 stay
   hidden). Its deck has no hidden slides and the exercise sheet has no solutions.
 - 2026-11-11: `04 Models.xlsx` (typos fixed) published as
-  `materials/unit4-sce-cfs-templates.xlsx` under unit 4 Reference material. Some
-  of its rows are too short and clip text; not fixed yet. `04 Exercises.docx` is
-  being revised by Jorge: the site still has the 2026-11-04 version.
+  `materials/unit4-sce-cfs-templates.xlsx` under unit 4 Reference material. Row
+  heights fixed (multi-line cells were clipped) and each sheet prints on one page.
+  Jorge's final `04 Exercises.docx` (exercise 1 wording fixed) is on the site, and
+  the exercise 1 text in `materials.json` matches it.
 
 ## Not done / next steps
 

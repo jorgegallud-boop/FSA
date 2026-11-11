@@ -239,6 +239,10 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   heights fixed (multi-line cells were clipped) and each sheet prints on one page.
   Jorge's final `04 Exercises.docx` (exercise 1 wording fixed) is on the site, and
   the exercise 1 text in `materials.json` matches it.
+- 2026-11-11: Jorge split the models PDF. `02 Models.pdf` (BS + P&L, 6 pages)
+  replaces `materials/unit2-fs-models.pdf`; `04 Models.pdf` (SCE + CFS, the old
+  pages 7-9, InDesign original with its own typos) is
+  `materials/unit4-sce-cfs-models.pdf`.
 
 ## Not done / next steps
 

@@ -10,7 +10,7 @@
  *
  * Bump CACHE to force old entries out on the next visit.
  */
-var CACHE = 'fsa-2026-11-11a';
+var CACHE = 'fsa-2026-11-11b';
 var SHELL = [
   './',
   './index.html',

@@ -234,6 +234,10 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   unit 3 sheets into `materials/unit4-cash-flow-and-changes-in-equity.docx`.
 - 2026-11-11: **unit 4 published** (removed from `_config.hidden`; units 5-6 stay
   hidden). Its deck has no hidden slides and the exercise sheet has no solutions.
+- 2026-11-11: `04 Models.xlsx` (typos fixed) published as
+  `materials/unit4-sce-cfs-templates.xlsx` under unit 4 Reference material. Some
+  of its rows are too short and clip text; not fixed yet. `04 Exercises.docx` is
+  being revised by Jorge: the site still has the 2026-11-04 version.
 
 ## Not done / next steps
 

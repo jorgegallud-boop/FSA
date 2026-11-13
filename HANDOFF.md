@@ -243,6 +243,9 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   replaces `materials/unit2-fs-models.pdf`; `04 Models.pdf` (SCE + CFS, the old
   pages 7-9, InDesign original with its own typos) is
   `materials/unit4-sce-cfs-models.pdf`.
+- 2026-11-13: annex republished (slide 6 "Required" split into two bullets). Jorge
+  deleted the hidden FV solution slides 7-8 from the master on purpose, so the
+  master now has 6 slides and none hidden.
 
 ## Not done / next steps
 

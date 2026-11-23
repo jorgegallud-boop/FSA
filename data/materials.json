@@ -251,5 +251,112 @@
         ]
       }
     ]
+  },
+
+  "unit5": {
+    "exercises": {
+      "intro": "Work the exercises before class. Download the sheet to fill it in.",
+      "sets": [
+        {
+          "name": "Average maturation period and working capital requirements",
+          "download": "materials/unit5-maturation-period-and-wcr.docx",
+          "items": [
+            {
+              "title": "Exercise 1 — S, S.A.",
+              "blocks": [
+                { "t": "table", "cap": "Balance sheet of S, S.A. at 31 December", "rows": [
+                  ["Assets", "2023", "2022", "Equity and liabilities", "2023", "2022"],
+                  ["A) Non-current assets", "500,000", "600,000", "A) Equity", "", ""],
+                  ["B) Current assets", "", "", "Share capital", "200,000", "200,000"],
+                  ["Inventories", "", "", "Reserves", "80,000", "60,000"],
+                  ["Raw materials", "31,500", "16,500", "Profit for the year", "80,000", "120,000"],
+                  ["Work in progress", "64,000", "96,000", "B) Non-current liabilities", "", ""],
+                  ["Finished goods", "100,000", "250,000", "Long-term debts", "340,000", "440,000"],
+                  ["Trade and other receivables", "", "", "C) Current liabilities", "", ""],
+                  ["Customers", "250,000", "173,500", "Short-term debts", "100,000", "50,000"],
+                  ["Other debtors", "35,000", "29,000", "Trade and other payables", "", ""],
+                  ["Short-term financial investments", "", "", "Suppliers", "183,000", "210,250"],
+                  ["Equity instruments held for trading", "30,000", "35,000", "Other creditors", "32,000", "99,000"],
+                  ["Short-term loans granted", "40,000", "–", "Public administrations", "65,000", "45,750"],
+                  ["Cash and cash equivalents", "29,500", "25,000", "", "", ""],
+                  ["Total assets", "1,080,000", "1,225,000", "Total equity and liabilities", "1,080,000", "1,225,000"]
+                ] },
+                { "t": "p", "x": "Additional information:" },
+                { "t": "ul", "x": [
+                  "Purchases of raw materials: €975,000. Sales: €2,100,000.",
+                  "Cost of goods manufactured: €1,600,000.",
+                  "VAT rate: 21%."
+                ] },
+                { "t": "p", "x": "Required:" },
+                { "t": "ol", "x": [
+                  "Determine the total manufacturing costs, stating the amount of the conversion costs (direct labour and manufacturing overhead).",
+                  "Calculate the average maturation period and the margin the company works with.",
+                  "The average maturation period of the sector is similar to the company's, except for the raw materials storage period, which is shorter. What could be the reason?",
+                  "Determine the working capital.",
+                  "Determine the working capital requirements (WCR) and propose, where appropriate, the measures needed to adjust the working capital."
+                ] }
+              ]
+            },
+            {
+              "title": "Exercise 2 — A, S.A.",
+              "blocks": [
+                { "t": "p", "x": "The balance sheet and the income statement of A, S.A. at 31 December 20XX are given below. The following information on the production process is also known:" },
+                { "t": "ul", "x": [
+                  "Opening inventories: raw materials €0; work in progress €100,000; finished goods €100,000.",
+                  "Conversion costs charged to the products: 80% of the amortisation of property, plant and equipment, 57.5% of personnel expenses and 75% of external services.",
+                  "VAT on purchases and sales: 21%.",
+                  "Purchases and sales took place evenly throughout the year."
+                ] },
+                { "t": "p", "x": "Required:" },
+                { "t": "ol", "x": [
+                  "Calculate the turnover of raw materials, work in progress and finished goods.",
+                  "Knowing that the year-end balances of customers and suppliers equal their average balances, calculate the corresponding turnovers.",
+                  "Determine the margin the company obtains on the cost of sales.",
+                  "Determine the average maturation period.",
+                  "Calculate the working capital.",
+                  "Determine the working capital requirements (WCR) and propose, where appropriate, the measures needed to adjust the working capital."
+                ] },
+                { "t": "table", "cap": "Balance sheet of A, S.A. at 31 December 20XX", "rows": [
+                  ["Assets", "", "Equity and liabilities", ""],
+                  ["A) Non-current assets", "", "A) Equity", ""],
+                  ["Land and buildings", "155,000", "Share capital", "500,000"],
+                  ["Technical installations and other PPE", "225,000", "Legal reserve", "60,000"],
+                  ["B) Current assets", "", "Voluntary reserves", "192,500"],
+                  ["Raw materials", "100,000", "Profit for the year", "112,500"],
+                  ["Work in progress", "200,000", "B) Non-current liabilities", ""],
+                  ["Finished goods", "150,000", "Long-term debts with credit institutions", "250,000"],
+                  ["Customers", "700,625", "C) Current liabilities", ""],
+                  ["Other debtors", "9,375", "Short-term interest payable", "900"],
+                  ["Short-term loans granted (9 months)", "230,000", "Short-term debts with credit institutions", "75,000"],
+                  ["Cash", "9,900", "Suppliers", "354,000"],
+                  ["Other cash equivalents", "20,100", "Other creditors", "160,000"],
+                  ["", "", "Public administrations", "95,100"],
+                  ["Total assets", "1,800,000", "Total equity and liabilities", "1,800,000"]
+                ] },
+                { "t": "table", "cap": "Income statement of A, S.A. for 20XX", "rows": [
+                  ["Item", "20XX"],
+                  ["1. Revenue (sales)", "2,375,000"],
+                  ["2. Changes in inventories of finished goods and work in progress", "150,000"],
+                  ["4. Supplies: raw materials and other consumables used", "(1,100,000)"],
+                  ["5. Other operating income", "175,000"],
+                  ["6. Personnel expenses (wages 640,000; social security 160,000)", "(800,000)"],
+                  ["7. Other operating expenses: external services", "(600,000)"],
+                  ["8. Amortisation and depreciation", "(50,000)"],
+                  ["11. Gains (losses) on disposals of fixed assets", "4,500"],
+                  ["A.1) Operating result", "154,500"],
+                  ["13. Financial income", "1,500"],
+                  ["14. Financial expenses", "(6,000)"],
+                  ["A.2) Financial result", "(4,500)"],
+                  ["A.3) Profit before tax", "150,000"],
+                  ["18. Income tax", "(37,500)"],
+                  ["A.5) Profit for the year", "112,500"]
+                ] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "references": []
   }
 }

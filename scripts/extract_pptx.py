@@ -26,7 +26,6 @@ FILES = [
     ("annex", "03-4 Slides annex.pptx", "Annex", "Review: grants and financial assets"),
     ("unit4", "04.pptx", "Unit 4", "Financial Statements II"),
     ("unit5", "05.pptx", "Unit 5", "Financial Analysis"),
-    ("unit6", "06.pptx", "Unit 6", "Profitability Analysis"),
 ]
 
 # Placeholder shape names, Spanish (current decks) and English (in case a deck is

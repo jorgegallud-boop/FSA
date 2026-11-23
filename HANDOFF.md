@@ -247,6 +247,27 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   deleted the hidden FV solution slides 7-8 from the master on purpose, so the
   master now has 6 slides and none hidden.
 
+## Eleventh session (2026-11-23): unit 5 published, unit 6 gone
+
+- **Jorge merged unit 6 into `05.pptx`** (financial analysis, profitability, growth;
+  22 slides) and deleted `06.pptx`. The site now has units 1-5 + annex: `unit6` was
+  removed from `extract_pptx.py` FILES, the template `ORDER`, `overrides.json` and
+  `source-pptx/`. Its overrides (Talent Hackers titles etc.) moved to `unit5` with
+  the same slide numbers. `_config.hidden` is empty: everything is published.
+- **Diagrams drawn with shapes** (05 slides 12-14: cash cycle, AMP sub-periods,
+  inventory T-accounts) would extract as loose text notes, so the published copy
+  gets them as pictures: after `publish_pptx.py` run
+  `python scripts/rasterise_diagrams.py "source-pptx/05.pptx"` (Windows +
+  PowerPoint; which shapes per slide is configured in the script by slide title),
+  then `extract_pptx.py`. Repeat this every time `05.pptx` is republished.
+- Materials: `materials/unit5-maturation-period-and-wcr.docx` = `05 Exercises.docx`
+  (Sofía's Tema 5 supuestos 2 and 3 in English). `05 Exercises SOLUTIONS.docx`
+  stays in DOCENCIA\FSA only. Terminology: average maturation period (AMP), working
+  capital requirements (WCR, never NOF), Weygandt cost terms.
+- Index: masthead is just "Financial Statement Analysis" (Jorge removed "Course
+  slides" and the navigation blurb). Asides now keep their line breaks (`nl2br`).
+- `about.json` Contents still lists the syllabus's 7 topics (not the 5 units).
+
 ## Not done / next steps
 
 - Confirm "Add to Home Screen" gives a standalone window with the FSA icon on a

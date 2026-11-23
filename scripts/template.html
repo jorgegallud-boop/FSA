@@ -722,7 +722,7 @@
   var MATERIALS = JSON.parse(document.getElementById('materials-data').textContent);
   var GLOSSARY = JSON.parse(document.getElementById('glossary-data').textContent);
   var ACCOUNTS = JSON.parse(document.getElementById('accounts-data').textContent);
-  var ORDER = ["unit1","unit2","unit3","annex","unit4","unit5","unit6"];
+  var ORDER = ["unit1","unit2","unit3","annex","unit4","unit5"];
   var HIDDEN = (OVERRIDES._config && OVERRIDES._config.hidden) || [];
   var HIDDEN_PAGES = (OVERRIDES._config && OVERRIDES._config.hiddenPages) || [];
   function isHidden(key){ return HIDDEN.indexOf(key) !== -1; }
@@ -809,9 +809,7 @@
     app.innerHTML =
       '<div class="index-wrap">' +
         '<div class="masthead">' +
-          '<p class="kicker">Financial Statement Analysis</p>' +
-          '<h1>Course slides</h1>' +
-          '<p>The units of the course, in web format. Navigate with the keyboard arrows, by tapping the sides, or with the buttons at the bottom; press F for full screen. More units are added as the course progresses.</p>' +
+          '<h1>Financial Statement Analysis</h1>' +
         '</div>' +
         '<ul class="toc">' + rows + '</ul>' +
         '<div class="index-foot">' +
@@ -1126,7 +1124,7 @@
 
     if(slide.asides && slide.asides.length){
       slide.asides.forEach(function(a){
-        parts.push('<span class="aside-note">'+esc(a)+'</span>');
+        parts.push('<span class="aside-note">'+nl2br(a)+'</span>');
       });
     }
 

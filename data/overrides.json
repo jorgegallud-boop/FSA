@@ -3,7 +3,7 @@
 
   "_config": {
     "_hint": "hidden: unit ids not shown on the site (no index row, no nav). hiddenPages: standalone pages (glossary, accounts) whose footer link is hidden. In both cases the content still builds and is reachable by direct URL for previewing. Empty a list to publish.",
-    "hidden": ["unit5", "unit6"],
+    "hidden": [],
     "hiddenPages": []
   },
 
@@ -61,13 +61,17 @@
     "14": { "title": "Standard income statement — Finance result, tax and profit (2 of 2)", "caption": "Official Spanish GAAP (PGC) model, Part 3." }
   },
 
-  "unit6": {
+  "unit5": {
     "3":  { "title": "Example 1 · sources and uses of funds" },
     "4":  { "caption": "Each user group reads the statements with a different question in mind." },
     "6":  { "title": "Example 2 · sources and uses of funds" },
-    "7":  { "title": "Talent Hackers — income statement (horizontal analysis)" },
-    "8":  { "title": "Talent Hackers — balance sheet (horizontal analysis)" },
-    "9":  { "title": "Talent Hackers / Catenon", "caption": "The worked-example company. Figures taken from the Orbis (Bureau van Dijk) database." },
-    "12": { "title": "Example 3 · profit and loss and market data" }
+    "7":  { "title": "Talent Hackers — income statement" },
+    "8":  { "title": "Talent Hackers — balance sheet" },
+    "9":  { "title": "Talent Hackers / Catenon", "hideAsides": true, "caption": "The worked-example company, Talent Hackers, is a controlled subsidiary of Catenon. Figures taken from the Orbis (Bureau van Dijk) database (BvD ID ESB88448998)." },
+    "12": { "caption": "The operating cycle." },
+    "13": { "caption": "Sub-periods of the cycle." },
+    "14": { "caption": "The three inventory accounts." },
+    "20": { "title": "Example 4 · balance sheet" },
+    "21": { "title": "Example 4 · profit and loss and market data" }
   }
 }

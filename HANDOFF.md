@@ -254,7 +254,9 @@ so the folder can stay inside OneDrive; normal flow is edit → commit → push 
   removed from `extract_pptx.py` FILES, the template `ORDER`, `overrides.json` and
   `source-pptx/`. Its overrides (Talent Hackers titles etc.) moved to `unit5` with
   the same slide numbers. `_config.hidden` is empty: everything is published.
-- **Diagrams drawn with shapes** (05 slides 12-14: cash cycle, AMP sub-periods,
+- 2026-11-25: Jorge reordered 05 (profitability now slide 7, growth 20, example 4
+  at 21-22); the `unit5` overrides were renumbered to match.
+- **Diagrams drawn with shapes** (05 slides 13-15: cash cycle, AMP sub-periods,
   inventory T-accounts) would extract as loose text notes, so the published copy
   gets them as pictures: after `publish_pptx.py` run
   `python scripts/rasterise_diagrams.py "source-pptx/05.pptx"` (Windows +

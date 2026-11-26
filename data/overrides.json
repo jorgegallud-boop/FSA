@@ -62,16 +62,13 @@
   },
 
   "unit5": {
-    "3":  { "title": "Example 1 · sources and uses of funds" },
-    "4":  { "caption": "Each user group reads the statements with a different question in mind." },
-    "6":  { "title": "Example 2 · sources and uses of funds" },
-    "8":  { "title": "Talent Hackers — income statement" },
-    "9":  { "title": "Talent Hackers — balance sheet" },
-    "10": { "title": "Talent Hackers / Catenon", "hideAsides": true, "caption": "The worked-example company, Talent Hackers, is a controlled subsidiary of Catenon. Figures taken from the Orbis (Bureau van Dijk) database (BvD ID ESB88448998)." },
-    "13": { "caption": "The operating cycle." },
-    "14": { "caption": "Sub-periods of the cycle." },
-    "15": { "caption": "The three inventory accounts." },
-    "21": { "title": "Example 4 · balance sheet" },
-    "22": { "title": "Example 4 · profit and loss and market data" }
+    "3":  { "caption": "Each user group reads the statements with a different question in mind." },
+    "6":  { "title": "Talent Hackers — income statement" },
+    "7":  { "title": "Talent Hackers — balance sheet" },
+    "10": { "caption": "The operating cycle." },
+    "11": { "caption": "Sub-periods of the cycle." },
+    "12": { "caption": "The three inventory accounts." },
+    "18": { "title": "Example 4 · balance sheet" },
+    "19": { "title": "Example 4 · profit and loss and market data" }
   }
 }
